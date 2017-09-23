@@ -1,0 +1,21 @@
+﻿<Window x:Class="MilitaryCommissariat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MilitaryCommissariat"
+        mc:Ignorable="d"
+        Title="Учет призывников" Height="350" Width="525">
+    <Grid>
+        <ListView x:Name="myListView" Height="245.5" Margin="10,10,0,0" Width="497" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Top" VerticalAlignment="Top" Background="White" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" HorizontalAlignment="Left" SelectionMode="Single">
+            <ListView.View>
+                <GridView AllowsColumnReorder="False">
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=id}" Width="50">ID</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=name}" Width="500">Имя</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=year}" Width="70">Год</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>
