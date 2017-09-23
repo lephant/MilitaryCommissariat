@@ -12,7 +12,7 @@
             <ListView.View>
                 <GridView AllowsColumnReorder="False">
                     <GridViewColumn x:Name="FullNameColumn" DisplayMemberBinding="{Binding Path=FullName}" ctrl:ProportionalColumn.Width="1">ФИО призывника</GridViewColumn>
-                    <GridViewColumn x:Name="YearColumn" DisplayMemberBinding="{Binding Path=Year}" ctrl:FixedColumn.Width="50">Год</GridViewColumn>
+                    <GridViewColumn x:Name="YearColumn" DisplayMemberBinding="{Binding Path=Year}" Width="60" ctrl:FixedColumn.Width="60">Год</GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
