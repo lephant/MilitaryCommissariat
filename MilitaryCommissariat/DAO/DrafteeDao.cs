@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Text;
+using MilitaryCommissariat.SearchCriterias;
 using MilitaryCommissariat.Utils;
 using MySql.Data.MySqlClient;
 
-namespace MilitaryCommissariat
+namespace MilitaryCommissariat.DAO
 {
     public class DrafteeDao
     {
         public DataTable GetList()
         {
-            MySqlConnection connection = ConnectionUtils.GetConnection();
             try
             {
                 StringBuilder sqlBuilder = new StringBuilder();
@@ -20,10 +18,8 @@ namespace MilitaryCommissariat
                     .Append("dr.patronymic patronymic, dr.birth_date birth_date, dr.category category, ")
                     .Append("dr.troop_type troop_type ")
                     .Append("FROM draftees dr;");
-                String sql = sqlBuilder.ToString();
-                MySqlDataAdapter dataAdapter = new MySqlDataAdapter(sql, connection);
+                var dataAdapter = new MySqlDataAdapter(sqlBuilder.ToString(), ConnectionUtils.GetConnection());
                 DataTable dataTable = new DataTable();
-                connection.Open();
                 dataAdapter.Fill(dataTable);
                 return dataTable;
             }
@@ -31,9 +27,26 @@ namespace MilitaryCommissariat
             {
                 return null;
             }
-            finally
+        }
+
+        public DataTable GetListByCriteria(TableDrafteeCriteria criteria)
+        {
+            try
             {
-                connection?.Close();
+                StringBuilder sqlBuilder = new StringBuilder();
+                sqlBuilder
+                    .Append("SELECT dr.id id, ")
+                    .Append("CONCAT(dr.last_name, ' ', dr.first_name, ' ', dr.patronymic) full_name, ")
+                    .Append("YEAR(dr.birth_date) birth_year ")
+                    .Append("FROM draftees dr;");
+                var dataAdapter = new MySqlDataAdapter(sqlBuilder.ToString(), ConnectionUtils.GetConnection());
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                return dataTable;
+            }
+            catch
+            {
+                return null;
             }
         }
     }

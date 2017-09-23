@@ -56,6 +56,7 @@
     </Compile>
     <Compile Include="Converters\DrafteeConverter.cs" />
     <Compile Include="Converters\IConverter.cs" />
+    <Compile Include="Converters\TableDrafteeConverter.cs" />
     <Compile Include="DAO\AddressDao.cs" />
     <Compile Include="DAO\DocumentDao.cs" />
     <Compile Include="DAO\EducationPlaceDao.cs" />
@@ -66,6 +67,8 @@
     <Compile Include="Domain\EducationPlace.cs" />
     <Compile Include="Domain\Relative.cs" />
     <Compile Include="DAO\DrafteeDao.cs" />
+    <Compile Include="Domain\TableDraftee.cs" />
+    <Compile Include="SearchCriterias\TableDrafteeCriteria.cs" />
     <Compile Include="Utils\ConnectionUtils.cs" />
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
