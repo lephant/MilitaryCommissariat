@@ -54,6 +54,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Converters\DrafteeConverter.cs" />
+    <Compile Include="Converters\IConverter.cs" />
     <Compile Include="DAO\AddressDao.cs" />
     <Compile Include="DAO\DocumentDao.cs" />
     <Compile Include="DAO\EducationPlaceDao.cs" />
