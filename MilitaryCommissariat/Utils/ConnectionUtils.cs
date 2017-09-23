@@ -7,13 +7,13 @@ namespace MilitaryCommissariat.Utils
 {
     public class ConnectionUtils
     {
-        private static IDbConnection _connection;
+        private static MySqlConnection _connection;
 
         private ConnectionUtils()
         {
         }
 
-        public static IDbConnection GetConnection()
+        public static MySqlConnection GetConnection()
         {
             if (_connection == null)
             {
