@@ -171,5 +171,61 @@ namespace MilitaryCommissariat.DAO
                 connection.Close();
             }
         }
+
+        public void Insert(Draftee draftee)
+        {
+            MySqlConnection connection = ConnectionUtils.GetConnection();
+            MySqlTransaction transaction = null;
+            try
+            {
+                StringBuilder sqlBuilder = new StringBuilder();
+                sqlBuilder
+                    .Append("INSERT INTO draftees ")
+                    .Append("(last_name, first_name, patronymic, birth_date, category, troop_type) ")
+                    .Append("VALUES (")
+                    .Append("'")
+                    .Append(draftee.LastName)
+                    .Append("', ")
+                    .Append("'")
+                    .Append(draftee.FirstName)
+                    .Append("', ")
+                    .Append("'")
+                    .Append(draftee.Patronymic)
+                    .Append("', ")
+                    .Append("'")
+                    .Append(draftee.BirthDate.ToString("yyyy-MM-dd"))
+                    .Append("', ")
+                    .Append("'")
+                    .Append(draftee.Category)
+                    .Append("', ")
+                    .Append("'")
+                    .Append(draftee.TroopType)
+                    .Append("');");
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                MySqlCommand drafteeCommand = new MySqlCommand(sqlBuilder.ToString(), connection, transaction);
+                drafteeCommand.ExecuteNonQuery();
+
+                string addressSql = "INSERT INTO addresses (draftee_id) VALUES (last_insert_id());";
+                MySqlCommand addressCommand = new MySqlCommand(addressSql, connection, transaction);
+                addressCommand.ExecuteNonQuery();
+
+                string documentSql = "INSERT INTO documents (draftee_id) VALUES (last_insert_id());";
+                MySqlCommand documentCommand = new MySqlCommand(documentSql, connection, transaction);
+                documentCommand.ExecuteNonQuery();
+
+                transaction.Commit();
+            }
+            catch
+            {
+                transaction?.Rollback();
+            }
+            finally
+            {
+                transaction?.Dispose();
+                connection.Close();
+            }
+        }
     }
 }
