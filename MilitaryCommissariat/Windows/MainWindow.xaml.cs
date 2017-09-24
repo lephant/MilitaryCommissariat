@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using MilitaryCommissariat.Converters;
 using MilitaryCommissariat.DAO;
+using MilitaryCommissariat.SearchCriterias;
 using MilitaryCommissariat.SearchCriterias.Builders;
 
 namespace MilitaryCommissariat.Windows
@@ -13,20 +14,18 @@ namespace MilitaryCommissariat.Windows
         public MainWindow()
         {
             InitializeComponent();
-            ResultsListView.ItemsSource =
-                new TableDrafteeConverter().Convert(new DrafteeDao()
-                    .GetListByCriteria(new TableDrafteeCriteriaBuilder()
-                    .Build("text", "1997")));
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var drafteeDao = new DrafteeDao();
+            var converter = new TableDrafteeConverter();
+            var criteria = new TableDrafteeCriteriaBuilder().Build(FullNameTextBox.Text, BirthYearTextBox.Text);
+            ResultsListView.ItemsSource = converter.Convert(drafteeDao.GetListByCriteria(criteria));
         }
 
         private void SelectButton_Click(object sender, RoutedEventArgs e)
         {
-
         }
     }
 }

@@ -3,6 +3,6 @@
     public class TableDrafteeCriteria
     {
         public string FullName { get; set; }
-        public int BirthYear { get; set; }
+        public int? BirthYear { get; set; }
     }
 }

@@ -38,7 +38,28 @@ namespace MilitaryCommissariat.DAO
                     .Append("SELECT dr.id id, ")
                     .Append("CONCAT(dr.last_name, ' ', dr.first_name, ' ', dr.patronymic) full_name, ")
                     .Append("YEAR(dr.birth_date) birth_year ")
-                    .Append("FROM draftees dr;");
+                    .Append("FROM draftees dr ");
+
+                bool havingExists = false;
+                if (!string.IsNullOrEmpty(criteria.FullName))
+                {
+                    sqlBuilder.Append("HAVING full_name LIKE '%")
+                        .Append(criteria.FullName)
+                        .Append("%' ");
+                    havingExists = true;
+                }
+                if (criteria.BirthYear != null)
+                {
+                    if (!havingExists)
+                    {
+                        sqlBuilder.Append("HAVING ");
+                    }
+                    sqlBuilder.Append("birth_year=")
+                        .Append(criteria.BirthYear.Value)
+                        .Append(" ");
+                }
+
+                sqlBuilder.Append(";");
                 var dataAdapter = new MySqlDataAdapter(sqlBuilder.ToString(), ConnectionUtils.GetConnection());
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
