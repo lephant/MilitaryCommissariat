@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Text;
+using MilitaryCommissariat.Domain;
 using MilitaryCommissariat.SearchCriterias;
 using MilitaryCommissariat.Utils;
 using MySql.Data.MySqlClient;
@@ -87,7 +88,9 @@ namespace MilitaryCommissariat.DAO
                     .Append("dr.patronymic patronymic, dr.birth_date birth_date, dr.category category, ")
                     .Append("dr.troop_type troop_type ")
                     .Append("FROM draftees dr ")
-                    .Append("WHERE id=").Append(id).Append(";");
+                    .Append("WHERE id=")
+                    .Append(id)
+                    .Append(";");
                 var dataAdapter = new MySqlDataAdapter(sqlBuilder.ToString(), ConnectionUtils.GetConnection());
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
@@ -96,6 +99,76 @@ namespace MilitaryCommissariat.DAO
             catch
             {
                 return null;
+            }
+        }
+
+        public void Delete(long id)
+        {
+            MySqlConnection connection = ConnectionUtils.GetConnection();
+            try
+            {
+                StringBuilder sqlBuilder = new StringBuilder();
+                sqlBuilder
+                    .Append("DELETE FROM draftees ")
+                    .Append("WHERE id=")
+                    .Append(id)
+                    .Append(";");
+                MySqlCommand command = new MySqlCommand(sqlBuilder.ToString(), connection);
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public void Delete(Draftee draftee)
+        {
+            Delete(draftee.Id);
+        }
+
+        public void Delete(TableDraftee tableDraftee)
+        {
+            Delete(tableDraftee.Id);
+        }
+
+        public void Update(Draftee draftee)
+        {
+            MySqlConnection connection = ConnectionUtils.GetConnection();
+            try
+            {
+                StringBuilder sqlBuilder = new StringBuilder();
+                sqlBuilder
+                    .Append("UPDATE draftees SET ")
+                    .Append("last_name='")
+                    .Append(draftee.LastName)
+                    .Append("', ")
+                    .Append("first_name='")
+                    .Append(draftee.FirstName)
+                    .Append("', ")
+                    .Append("patronymic='")
+                    .Append(draftee.Patronymic)
+                    .Append("', ")
+                    .Append("birth_date='")
+                    .Append(draftee.BirthDate.ToString("yyyy-MM-dd"))
+                    .Append("', ")
+                    .Append("category='")
+                    .Append(draftee.Category)
+                    .Append("', ")
+                    .Append("troop_type='")
+                    .Append(draftee.TroopType)
+                    .Append("' ")
+                    .Append("WHERE id=")
+                    .Append(draftee.Id)
+                    .Append(";");
+                MySqlCommand command = new MySqlCommand(sqlBuilder.ToString(), connection);
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            finally
+            {
+                connection.Close();
             }
         }
     }
