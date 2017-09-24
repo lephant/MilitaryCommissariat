@@ -1,28 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using MilitaryCommissariat.Domain;
 
 namespace MilitaryCommissariat.Converters
 {
-    public class DrafteeConverter : IConverter<List<Draftee>, DataTable>
+    public class DrafteeConverter : IConverter<Draftee, DataTable>
     {
-        public List<Draftee> Convert(DataTable source)
+        public Draftee Convert(DataTable source)
         {
-            List<Draftee> result = new List<Draftee>(source.Rows.Count);
-            foreach (DataRow dataRow in source.Rows)
+            if (source.Rows.Count != 1)
             {
-                Draftee draftee = new Draftee();
-                draftee.Id = (long) dataRow["id"];
-                draftee.LastName = (string) dataRow["last_name"];
-                draftee.FirstName = (string) dataRow["first_name"];
-                draftee.Patronymic = (string) dataRow["patronymic"];
-                draftee.BirthDate = (DateTime) dataRow["birth_date"];
-                draftee.Category = (string) dataRow["category"];
-                draftee.TroopType = (string) dataRow["troop_type"];
-                result.Add(draftee);
+                throw new Exception("Число строк в переданной таблице отличается от 1");
             }
-            return result;
+            DataRow dataRow = source.Rows[0];
+            Draftee draftee = new Draftee();
+            draftee.Id = (long)dataRow["id"];
+            draftee.LastName = (string)dataRow["last_name"];
+            draftee.FirstName = (string)dataRow["first_name"];
+            draftee.Patronymic = (string)dataRow["patronymic"];
+            draftee.BirthDate = (DateTime)dataRow["birth_date"];
+            draftee.Category = (string)dataRow["category"];
+            draftee.TroopType = (string)dataRow["troop_type"];
+            return draftee;
         }
     }
 }

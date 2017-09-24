@@ -19,7 +19,7 @@ namespace MilitaryCommissariat.Windows
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             var drafteeDao = new DrafteeDao();
-            var converter = new TableDrafteeConverter();
+            var converter = new TableDrafteeListConverter();
             var criteria = new TableDrafteeCriteriaBuilder().Build(FullNameTextBox.Text, BirthYearTextBox.Text);
             ResultsListView.ItemsSource = converter.Convert(drafteeDao.GetListByCriteria(criteria));
         }

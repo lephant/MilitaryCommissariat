@@ -4,7 +4,7 @@ using MilitaryCommissariat.Domain;
 
 namespace MilitaryCommissariat.Converters
 {
-    public class TableDrafteeConverter : IConverter<List<TableDraftee>, DataTable>
+    public class TableDrafteeListConverter : IConverter<List<TableDraftee>, DataTable>
     {
         public List<TableDraftee> Convert(DataTable source)
         {

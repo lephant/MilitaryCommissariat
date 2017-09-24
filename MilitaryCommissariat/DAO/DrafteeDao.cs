@@ -76,5 +76,27 @@ namespace MilitaryCommissariat.DAO
                 return null;
             }
         }
+
+        public DataTable GetById(long id)
+        {
+            try
+            {
+                StringBuilder sqlBuilder = new StringBuilder();
+                sqlBuilder
+                    .Append("SELECT dr.id id, dr.last_name last_name, dr.first_name first_name, ")
+                    .Append("dr.patronymic patronymic, dr.birth_date birth_date, dr.category category, ")
+                    .Append("dr.troop_type troop_type ")
+                    .Append("FROM draftees dr ")
+                    .Append("WHERE id=").Append(id).Append(";");
+                var dataAdapter = new MySqlDataAdapter(sqlBuilder.ToString(), ConnectionUtils.GetConnection());
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                return dataTable;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }
