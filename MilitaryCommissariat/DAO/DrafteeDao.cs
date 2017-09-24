@@ -41,18 +41,24 @@ namespace MilitaryCommissariat.DAO
                     .Append("FROM draftees dr ");
 
                 bool havingExists = false;
+                bool needAnd = false;
                 if (!string.IsNullOrEmpty(criteria.FullName))
                 {
                     sqlBuilder.Append("HAVING full_name LIKE '%")
                         .Append(criteria.FullName)
                         .Append("%' ");
                     havingExists = true;
+                    needAnd = true;
                 }
                 if (criteria.BirthYear != null)
                 {
                     if (!havingExists)
                     {
                         sqlBuilder.Append("HAVING ");
+                    }
+                    if (needAnd)
+                    {
+                        sqlBuilder.Append("AND ");
                     }
                     sqlBuilder.Append("birth_year=")
                         .Append(criteria.BirthYear.Value)
