@@ -5,7 +5,7 @@ namespace MilitaryCommissariat.Domain
     public class EducationPlace
     {
         public long Id { get; set; }
-        public long DragteeId { get; set; }
+        public long DrafteeId { get; set; }
         public string Name { get; set; }
         public string Education { get; set; }
         public string InstitutionType { get; set; }

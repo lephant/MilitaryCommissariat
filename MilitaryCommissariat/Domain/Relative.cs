@@ -3,7 +3,7 @@
     public class Relative
     {
         public long Id { get; set; }
-        public long DragteeId { get; set; }
+        public long DrafteeId { get; set; }
         public string FullName { get; set; }
         public int BirthYear { get; set; }
         public string BirthPlace { get; set; }
