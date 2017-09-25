@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using MilitaryCommissariat.Domain;
+using MilitaryCommissariat.Utils;
 
 namespace MilitaryCommissariat.Converters
 {
@@ -15,23 +16,14 @@ namespace MilitaryCommissariat.Converters
             DataRow dataRow = source.Rows[0];
             Address result = new Address();
             result.DrafteeId = (long) dataRow["draftee_id"];
-            result.MunicipalDistrict = Convert(dataRow["municipal_district"]);
-            result.MailIndex = Convert(dataRow["mail_index"]);
-            result.StreetName = Convert(dataRow["street_name"]);
-            result.HouseNumber = Convert(dataRow["house_number"]);
-            result.HousingNumber = Convert(dataRow["housing_number"]);
-            result.Apartment = Convert(dataRow["apartment"]);
-            result.HomePhone = Convert(dataRow["home_phone"]);
+            result.MunicipalDistrict = DbConverterUtils.ConvertString(dataRow["municipal_district"]);
+            result.MailIndex = DbConverterUtils.ConvertString(dataRow["mail_index"]);
+            result.StreetName = DbConverterUtils.ConvertString(dataRow["street_name"]);
+            result.HouseNumber = DbConverterUtils.ConvertString(dataRow["house_number"]);
+            result.HousingNumber = DbConverterUtils.ConvertString(dataRow["housing_number"]);
+            result.Apartment = DbConverterUtils.ConvertString(dataRow["apartment"]);
+            result.HomePhone = DbConverterUtils.ConvertString(dataRow["home_phone"]);
             return result;
-        }
-
-        private string Convert(object source)
-        {
-            if (System.Convert.IsDBNull(source))
-            {
-                return "";
-            }
-            return (string) source;
         }
     }
 }

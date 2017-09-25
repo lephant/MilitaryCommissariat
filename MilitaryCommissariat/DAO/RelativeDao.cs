@@ -2,6 +2,7 @@
 using System.Text;
 using MilitaryCommissariat.Domain;
 using MilitaryCommissariat.Utils;
+using MySql.Data.MySqlClient;
 
 namespace MilitaryCommissariat.DAO
 {

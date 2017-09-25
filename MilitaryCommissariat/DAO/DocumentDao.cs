@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MilitaryCommissariat.DAO
+﻿namespace MilitaryCommissariat.DAO
 {
-    class DocumentDao
+    public class DocumentDao
     {
     }
 }
