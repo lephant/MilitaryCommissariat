@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Windows;
 using MilitaryCommissariat.Converters;
 using MilitaryCommissariat.DAO;
 using MilitaryCommissariat.Domain;
@@ -11,6 +14,8 @@ namespace MilitaryCommissariat.Windows
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ObservableCollection<TableDraftee> draftees;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -21,7 +26,8 @@ namespace MilitaryCommissariat.Windows
             var drafteeDao = new DrafteeDao();
             var converter = new TableDrafteeListConverter();
             var criteria = new TableDrafteeCriteriaBuilder().Build(FullNameTextBox.Text, BirthYearTextBox.Text);
-            ResultsListView.ItemsSource = converter.Convert(drafteeDao.GetListByCriteria(criteria));
+            draftees = new ObservableCollection<TableDraftee>(converter.Convert(drafteeDao.GetListByCriteria(criteria)));
+            ResultsListView.ItemsSource = draftees;
         }
 
         private void SelectButton_Click(object sender, RoutedEventArgs e)
@@ -71,7 +77,7 @@ namespace MilitaryCommissariat.Windows
                 return;
             }
             new DrafteeDao().Delete(tableDraftee);
-            ResultsListView.Items.Remove(tableDraftee);
+            draftees.Remove(tableDraftee);
         }
     }
 }
