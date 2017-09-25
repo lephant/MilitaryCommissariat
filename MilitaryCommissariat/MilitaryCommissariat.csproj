@@ -82,7 +82,9 @@
     <Compile Include="Converters\DocumentConverter.cs" />
     <Compile Include="Converters\DrafteeConverter.cs" />
     <Compile Include="Converters\DrafteeListConverter.cs" />
+    <Compile Include="Converters\EducationPlaceListConverter.cs" />
     <Compile Include="Converters\IConverter.cs" />
+    <Compile Include="Converters\RelativeListConverter.cs" />
     <Compile Include="Converters\TableDrafteeListConverter.cs" />
     <Compile Include="DAO\AddressDao.cs" />
     <Compile Include="DAO\DocumentDao.cs" />

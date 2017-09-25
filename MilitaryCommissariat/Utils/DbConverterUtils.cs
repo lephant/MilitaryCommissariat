@@ -30,5 +30,14 @@ namespace MilitaryCommissariat.Utils
             }
             return (long) source;
         }
+
+        public static int ConvertInt(object source)
+        {
+            if (Convert.IsDBNull(source))
+            {
+                return 0;
+            }
+            return (int) source;
+        }
     }
 }
