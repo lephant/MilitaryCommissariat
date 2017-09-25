@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using MilitaryCommissariat.Domain;
+using MilitaryCommissariat.Utils;
 
 namespace MilitaryCommissariat.Converters
 {
@@ -13,8 +14,8 @@ namespace MilitaryCommissariat.Converters
             {
                 TableDraftee tableDraftee = new TableDraftee();
                 tableDraftee.Id = (long) dataRow["id"];
-                tableDraftee.FullName = (string) dataRow["full_name"];
-                tableDraftee.Year = (long) dataRow["birth_year"];
+                tableDraftee.FullName = DbConverterUtils.ConvertString(dataRow["full_name"]);
+                tableDraftee.Year = DbConverterUtils.ConvertLong(dataRow["birth_year"]);
                 result.Add(tableDraftee);
             }
             return result;

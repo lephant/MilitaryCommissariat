@@ -21,5 +21,14 @@ namespace MilitaryCommissariat.Utils
             }
             return (DateTime) source;
         }
+
+        public static long ConvertLong(object source)
+        {
+            if (Convert.IsDBNull(source))
+            {
+                return 0;
+            }
+            return (long) source;
+        }
     }
 }
