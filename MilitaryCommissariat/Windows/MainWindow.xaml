@@ -18,9 +18,9 @@
             <ListView.ContextMenu>
                 <ContextMenu>
                     <MenuItem Name="SelectMenuItem" Header="Просмотреть" Click="SelectMenuItem_OnClick"></MenuItem>
-                    <MenuItem Name="UpdateMenuItem" Header="Просмотреть" Click="UpdateMenuItem_OnClick"></MenuItem>
-                    <MenuItem Name="CreateMenuItem" Header="Просмотреть" Click="CreateMenuItem_OnClick"></MenuItem>
-                    <MenuItem Name="DeleteMenuItem" Header="Просмотреть" Click="DeleteMenuItem_OnClick"></MenuItem>
+                    <MenuItem Name="UpdateMenuItem" Header="Обновить" Click="UpdateMenuItem_OnClick"></MenuItem>
+                    <MenuItem Name="CreateMenuItem" Header="Создать" Click="CreateMenuItem_OnClick"></MenuItem>
+                    <MenuItem Name="DeleteMenuItem" Header="Удалить" Click="DeleteMenuItem_OnClick"></MenuItem>
                 </ContextMenu>
             </ListView.ContextMenu>
         </ListView>
