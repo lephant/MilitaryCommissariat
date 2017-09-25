@@ -112,7 +112,7 @@ namespace MilitaryCommissariat.DAO
             }
         }
 
-        public void Insert(EducationPlace educationPlace, long drafteeId)
+        public void Insert(EducationPlace educationPlace)
         {
             MySqlConnection connection = ConnectionUtils.GetConnection();
             try
@@ -122,7 +122,7 @@ namespace MilitaryCommissariat.DAO
                     .Append("INSERT INTO education_places ")
                     .Append("(draftee_id, name, education, institution_type, end_date, faculty, specialty) ")
                     .Append("VALUES (")
-                    .Append(drafteeId)
+                    .Append(educationPlace.DrafteeId)
                     .Append(", ")
                     .Append("'")
                     .Append(educationPlace.Name)
@@ -150,16 +150,6 @@ namespace MilitaryCommissariat.DAO
             {
                 connection.Close();
             }
-        }
-
-        public void Insert(EducationPlace educationPlace, Draftee draftee)
-        {
-            Insert(educationPlace, draftee.Id);
-        }
-
-        public void Insert(EducationPlace educationPlace, TableDraftee tableDraftee)
-        {
-            Insert(educationPlace, tableDraftee.Id);
         }
     }
 }
