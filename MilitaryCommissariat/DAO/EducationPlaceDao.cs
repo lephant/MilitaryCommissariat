@@ -23,7 +23,7 @@ namespace MilitaryCommissariat.DAO
                     .Append("pl.end_date end_date, ")
                     .Append("pl.faculty faculty, ")
                     .Append("pl.specialty specialty ")
-                    .Append("FROM education_places pl ")
+                    .Append("FROM study_places pl ")
                     .Append("WHERE pl.draftee_id=")
                     .Append(id)
                     .Append(";");
@@ -55,7 +55,7 @@ namespace MilitaryCommissariat.DAO
             {
                 StringBuilder sqlBuilder = new StringBuilder();
                 sqlBuilder
-                    .Append("DELETE FROM education_places ")
+                    .Append("DELETE FROM study_places ")
                     .Append("WHERE id=")
                     .Append(id)
                     .Append(";");
@@ -81,7 +81,7 @@ namespace MilitaryCommissariat.DAO
             {
                 StringBuilder sqlBuilder = new StringBuilder();
                 sqlBuilder
-                    .Append("UPDATE education_places SET ")
+                    .Append("UPDATE study_places SET ")
                     .Append("name='")
                     .Append(educationPlace.Name)
                     .Append("', ")
@@ -120,7 +120,7 @@ namespace MilitaryCommissariat.DAO
             {
                 StringBuilder sqlBuilder = new StringBuilder();
                 sqlBuilder
-                    .Append("INSERT INTO education_places ")
+                    .Append("INSERT INTO study_places ")
                     .Append("(draftee_id, name, education, institution_type, end_date, faculty, specialty) ")
                     .Append("VALUES (")
                     .Append(educationPlace.DrafteeId)
