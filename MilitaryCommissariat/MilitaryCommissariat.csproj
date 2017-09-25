@@ -50,6 +50,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Windows\DrafteeCommonInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DrafteeDocumentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DrafteeEducationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DrafteeRelativeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DrafteeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,6 +97,21 @@
     <Compile Include="SearchCriterias\Builders\TableDrafteeCriteriaBuilder.cs" />
     <Compile Include="SearchCriterias\TableDrafteeCriteria.cs" />
     <Compile Include="Utils\ConnectionUtils.cs" />
+    <Compile Include="Windows\DrafteeCommonInfoWindow.xaml.cs">
+      <DependentUpon>DrafteeCommonInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DrafteeDocumentWindow.xaml.cs">
+      <DependentUpon>DrafteeDocumentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DrafteeEducationWindow.xaml.cs">
+      <DependentUpon>DrafteeEducationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DrafteeRelativeWindow.xaml.cs">
+      <DependentUpon>DrafteeRelativeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DrafteeWindow.xaml.cs">
+      <DependentUpon>DrafteeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
