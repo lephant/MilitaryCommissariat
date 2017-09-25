@@ -15,6 +15,14 @@
                     <GridViewColumn x:Name="YearColumn" DisplayMemberBinding="{Binding Path=Year}" Width="60" ctrl:FixedColumn.Width="60">Год</GridViewColumn>
                 </GridView>
             </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Name="SelectMenuItem" Header="Просмотреть" Click="SelectMenuItem_OnClick"></MenuItem>
+                    <MenuItem Name="UpdateMenuItem" Header="Просмотреть" Click="UpdateMenuItem_OnClick"></MenuItem>
+                    <MenuItem Name="CreateMenuItem" Header="Просмотреть" Click="CreateMenuItem_OnClick"></MenuItem>
+                    <MenuItem Name="DeleteMenuItem" Header="Просмотреть" Click="DeleteMenuItem_OnClick"></MenuItem>
+                </ContextMenu>
+            </ListView.ContextMenu>
         </ListView>
         <TextBox x:Name="FullNameTextBox" HorizontalAlignment="Left" Height="23" Margin="10,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="309" AutomationProperties.HelpText="Фамилия, имя или отчество" ToolTip="Фамилия, имя или отчество"/>
         <TextBox x:Name="BirthYearTextBox" HorizontalAlignment="Left" Height="23" Margin="333,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" AutomationProperties.HelpText="Год рождения" ToolTip="Год рождения"/>
@@ -22,6 +30,5 @@
         <Label Content="Фамилия, имя, отчество для поиска" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="16" Padding="0"/>
         <Label Content="Год рождения" HorizontalAlignment="Left" Margin="333,10,0,0" VerticalAlignment="Top" Height="16" Padding="0" Width="88"/>
         <Button x:Name="SelectButton" Content="Выбрать" Margin="0,0,0,6" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Center" Padding="12,1" Click="SelectButton_Click"/>
-
     </Grid>
 </Window>

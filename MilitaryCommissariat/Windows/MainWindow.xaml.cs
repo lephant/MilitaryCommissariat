@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using MilitaryCommissariat.Converters;
 using MilitaryCommissariat.DAO;
-using MilitaryCommissariat.SearchCriterias;
+using MilitaryCommissariat.Domain;
 using MilitaryCommissariat.SearchCriterias.Builders;
 
 namespace MilitaryCommissariat.Windows
@@ -26,6 +26,50 @@ namespace MilitaryCommissariat.Windows
 
         private void SelectButton_Click(object sender, RoutedEventArgs e)
         {
+            TableDraftee tableDraftee = ResultsListView.SelectedItem as TableDraftee;
+            if (tableDraftee == null)
+            {
+                MessageBox.Show(this, "Не выбрана запись в таблице!", "Сообщение");
+                return;
+            }
+
+        }
+
+        private void SelectMenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            TableDraftee tableDraftee = ResultsListView.SelectedItem as TableDraftee;
+            if (tableDraftee == null)
+            {
+                MessageBox.Show(this, "Не выбрана запись в таблице!", "Сообщение");
+                return;
+            }
+        }
+
+        private void UpdateMenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            TableDraftee tableDraftee = ResultsListView.SelectedItem as TableDraftee;
+            if (tableDraftee == null)
+            {
+                MessageBox.Show(this, "Не выбрана запись в таблице!", "Сообщение");
+                return;
+            }
+        }
+
+        private void CreateMenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void DeleteMenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            TableDraftee tableDraftee = ResultsListView.SelectedItem as TableDraftee;
+            if (tableDraftee == null)
+            {
+                MessageBox.Show(this, "Не выбрана запись в таблице!", "Сообщение");
+                return;
+            }
+            new DrafteeDao().Delete(tableDraftee);
+            ResultsListView.Items.Remove(tableDraftee);
         }
     }
 }
