@@ -8,6 +8,7 @@ namespace MilitaryCommissariat.Domain
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string Patronymic { get; set; }
+        public string BirthPlace { get; set; }
         public DateTime BirthDate { get; set; }
         public string Category { get; set; }
         public string TroopType { get; set; }

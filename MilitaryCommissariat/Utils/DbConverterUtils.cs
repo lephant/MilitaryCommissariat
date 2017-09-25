@@ -15,7 +15,11 @@ namespace MilitaryCommissariat.Utils
 
         public static DateTime ConvertDateTime(object source)
         {
-            
+            if (Convert.IsDBNull(source))
+            {
+                return new DateTime();
+            }
+            return (DateTime) source;
         }
     }
 }

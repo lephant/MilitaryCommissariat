@@ -79,6 +79,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Converters\AddressConverter.cs" />
+    <Compile Include="Converters\DocumentConverter.cs" />
     <Compile Include="Converters\DrafteeConverter.cs" />
     <Compile Include="Converters\DrafteeListConverter.cs" />
     <Compile Include="Converters\IConverter.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="SearchCriterias\Builders\TableDrafteeCriteriaBuilder.cs" />
     <Compile Include="SearchCriterias\TableDrafteeCriteria.cs" />
     <Compile Include="Utils\ConnectionUtils.cs" />
+    <Compile Include="Utils\DbConverterUtils.cs" />
     <Compile Include="Windows\DrafteeCommonInfoWindow.xaml.cs">
       <DependentUpon>DrafteeCommonInfoWindow.xaml</DependentUpon>
     </Compile>

@@ -16,8 +16,8 @@ namespace MilitaryCommissariat.DAO
                 StringBuilder sqlBuilder = new StringBuilder();
                 sqlBuilder
                     .Append("SELECT dr.id id, dr.last_name last_name, dr.first_name first_name, ")
-                    .Append("dr.patronymic patronymic, dr.birth_date birth_date, dr.category category, ")
-                    .Append("dr.troop_type troop_type ")
+                    .Append("dr.patronymic patronymic, dr.birth_date birth_date, dr.birth_place")
+                    .Append("dr.category category, dr.troop_type troop_type ")
                     .Append("FROM draftees dr;");
                 var dataAdapter = new MySqlDataAdapter(sqlBuilder.ToString(), ConnectionUtils.GetConnection());
                 DataTable dataTable = new DataTable();
@@ -85,8 +85,8 @@ namespace MilitaryCommissariat.DAO
                 StringBuilder sqlBuilder = new StringBuilder();
                 sqlBuilder
                     .Append("SELECT dr.id id, dr.last_name last_name, dr.first_name first_name, ")
-                    .Append("dr.patronymic patronymic, dr.birth_date birth_date, dr.category category, ")
-                    .Append("dr.troop_type troop_type ")
+                    .Append("dr.patronymic patronymic, dr.birth_date birth_date, dr.birth_place")
+                    .Append("dr.category category, dr.troop_type troop_type ")
                     .Append("FROM draftees dr ")
                     .Append("WHERE id=")
                     .Append(id)
@@ -153,6 +153,9 @@ namespace MilitaryCommissariat.DAO
                     .Append("birth_date='")
                     .Append(draftee.BirthDate.ToString("yyyy-MM-dd"))
                     .Append("', ")
+                    .Append("birth_place='")
+                    .Append(draftee.BirthPlace)
+                    .Append("', ")
                     .Append("category='")
                     .Append(draftee.Category)
                     .Append("', ")
@@ -181,7 +184,7 @@ namespace MilitaryCommissariat.DAO
                 StringBuilder sqlBuilder = new StringBuilder();
                 sqlBuilder
                     .Append("INSERT INTO draftees ")
-                    .Append("(last_name, first_name, patronymic, birth_date, category, troop_type) ")
+                    .Append("(last_name, first_name, patronymic, birth_date, birth_place, category, troop_type) ")
                     .Append("VALUES (")
                     .Append("'")
                     .Append(draftee.LastName)
@@ -194,6 +197,9 @@ namespace MilitaryCommissariat.DAO
                     .Append("', ")
                     .Append("'")
                     .Append(draftee.BirthDate.ToString("yyyy-MM-dd"))
+                    .Append("', ")
+                    .Append("'")
+                    .Append(draftee.BirthPlace)
                     .Append("', ")
                     .Append("'")
                     .Append(draftee.Category)

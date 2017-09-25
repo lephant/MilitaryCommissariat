@@ -19,6 +19,7 @@ namespace MilitaryCommissariat.Converters
             draftee.FirstName = (string)dataRow["first_name"];
             draftee.Patronymic = (string)dataRow["patronymic"];
             draftee.BirthDate = (DateTime)dataRow["birth_date"];
+            draftee.BirthPlace = (string)dataRow["birth_place"];
             draftee.Category = (string)dataRow["category"];
             draftee.TroopType = (string)dataRow["troop_type"];
             return draftee;
