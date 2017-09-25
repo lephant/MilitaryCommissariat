@@ -32,7 +32,7 @@ namespace MilitaryCommissariat.Windows
                 MessageBox.Show(this, "Не выбрана запись в таблице!", "Сообщение");
                 return;
             }
-
+            //TODO
         }
 
         private void SelectMenuItem_OnClick(object sender, RoutedEventArgs e)
@@ -43,6 +43,7 @@ namespace MilitaryCommissariat.Windows
                 MessageBox.Show(this, "Не выбрана запись в таблице!", "Сообщение");
                 return;
             }
+            //TODO
         }
 
         private void UpdateMenuItem_OnClick(object sender, RoutedEventArgs e)
@@ -53,11 +54,12 @@ namespace MilitaryCommissariat.Windows
                 MessageBox.Show(this, "Не выбрана запись в таблице!", "Сообщение");
                 return;
             }
+            //TODO
         }
 
         private void CreateMenuItem_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new System.NotImplementedException();
+            //TODO
         }
 
         private void DeleteMenuItem_OnClick(object sender, RoutedEventArgs e)
