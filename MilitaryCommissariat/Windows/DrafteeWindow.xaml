@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilitaryCommissariat.Windows"
         mc:Ignorable="d"
-        Title="DrafteeWindow" Height="311" Width="517" ResizeMode="NoResize">
+        Title="DrafteeWindow" Height="345" Width="517" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="115" />
             <RowDefinition Height="10" />
-            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
         <Grid Height="115" VerticalAlignment="Top">
@@ -43,7 +44,7 @@
                    VerticalAlignment="Center" Grid.Column="3" Grid.Row="1" Height="25.96" Width="37.993" />
             <Label x:Name="BirthDateValueLabel" Content="Label" HorizontalAlignment="Left" Margin="0"
                    VerticalAlignment="Center" Grid.Column="3" Grid.Row="2" Height="25.96" Width="37.993" />
-            <Label x:Name="Title" Content="Учетная карточка призывника" HorizontalAlignment="Center" Margin="0"
+            <Label x:Name="TitleLabel" Content="Учетная карточка призывника" HorizontalAlignment="Center" Margin="0"
                    Grid.Row="0" Grid.ColumnSpan="4" Grid.Column="0" Height="25.96" Width="177.504"
                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" />
         </Grid>
@@ -52,11 +53,19 @@
         <StackPanel Margin="0" Grid.Row="2">
             <Label x:Name="WorkTitleLabel" Content="Выберите фрагмент раздела:" Margin="10,0,0,0" />
             <ListBox x:Name="SectionListBox" Height="110" Margin="10" FontSize="14">
-                <ListBoxItem Content="Основные сведения" />
-                <ListBoxItem Content="Образование" />
-                <ListBoxItem Content="Состав семьи" />
-                <ListBoxItem Content="Документы удостоверяющие личность" />
+                <ListBoxItem x:Name="CommonInfoItem" Content="Основные сведения" MouseDoubleClick="CommonInfoItem_MouseDoubleClick"/>
+                <ListBoxItem x:Name="EducationItem" Content="Образование" MouseDoubleClick="EducationItem_MouseDoubleClick"/>
+                <ListBoxItem x:Name="RelativeItem" Content="Состав семьи" MouseDoubleClick="RelativeItem_MouseDoubleClick"/>
+                <ListBoxItem x:Name="DocumentItem" Content="Документы удостоверяющие личность" MouseDoubleClick="DocumentItem_MouseDoubleClick" />
             </ListBox>
         </StackPanel>
+        <Grid HorizontalAlignment="Stretch" Margin="0" Grid.Row="3" VerticalAlignment="Stretch" Width="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="SelectButton" Content="Перейти" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="75" Height="26" Grid.Column="1" Click="SelectButton_Click"/>
+            <Button x:Name="ReturnButton" Content="Вернуться" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Center" Width="75" Height="26" Grid.Column="0" Click="ReturnButton_Click"/>
+        </Grid>
     </Grid>
 </Window>
