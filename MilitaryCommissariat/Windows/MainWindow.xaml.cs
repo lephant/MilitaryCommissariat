@@ -38,7 +38,7 @@ namespace MilitaryCommissariat.Windows
                 MessageBox.Show(this, "Не выбрана запись в таблице!", "Сообщение");
                 return;
             }
-            //TODO
+            OpenDrafteeWindow(tableDraftee.Id);
         }
 
         private void SelectMenuItem_OnClick(object sender, RoutedEventArgs e)
@@ -49,7 +49,7 @@ namespace MilitaryCommissariat.Windows
                 MessageBox.Show(this, "Не выбрана запись в таблице!", "Сообщение");
                 return;
             }
-            //TODO
+            OpenDrafteeWindow(tableDraftee.Id);
         }
 
         private void UpdateMenuItem_OnClick(object sender, RoutedEventArgs e)
@@ -78,6 +78,19 @@ namespace MilitaryCommissariat.Windows
             }
             new DrafteeDao().Delete(tableDraftee);
             draftees.Remove(tableDraftee);
+        }
+
+        private void OpenDrafteeWindow(long drafteeId)
+        {
+            DrafteeWindow drafteeWindow = new DrafteeWindow();
+            drafteeWindow.Owner = this;
+            drafteeWindow.DrafteeId = drafteeId;
+            Hide();
+            drafteeWindow.Closed += (sender, args) =>
+            {
+                Show();
+            };
+            drafteeWindow.Show();
         }
     }
 }
