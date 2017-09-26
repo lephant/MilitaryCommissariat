@@ -16,7 +16,7 @@ namespace MilitaryCommissariat.DAO
                 StringBuilder sqlBuilder = new StringBuilder();
                 sqlBuilder
                     .Append("SELECT dr.id id, dr.last_name last_name, dr.first_name first_name, ")
-                    .Append("dr.patronymic patronymic, dr.birth_date birth_date, dr.birth_place")
+                    .Append("dr.patronymic patronymic, dr.birth_date birth_date, dr.birth_place, ")
                     .Append("dr.category category, dr.troop_type troop_type ")
                     .Append("FROM draftees dr;");
                 var dataAdapter = new MySqlDataAdapter(sqlBuilder.ToString(), ConnectionUtils.GetConnection());
@@ -85,7 +85,7 @@ namespace MilitaryCommissariat.DAO
                 StringBuilder sqlBuilder = new StringBuilder();
                 sqlBuilder
                     .Append("SELECT dr.id id, dr.last_name last_name, dr.first_name first_name, ")
-                    .Append("dr.patronymic patronymic, dr.birth_date birth_date, dr.birth_place")
+                    .Append("dr.patronymic patronymic, dr.birth_date birth_date, dr.birth_place, ")
                     .Append("dr.category category, dr.troop_type troop_type ")
                     .Append("FROM draftees dr ")
                     .Append("WHERE id=")
