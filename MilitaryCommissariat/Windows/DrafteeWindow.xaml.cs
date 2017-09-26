@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using MilitaryCommissariat.Converters;
 using MilitaryCommissariat.DAO;
@@ -36,22 +38,89 @@ namespace MilitaryCommissariat.Windows
 
         private void SelectButton_Click(object sender, RoutedEventArgs e)
         {
+            ListBoxItem selectedItem = SectionListBox.SelectedItem as ListBoxItem;
+            if (selectedItem == null)
+            {
+                MessageBox.Show(this, "Не выбран раздел!", "Сообщение");
+                return;
+            }
+            switch (selectedItem.Name)
+            {
+                case "CommonInfoItem":
+                    OpenDrafteeCommonInfoWindow();
+                    break;
+                case "EducationItem":
+                    OpenDrafteeEducationWindow();
+                    break;
+                case "RelativeItem":
+                    OpenDrafteeRelativeWindow();
+                    break;
+                case "DocumentItem":
+                    OpenDrafteeDocumentWindow();
+                    break;
+                default:
+                    throw new Exception("Невозможно открыть этот раздел по техническим причинам!");
+            }
         }
 
         private void CommonInfoItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            OpenDrafteeCommonInfoWindow();
         }
 
         private void EducationItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            OpenDrafteeEducationWindow();
         }
 
         private void RelativeItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            OpenDrafteeRelativeWindow();
         }
 
         private void DocumentItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            OpenDrafteeDocumentWindow();
+        }
+
+        private void OpenDrafteeCommonInfoWindow()
+        {
+            var window = new DrafteeCommonInfoWindow();
+            window.Owner = this;
+            window.DrafteeId = DrafteeId;
+            Hide();
+            window.Closed += (sender, args) => { Show(); };
+            window.Show();
+        }
+
+        private void OpenDrafteeEducationWindow()
+        {
+            var window = new DrafteeEducationWindow();
+            window.Owner = this;
+            window.DrafteeId = DrafteeId;
+            Hide();
+            window.Closed += (sender, args) => { Show(); };
+            window.Show();
+        }
+
+        private void OpenDrafteeRelativeWindow()
+        {
+            var window = new DrafteeRelativeWindow();
+            window.Owner = this;
+            window.DrafteeId = DrafteeId;
+            Hide();
+            window.Closed += (sender, args) => { Show(); };
+            window.Show();
+        }
+
+        private void OpenDrafteeDocumentWindow()
+        {
+            var window = new DrafteeDocumentWindow();
+            window.Owner = this;
+            window.DrafteeId = DrafteeId;
+            Hide();
+            window.Closed += (sender, args) => { Show(); };
+            window.Show();
         }
     }
 }

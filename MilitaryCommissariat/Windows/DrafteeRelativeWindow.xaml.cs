@@ -17,6 +17,8 @@ namespace MilitaryCommissariat.Windows
     /// </summary>
     public partial class DrafteeRelativeWindow : Window
     {
+        public long DrafteeId { get; set; }
+
         public DrafteeRelativeWindow()
         {
             InitializeComponent();

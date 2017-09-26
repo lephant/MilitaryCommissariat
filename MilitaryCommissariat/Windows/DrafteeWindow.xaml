@@ -10,8 +10,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="115" />
             <RowDefinition Height="10" />
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
 
         <Grid Height="115" VerticalAlignment="Top">
@@ -53,19 +53,25 @@
         <StackPanel Margin="0" Grid.Row="2">
             <Label x:Name="WorkTitleLabel" Content="Выберите фрагмент раздела:" Margin="10,0,0,0" />
             <ListBox x:Name="SectionListBox" Height="110" Margin="10" FontSize="14">
-                <ListBoxItem x:Name="CommonInfoItem" Content="Основные сведения" MouseDoubleClick="CommonInfoItem_MouseDoubleClick"/>
-                <ListBoxItem x:Name="EducationItem" Content="Образование" MouseDoubleClick="EducationItem_MouseDoubleClick"/>
-                <ListBoxItem x:Name="RelativeItem" Content="Состав семьи" MouseDoubleClick="RelativeItem_MouseDoubleClick"/>
-                <ListBoxItem x:Name="DocumentItem" Content="Документы удостоверяющие личность" MouseDoubleClick="DocumentItem_MouseDoubleClick" />
+                <ListBoxItem x:Name="CommonInfoItem" Content="Основные сведения"
+                             MouseDoubleClick="CommonInfoItem_MouseDoubleClick" />
+                <ListBoxItem x:Name="EducationItem" Content="Образование"
+                             MouseDoubleClick="EducationItem_MouseDoubleClick" />
+                <ListBoxItem x:Name="RelativeItem" Content="Состав семьи"
+                             MouseDoubleClick="RelativeItem_MouseDoubleClick" />
+                <ListBoxItem x:Name="DocumentItem" Content="Документы удостоверяющие личность"
+                             MouseDoubleClick="DocumentItem_MouseDoubleClick" />
             </ListBox>
         </StackPanel>
         <Grid HorizontalAlignment="Stretch" Margin="0" Grid.Row="3" VerticalAlignment="Stretch" Width="Auto">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button x:Name="SelectButton" Content="Перейти" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="75" Height="26" Grid.Column="1" Click="SelectButton_Click"/>
-            <Button x:Name="ReturnButton" Content="Вернуться" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Center" Width="75" Height="26" Grid.Column="0" Click="ReturnButton_Click"/>
+            <Button x:Name="SelectButton" Content="Перейти" HorizontalAlignment="Left" Margin="10,0,0,0"
+                    VerticalAlignment="Center" Width="75" Height="26" Grid.Column="1" Click="SelectButton_Click" />
+            <Button x:Name="ReturnButton" Content="Вернуться" HorizontalAlignment="Right" Margin="0,0,10,0"
+                    VerticalAlignment="Center" Width="75" Height="26" Grid.Column="0" Click="ReturnButton_Click" />
         </Grid>
     </Grid>
 </Window>

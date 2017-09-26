@@ -86,10 +86,7 @@ namespace MilitaryCommissariat.Windows
             drafteeWindow.Owner = this;
             drafteeWindow.DrafteeId = drafteeId;
             Hide();
-            drafteeWindow.Closed += (sender, args) =>
-            {
-                Show();
-            };
+            drafteeWindow.Closed += (sender, args) => { Show(); };
             drafteeWindow.Show();
         }
     }
