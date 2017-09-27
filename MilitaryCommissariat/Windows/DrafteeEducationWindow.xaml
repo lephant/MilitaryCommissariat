@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilitaryCommissariat.Windows"
         mc:Ignorable="d"
-        Title="Места обучения" Height="300" Width="500">
-    <Grid Height="270">
+        xmlns:lib="clr-namespace:MilitaryCommissariat.Controls"
+        Title="Места обучения" Height="511.25" Width="500">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="115" />
             <RowDefinition Height="10" />
@@ -57,7 +58,9 @@
             </Grid.RowDefinitions>
             <Label Content="Место учебы" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                    FontSize="14" Margin="0,0,0,10" />
-            <StackPanel x:Name="EducationPlacePanel" Grid.Row="1" />
+            <StackPanel x:Name="EducationPlacePanel" Grid.Row="1">
+                <lib:EducationPlaceView ></lib:EducationPlaceView>
+            </StackPanel>
             <Button Grid.Row="2" Content="Добавить" HorizontalAlignment="Right" Padding="10,1" Margin="0,5,5,5"
                     Height="26" />
         </Grid>
