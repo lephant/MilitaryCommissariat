@@ -20,34 +20,33 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="84" />
-                <ColumnDefinition Width="171*" />
-                <ColumnDefinition Width="104*" />
-                <ColumnDefinition Width="150*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
             <Label x:Name="LastNameLabel" Content="Фамилия:" HorizontalAlignment="Left" Margin="10,0,0,0"
                    VerticalAlignment="Center" Grid.Row="1" Height="25.96" Width="62.16" />
             <Label x:Name="PatronymicLabel" Content="Отчество:" HorizontalAlignment="Left" Margin="10,0,0,0"
                    VerticalAlignment="Center" Grid.Row="2"
                    Grid.Column="0" Height="25.96" Width="63.48" />
-            <Label x:Name="LastNameValueLabel" Content="Label" HorizontalAlignment="Left" Margin="0"
-                   VerticalAlignment="Center" Grid.Column="1" Background="Transparent" Grid.Row="1" Height="25.96"
-                   Width="37.993" />
-            <Label x:Name="PatronymicValueLabel" Content="Label" HorizontalAlignment="Left" Margin="0"
-                   VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Height="25.96" Width="37.993" />
+            <Label x:Name="LastNameValueLabel" Content="" Margin="0" Grid.Column="1" Background="Transparent"
+                   Grid.Row="1" VerticalContentAlignment="Center" />
+            <Label x:Name="PatronymicValueLabel" Content="" Margin="0" Grid.Row="2" Grid.Column="1"
+                   VerticalContentAlignment="Center" />
             <Label x:Name="FirstNameLabel" Content="Имя:" HorizontalAlignment="Left" Margin="0"
                    VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" Height="25.96" Width="36.05" />
             <Label x:Name="BirthDateLabel" Content="Дата рождения:" HorizontalAlignment="Left" Margin="0"
                    VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" Height="25.96" Width="97.157" />
-            <Label x:Name="FirstNameValueLabel" Content="Label" HorizontalAlignment="Left" Margin="0"
-                   VerticalAlignment="Center" Grid.Column="3" Grid.Row="1" Height="25.96" Width="37.993" />
-            <Label x:Name="BirthDateValueLabel" Content="Label" HorizontalAlignment="Left" Margin="0"
-                   VerticalAlignment="Center" Grid.Column="3" Grid.Row="2" Height="25.96" Width="37.993" />
-            <Label x:Name="TitleLabel" Content="Учетная карточка призывника" HorizontalAlignment="Center" Margin="0"
-                   Grid.Row="0" Grid.ColumnSpan="4" Grid.Column="0" Height="25.96" Width="177.504"
-                   HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" />
+            <Label x:Name="FirstNameValueLabel" Content="" Margin="0" Grid.Column="3" Grid.Row="1"
+                   VerticalContentAlignment="Center" />
+            <Label x:Name="BirthDateValueLabel" Content="" Margin="0" Grid.Column="3" Grid.Row="2"
+                   VerticalContentAlignment="Center" />
+            <Label x:Name="TitleLabel" Content="Учетная карточка призывника" Margin="0"
+                   Grid.Row="0" Grid.ColumnSpan="4" Grid.Column="0"
+                   HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" />
         </Grid>
-        <Separator Height="10" Margin="0" VerticalAlignment="Top" Width="509"
+        <Separator Height="10" Margin="0" VerticalAlignment="Top"
                    HorizontalContentAlignment="Center" Grid.Row="1" />
         <Grid Grid.Row="2">
             <Grid.RowDefinitions>
