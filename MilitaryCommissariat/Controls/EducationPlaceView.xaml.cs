@@ -18,6 +18,8 @@ namespace MilitaryCommissariat.Controls
         public static DependencyProperty FacultyProperty;
         public static DependencyProperty SpecialtyProperty;
 
+        public static DependencyProperty CollapseButtonsProperty;
+
         public static readonly RoutedEvent DeleteButtonClickedEvent;
         public static readonly RoutedEvent EditButtonClickedEvent;
 
@@ -30,36 +32,56 @@ namespace MilitaryCommissariat.Controls
         static EducationPlaceView()
         {
             EducationPlaceProperty = DependencyProperty.Register("EducationPlace", typeof(EducationPlace),
-                typeof(EducationPlaceView), new FrameworkPropertyMetadata(EducationPlacePropertyChanged));
-            EducationPlaceProperty = DependencyProperty.Register("Education", typeof(string),
+                typeof(EducationPlaceView), new FrameworkPropertyMetadata(OnEducationPlacePropertyChanged));
+            EducationProperty = DependencyProperty.Register("Education", typeof(string),
                 typeof(EducationPlaceView));
-            EducationPlaceProperty = DependencyProperty.Register("EducationName", typeof(string),
+            EducationNameProperty = DependencyProperty.Register("EducationName", typeof(string),
                 typeof(EducationPlaceView));
-            EducationPlaceProperty = DependencyProperty.Register("InstitutionType", typeof(string),
+            InstitutionTypeProperty = DependencyProperty.Register("InstitutionType", typeof(string),
                 typeof(EducationPlaceView));
-            EducationPlaceProperty = DependencyProperty.Register("EndDate", typeof(DateTime),
+            EndDateProperty = DependencyProperty.Register("EndDate", typeof(DateTime),
                 typeof(EducationPlaceView));
-            EducationPlaceProperty = DependencyProperty.Register("Faculty", typeof(string),
+            FacultyProperty = DependencyProperty.Register("Faculty", typeof(string),
                 typeof(EducationPlaceView));
-            EducationPlaceProperty = DependencyProperty.Register("Specialty", typeof(string),
+            SpecialtyProperty = DependencyProperty.Register("Specialty", typeof(string),
                 typeof(EducationPlaceView));
+
+            CollapseButtonsProperty = DependencyProperty.Register("CollapseButtons", typeof(bool),
+                typeof(EducationPlaceView), new FrameworkPropertyMetadata(OnCollapseButtonsChanged));
+
             DeleteButtonClickedEvent = EventManager.RegisterRoutedEvent("DeleteButtonClicked", RoutingStrategy.Bubble,
                 typeof(RoutedPropertyChangedEventHandler<EducationPlace>), typeof(EducationPlaceView));
             EditButtonClickedEvent = EventManager.RegisterRoutedEvent("EditButtonClicked", RoutingStrategy.Bubble,
                 typeof(RoutedPropertyChangedEventHandler<EducationPlace>), typeof(EducationPlaceView));
         }
 
-        private static void EducationPlacePropertyChanged(DependencyObject sender,
+        private static void OnCollapseButtonsChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        {
+            bool newValue = (bool) e.NewValue;
+            EducationPlaceView view = (EducationPlaceView) sender;
+            if (newValue)
+            {
+                view.DeleteButton.Visibility = Visibility.Collapsed;
+                view.EditButton.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                view.DeleteButton.Visibility = Visibility.Visible;
+                view.EditButton.Visibility = Visibility.Visible;
+            }
+        }
+
+        private static void OnEducationPlacePropertyChanged(DependencyObject sender,
             DependencyPropertyChangedEventArgs e)
         {
             EducationPlace newPlace = (EducationPlace) e.NewValue;
-            EducationPlaceView educationPlaceView = (EducationPlaceView)sender;
-            educationPlaceView.Education = newPlace.Education;
-            educationPlaceView.EducationName = newPlace.Name;
-            educationPlaceView.InstitutionType = newPlace.InstitutionType;
-            educationPlaceView.EndDate = newPlace.EndDate;
-            educationPlaceView.Faculty = newPlace.Faculty;
-            educationPlaceView.Specialty = newPlace.Specialty;
+            EducationPlaceView view = (EducationPlaceView) sender;
+            view.Education = newPlace.Education;
+            view.EducationName = newPlace.Name;
+            view.InstitutionType = newPlace.InstitutionType;
+            view.EndDate = newPlace.EndDate;
+            view.Faculty = newPlace.Faculty;
+            view.Specialty = newPlace.Specialty;
         }
 
         public EducationPlace EducationPlace
@@ -102,6 +124,12 @@ namespace MilitaryCommissariat.Controls
         {
             get { return (string) GetValue(SpecialtyProperty); }
             set { SetValue(SpecialtyProperty, value); }
+        }
+
+        public bool CollapseButtons
+        {
+            get { return (bool) GetValue(CollapseButtonsProperty); }
+            set { SetValue(CollapseButtonsProperty, value);}
         }
 
         public event RoutedPropertyChangedEventHandler<EducationPlace> DeleteButtonClicked
