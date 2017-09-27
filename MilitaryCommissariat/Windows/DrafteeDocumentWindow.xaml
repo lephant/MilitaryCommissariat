@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilitaryCommissariat.Windows"
         mc:Ignorable="d"
-        Title="Документы удостоверяющие личность" Height="355" Width="551">
+        Title="Документы удостоверяющие личность" Height="416" Width="551" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="115" />
             <RowDefinition Height="10" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="30" />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
         <Grid Height="115" VerticalAlignment="Top">
             <Grid.RowDefinitions>
@@ -56,11 +56,11 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30" />
-                <RowDefinition Height="30" />
-                <RowDefinition Height="30" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="5" />
                 <RowDefinition Height="40" />
-                <RowDefinition Height="30" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Label x:Name="DocumentTitleLabel" Content="Документы, удостоверяющие личность" Margin="0" Grid.Row="0"
                    Grid.ColumnSpan="3"
@@ -71,7 +71,18 @@
                        VerticalAlignment="Center" />
             </Border>
             <Border BorderBrush="Black" BorderThickness="2,1,2,2" Margin="0" Grid.Row="2" Grid.ColumnSpan="3"
-                    Grid.Column="0" />
+                    Grid.Column="0">
+                <WrapPanel>
+                    <Label x:Name="PassportSeriesLabel" Content="Серия:" />
+                    <Label x:Name="PassportSeriesValueLabel" Content="" MinWidth="80" Margin="0,0,10,0" />
+                    <Label x:Name="PassportNumberLabel" Content="Номер:" />
+                    <Label x:Name="PassportNumberValueLabel" Content="" MinWidth="100" Margin="0,0,10,0" />
+                    <Label x:Name="PassportIssueDateLabel" Content="Дата выдачи:" />
+                    <Label x:Name="PassportIssueDateValueLabel" Content="" MinWidth="100" />
+                    <Label x:Name="PassportIssuedByLabel" Content="Кем выдан:" />
+                    <Label x:Name="PassportIssuedByValueLabel" Content="" />
+                </WrapPanel>
+            </Border>
             <Border BorderBrush="Black" BorderThickness="2,2,2,1" Grid.Row="4" Grid.Column="0">
                 <Label Padding="5,0,5,0" VerticalContentAlignment="Center">
                     <Label.Content>
@@ -85,8 +96,36 @@
                        VerticalAlignment="Center" />
 
             </Border>
-            <Border BorderBrush="Black" BorderThickness="2,1,2,2" Grid.Row="5" Grid.Column="0" />
-            <Border BorderBrush="Black" BorderThickness="2,1,2,2" Grid.Row="5" Grid.Column="2" />
+            <Border BorderBrush="Black" BorderThickness="2,1,2,2" Grid.Row="5" Grid.Column="0">
+                <WrapPanel>
+                    <Label x:Name="CertificateSeriesLabel" Content="Серия:" />
+                    <Label x:Name="CertificateSeriesValueLabel" Content="" MinWidth="60" Margin="0,0,10,0" />
+                    <Label x:Name="CertificateNumberLabel" Content="Номер:" />
+                    <Label x:Name="CertificateNumberValueLabel" Content="" MinWidth="80" Margin="0" />
+                    <Label x:Name="CertificateIssueDateLabel" Content="Дата выдачи:" />
+                    <Label x:Name="CertificateIssueDateValueLabel" Content="" MinWidth="100" />
+                </WrapPanel>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2,1,2,2" Grid.Row="5" Grid.Column="2">
+                <WrapPanel>
+                    <Label x:Name="TicketSeriesLabel" Content="Серия:" />
+                    <Label x:Name="TicketSeriesValueLabel" Content="" MinWidth="60" Margin="0,0,10,0" />
+                    <Label x:Name="TicketNumberLabel" Content="Номер:" />
+                    <Label x:Name="TicketNumberValueLabel" Content="" MinWidth="80" Margin="0" />
+                    <Label x:Name="TicketIssueDateLabel" Content="Дата выдачи:" />
+                    <Label x:Name="TicketIssueDateValueLabel" Content="" MinWidth="100" />
+                </WrapPanel>
+            </Border>
+        </Grid>
+        <Grid HorizontalAlignment="Stretch" Margin="0,10,0,0" Grid.Row="3" VerticalAlignment="Stretch" Width="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="SelectButton" Content="Перейти" HorizontalAlignment="Left" Margin="10,0,0,0"
+                    VerticalAlignment="Center" Width="75" Height="26" Grid.Column="1" />
+            <Button x:Name="ReturnButton" Content="Вернуться" HorizontalAlignment="Right" Margin="0,0,10,0"
+                    VerticalAlignment="Center" Width="75" Height="26" Grid.Column="0" />
         </Grid>
     </Grid>
 </Window>
