@@ -50,6 +50,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\EducationPlaceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\DrafteeCommonInfoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -77,6 +81,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\EducationPlaceView.xaml.cs">
+      <DependentUpon>EducationPlaceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\AddressConverter.cs" />
     <Compile Include="Converters\DocumentConverter.cs" />

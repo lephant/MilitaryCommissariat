@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MilitaryCommissariat.Controls"
              mc:Ignorable="d"
+             Name="EducationView"
              d:DesignHeight="200" d:DesignWidth="300">
     <Grid>
         <Grid.RowDefinitions>
@@ -29,7 +30,7 @@
         <Label x:Name="EducationValueLabel" Grid.Column="1" Margin="0" Grid.Row="1"
                VerticalContentAlignment="Center">
             <Label.Content>
-                <AccessText Margin="0" TextWrapping="Wrap" Text="" />
+                <AccessText Margin="0" TextWrapping="Wrap" Text="{Binding ElementName=EducationView, Path=Education}" />
             </Label.Content>
         </Label>
         <Label x:Name="NameLabel" Content="Место учебы:" Margin="0" Grid.Row="2" Grid.Column="0"
@@ -37,7 +38,8 @@
         <Label x:Name="NameValueLabel" Grid.Column="1" Margin="0" Grid.Row="2"
                VerticalContentAlignment="Center">
             <Label.Content>
-                <AccessText Margin="0" TextWrapping="Wrap" Text="" />
+                <AccessText Margin="0" TextWrapping="Wrap"
+                            Text="{Binding ElementName=EducationView, Path=EducationName}" />
             </Label.Content>
         </Label>
         <Label x:Name="InstitutionTypeLabel" Content="Тип учебного заведения:" Margin="0" Grid.Row="3" Grid.Column="0"
@@ -45,7 +47,8 @@
         <Label x:Name="InstitutionTypeValueLabel" Grid.Column="1" Margin="0" Grid.Row="3"
                VerticalContentAlignment="Center">
             <Label.Content>
-                <AccessText Margin="0" TextWrapping="Wrap" Text="" />
+                <AccessText Margin="0" TextWrapping="Wrap"
+                            Text="{Binding ElementName=EducationView, Path=InstitutionType}" />
             </Label.Content>
         </Label>
         <Label x:Name="EndDateLabel" Content="Дата окончания учебы:" Margin="0" Grid.Row="4" Grid.Column="0"
@@ -53,7 +56,7 @@
         <Label x:Name="EndDateValueLabel" Grid.Column="1" Margin="0" Grid.Row="4"
                VerticalContentAlignment="Center">
             <Label.Content>
-                <AccessText Margin="0" TextWrapping="Wrap" Text="" />
+                <AccessText Margin="0" TextWrapping="Wrap" Text="{Binding ElementName=EducationView, Path=EndDate}" />
             </Label.Content>
         </Label>
         <Label x:Name="FacultyLabel" Content="Факультет:" Margin="0" Grid.Row="5" Grid.Column="0"
@@ -61,7 +64,7 @@
         <Label x:Name="FacultyValueLabel" Grid.Column="1" Margin="0" Grid.Row="5"
                VerticalContentAlignment="Center">
             <Label.Content>
-                <AccessText Margin="0" TextWrapping="Wrap" Text="" />
+                <AccessText Margin="0" TextWrapping="Wrap" Text="{Binding ElementName=EducationView, Path=Faculty}" />
             </Label.Content>
         </Label>
         <Label x:Name="SpecialtyLabel" Content="Специальность:" Margin="0" Grid.Row="6" Grid.Column="0"
@@ -69,7 +72,7 @@
         <Label x:Name="SpecialtyValueLabel" Grid.Column="1" Margin="0" Grid.Row="6"
                VerticalContentAlignment="Center">
             <Label.Content>
-                <AccessText Margin="0" TextWrapping="Wrap" Text="" />
+                <AccessText Margin="0" TextWrapping="Wrap" Text="{Binding ElementName=EducationView, Path=Specialty}" />
             </Label.Content>
         </Label>
     </Grid>
