@@ -45,7 +45,7 @@ namespace MilitaryCommissariat.Windows
             {
                 var view = new EducationPlaceView();
                 view.Margin = new Thickness(5);
-                view.CollapseButtons = false;
+                view.CollapseButtons = true;
                 view.EducationPlace = educationPlace;
                 EducationPlacePanel.Children.Add(view);
             }
