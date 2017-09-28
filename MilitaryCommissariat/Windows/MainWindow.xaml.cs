@@ -89,5 +89,16 @@ namespace MilitaryCommissariat.Windows
             drafteeWindow.Closed += (sender, args) => { Show(); };
             drafteeWindow.Show();
         }
+
+        private void ResultsListView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            TableDraftee tableDraftee = ResultsListView.SelectedItem as TableDraftee;
+            if (tableDraftee == null)
+            {
+                MessageBox.Show(this, "Не выбрана запись в таблице!", "Сообщение");
+                return;
+            }
+            OpenDrafteeWindow(tableDraftee.Id);
+        }
     }
 }

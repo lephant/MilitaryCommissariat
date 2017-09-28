@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Учет призывников" Height="350" Width="530" MinWidth="530" MinHeight="350">
     <Grid>
-        <ListView ctrl:ListViewLayoutManager.Enabled="true" x:Name="ResultsListView" Margin="10,54,10,42" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Top" Background="White" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalContentAlignment="Stretch" SelectionMode="Single" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListView ctrl:ListViewLayoutManager.Enabled="true" x:Name="ResultsListView" Margin="10,54,10,42" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Top" Background="White" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalContentAlignment="Stretch" SelectionMode="Single" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseDoubleClick="ResultsListView_MouseDoubleClick">
             <ListView.View>
                 <GridView AllowsColumnReorder="False">
                     <GridViewColumn x:Name="FullNameColumn" DisplayMemberBinding="{Binding Path=FullName}" ctrl:ProportionalColumn.Width="1">ФИО призывника</GridViewColumn>
