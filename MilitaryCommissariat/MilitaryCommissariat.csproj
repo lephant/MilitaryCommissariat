@@ -78,6 +78,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\EditDrafteeCommonInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditDrafteeDocumentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditDrafteeEducationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditDrafteeRelativeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditEducationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditRelativeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -129,6 +153,24 @@
     </Compile>
     <Compile Include="Windows\DrafteeWindow.xaml.cs">
       <DependentUpon>DrafteeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditDrafteeCommonInfoWindow.xaml.cs">
+      <DependentUpon>EditDrafteeCommonInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditDrafteeDocumentWindow.xaml.cs">
+      <DependentUpon>EditDrafteeDocumentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditDrafteeEducationWindow.xaml.cs">
+      <DependentUpon>EditDrafteeEducationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditDrafteeRelativeWindow.xaml.cs">
+      <DependentUpon>EditDrafteeRelativeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditEducationWindow.xaml.cs">
+      <DependentUpon>EditEducationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditRelativeWindow.xaml.cs">
+      <DependentUpon>EditRelativeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
