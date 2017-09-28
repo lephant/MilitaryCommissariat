@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using MilitaryCommissariat.Converters;
 using MilitaryCommissariat.DAO;
+using MilitaryCommissariat.Domain;
 
 namespace MilitaryCommissariat.Windows
 {
@@ -22,13 +24,27 @@ namespace MilitaryCommissariat.Windows
 
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
         {
+            FillData(GetCurrentDraftee());
+        }
+
+        private Draftee GetCurrentDraftee()
+        {
             var dao = new DrafteeDao();
             var converter = new DrafteeConverter();
-            var draftee = converter.Convert(dao.GetById(DrafteeId));
+            return converter.Convert(dao.GetById(DrafteeId));
+        }
+
+        private void FillData(Draftee draftee)
+        {
             FirstNameValueLabel.Content = draftee.FirstName;
             LastNameValueLabel.Content = draftee.LastName;
             PatronymicValueLabel.Content = draftee.Patronymic;
             BirthDateValueLabel.Content = draftee.BirthDate.ToString("yyyy.MM.dd");
+        }
+
+        public void Refresh()
+        {
+            FillData(GetCurrentDraftee());
         }
 
         private void ReturnButton_Click(object sender, RoutedEventArgs e)
