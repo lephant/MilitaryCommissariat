@@ -62,50 +62,69 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Label x:Name="CommonInfoTitle" Content="Общие сведения:" VerticalContentAlignment="Center"
                    HorizontalContentAlignment="Center" Grid.ColumnSpan="2" />
             <Label x:Name="BirthPlaceLabel" Content="Место рождения:" Grid.Row="1" Grid.Column="0" />
-            <Label x:Name="BitrhPlaceValueLabel" Content="" Grid.Column="1" Margin="0"
-                   Grid.Row="1" VerticalAlignment="Center" />
+            <Label x:Name="BitrhPlaceValueLabel" Grid.Column="1" Margin="0"
+                   Grid.Row="1" VerticalAlignment="Center">
+                <Label.Content>
+                    <AccessText Margin="0" TextWrapping="Wrap" Text="" />
+                </Label.Content>
+            </Label>
             <Label x:Name="AddressTitle" Content="Адрес места жительства:" Grid.Row="2" Grid.ColumnSpan="2"
                    Grid.Column="0" HorizontalContentAlignment="Center" />
             <Label x:Name="MunicipalDistrictLabel" Content="Муниципальный округ:" HorizontalAlignment="Left"
-                   VerticalAlignment="Top" Grid.Row="3"
-                   Grid.Column="0" />
-            <Label x:Name="MunicipalDistrictValueLabel" Content="" Grid.Row="3" Grid.Column="1" />
+                   VerticalAlignment="Top" Grid.Row="3" Grid.Column="0" />
+            <Label x:Name="MunicipalDistrictValueLabel" Grid.Row="3" Grid.Column="1">
+                <Label.Content>
+                    <AccessText Margin="0" TextWrapping="Wrap" Text="" />
+                </Label.Content>
+            </Label>
             <Label x:Name="MailIndexLabel" Content="Почтовый индекс:" HorizontalAlignment="Left"
-                   VerticalAlignment="Top" Grid.Row="4"
-                   Grid.Column="0" />
-            <Label x:Name="MailIndexValueLabel" Content=""
-                   Grid.Row="4" Grid.Column="1" />
+                   VerticalAlignment="Top" Grid.Row="4" Grid.Column="0" />
+            <Label x:Name="MailIndexValueLabel" Grid.Row="4" Grid.Column="1">
+                <Label.Content>
+                    <AccessText Margin="0" TextWrapping="Wrap" Text="" />
+                </Label.Content>
+            </Label>
             <Label x:Name="StreetNameLabel" Content="Улица:" HorizontalAlignment="Left" VerticalAlignment="Top"
-                   Grid.Row="5"
-                   Grid.Column="0" />
-            <Label x:Name="StreetNameValueLabel" Content=""
-                   Grid.Row="5" Grid.Column="1" />
+                   Grid.Row="5" Grid.Column="0" />
+            <Label x:Name="StreetNameValueLabel" Grid.Row="5" Grid.Column="1">
+                <Label.Content>
+                    <AccessText Margin="0" TextWrapping="Wrap" Text="" />
+                </Label.Content>
+            </Label>
             <Label x:Name="HouseNumberLabel" Content="Дом:" HorizontalAlignment="Left" VerticalAlignment="Top"
-                   Grid.Row="6"
-                   Grid.Column="0" />
-            <Label x:Name="HouseNumberValueLabel" Content=""
-                   Grid.Row="6" Grid.Column="1" />
+                   Grid.Row="6" Grid.Column="0" />
+            <Label x:Name="HouseNumberValueLabel" Grid.Row="6" Grid.Column="1">
+                <Label.Content>
+                    <AccessText Margin="0" TextWrapping="Wrap" Text="" />
+                </Label.Content>
+            </Label>
             <Label x:Name="HousingNumberLabel" Content="Корпус:" HorizontalAlignment="Left" VerticalAlignment="Top"
-                   Grid.Row="7"
-                   Grid.Column="0" />
-            <Label x:Name="HousingNumberValueLabel" Content=""
-                   Grid.Row="7" Grid.Column="1" />
+                   Grid.Row="7" Grid.Column="0" />
+            <Label x:Name="HousingNumberValueLabel" Grid.Row="7" Grid.Column="1">
+                <Label.Content>
+                    <AccessText Margin="0" TextWrapping="Wrap" Text="" />
+                </Label.Content>
+            </Label>
             <Label x:Name="ApartmentLabel" Content="Квартира:" HorizontalAlignment="Left" VerticalAlignment="Top"
-                   Grid.Row="8"
-                   Grid.Column="0" />
-            <Label x:Name="ApartmentValueLabel" Content=""
-                   Grid.Row="8" Grid.Column="1" />
+                   Grid.Row="8" Grid.Column="0" />
+            <Label x:Name="ApartmentValueLabel" Grid.Row="8" Grid.Column="1">
+                <Label.Content>
+                    <AccessText Margin="0" TextWrapping="Wrap" Text="" />
+                </Label.Content>
+            </Label>
             <Label x:Name="HomePhoneLabel" Content="Домашний телефон:" HorizontalAlignment="Left"
-                   VerticalAlignment="Top" Grid.Row="9"
-                   Grid.Column="0" />
-            <Label x:Name="HomePhoneValueLabel" Content=""
-                   Grid.Row="9" Grid.Column="1" />
+                   VerticalAlignment="Top" Grid.Row="9" Grid.Column="0" />
+            <Label x:Name="HomePhoneValueLabel" Grid.Row="9" Grid.Column="1">
+                <Label.Content>
+                    <AccessText Margin="0" TextWrapping="Wrap" Text="" />
+                </Label.Content>
+            </Label>
         </Grid>
         <Grid Margin="0" Grid.Row="3">
             <Grid.ColumnDefinitions>

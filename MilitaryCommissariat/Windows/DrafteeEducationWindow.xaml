@@ -76,7 +76,9 @@
                 <Label x:Name="ForeignLanguagesLabel" Content="Иностранные языки:" Margin="0" Grid.Row="1"
                        VerticalContentAlignment="Center" />
                 <Label x:Name="ForeignLanguagesValueLabel" Grid.Column="1" Margin="0" Grid.Row="1">
-                    <AccessText Margin="0" TextWrapping="Wrap" Text="" />
+                    <Label.Content>
+                        <AccessText Margin="0" TextWrapping="Wrap" Text="" />
+                    </Label.Content>
                 </Label>
             </Grid>
             <Grid HorizontalAlignment="Stretch" Margin="0,0,0,10" Grid.Row="5" VerticalAlignment="Stretch" Width="Auto">
