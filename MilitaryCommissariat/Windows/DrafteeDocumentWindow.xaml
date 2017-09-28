@@ -59,7 +59,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="5" />
-                <RowDefinition Height="40" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Label x:Name="DocumentTitleLabel" Content="Документы, удостоверяющие личность" Margin="0" Grid.Row="0"
