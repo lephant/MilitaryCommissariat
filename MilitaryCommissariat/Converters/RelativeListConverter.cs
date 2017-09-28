@@ -15,6 +15,7 @@ namespace MilitaryCommissariat.Converters
                 Relative relative = new Relative();
                 relative.Id = (long) dataRow["id"];
                 relative.DrafteeId = (long) dataRow["draftee_id"];
+                relative.RelationshipType = DbConverterUtils.ConvertString(dataRow["relationship_type"]);
                 relative.FullName = DbConverterUtils.ConvertString(dataRow["full_name"]);
                 relative.BirthYear = DbConverterUtils.ConvertInt(dataRow["birth_year"]);
                 relative.BirthPlace = DbConverterUtils.ConvertString(dataRow["birth_place"]);
