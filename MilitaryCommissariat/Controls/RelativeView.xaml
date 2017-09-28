@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="MilitaryCommissariat.Controls.RelativeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MilitaryCommissariat.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="160" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="0" Grid.RowSpan="6" CornerRadius="3"
+                Grid.ColumnSpan="2" />
+        <WrapPanel Grid.Row="0" Grid.Column="0" Margin="0" Grid.ColumnSpan="2" FlowDirection="RightToLeft">
+            <Button x:Name="EditButton" Content="Редактировать" Width="110" Margin="2,2,19,2" />
+            <Button x:Name="DeleteButton" Content="Удалить" Width="80" Margin="2,2,2,2" />
+        </WrapPanel>
+        <Label x:Name="RelationshipTypeLabel" Content="Родство:" Margin="0" Grid.Row="1" Grid.Column="0"
+               VerticalContentAlignment="Center" />
+        <Label x:Name="RelationshipTypeValueLabel" Grid.Column="1" Margin="0" Grid.Row="1"
+               VerticalContentAlignment="Center">
+            <Label.Content>
+                <AccessText Margin="0" TextWrapping="Wrap" Text="{Binding ElementName=RelativeView, Path=Education}" />
+            </Label.Content>
+        </Label>
+        <Label x:Name="FullNameLabel" Content="ФИО:" Margin="0" Grid.Row="2" Grid.Column="0"
+               VerticalContentAlignment="Center" />
+        <Label x:Name="FullNameValueLabel" Grid.Column="1" Margin="0" Grid.Row="2"
+               VerticalContentAlignment="Center">
+            <Label.Content>
+                <AccessText Margin="0" TextWrapping="Wrap"
+                            Text="{Binding ElementName=EducationView, Path=EducationName}" />
+            </Label.Content>
+        </Label>
+        <Label x:Name="BirthYearLabel" Content="Год рождения:" Margin="0" Grid.Row="3" Grid.Column="0"
+               VerticalContentAlignment="Center" />
+        <Label x:Name="BirthYearValueLabel" Grid.Column="1" Margin="0" Grid.Row="3"
+               VerticalContentAlignment="Center">
+            <Label.Content>
+                <AccessText Margin="0" TextWrapping="Wrap"
+                            Text="{Binding ElementName=EducationView, Path=InstitutionType}" />
+            </Label.Content>
+        </Label>
+        <Label x:Name="BirthPlaceLabel" Content="Место рождения:" Margin="0" Grid.Row="4" Grid.Column="0"
+               VerticalContentAlignment="Center" />
+        <Label x:Name="BirthPlaceValueLabel" Grid.Column="1" Margin="0" Grid.Row="4"
+               VerticalContentAlignment="Center">
+            <Label.Content>
+                <AccessText Margin="0" TextWrapping="Wrap" Text="{Binding ElementName=EducationView, Path=EndDate}" />
+            </Label.Content>
+        </Label>
+        <Label x:Name="WorkPlaceLabel" Content="Место работы:" Margin="0" Grid.Row="5" Grid.Column="0"
+               VerticalContentAlignment="Center" />
+        <Label x:Name="WorkPlaceValueLabel" Grid.Column="1" Margin="0" Grid.Row="5"
+               VerticalContentAlignment="Center">
+            <Label.Content>
+                <AccessText Margin="0" TextWrapping="Wrap" Text="{Binding ElementName=EducationView, Path=Faculty}" />
+            </Label.Content>
+        </Label>
+    </Grid>
+</UserControl>
