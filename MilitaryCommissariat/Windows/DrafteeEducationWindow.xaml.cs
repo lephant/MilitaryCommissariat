@@ -44,6 +44,7 @@ namespace MilitaryCommissariat.Windows
             foreach (var educationPlace in educations)
             {
                 var view = new EducationPlaceView();
+                view.Margin = new Thickness(5);
                 view.CollapseButtons = false;
                 view.EducationPlace = educationPlace;
                 EducationPlacePanel.Children.Add(view);
