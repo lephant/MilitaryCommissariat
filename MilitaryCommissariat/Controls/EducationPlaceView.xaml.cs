@@ -129,7 +129,7 @@ namespace MilitaryCommissariat.Controls
         public bool CollapseButtons
         {
             get { return (bool) GetValue(CollapseButtonsProperty); }
-            set { SetValue(CollapseButtonsProperty, value);}
+            set { SetValue(CollapseButtonsProperty, value); }
         }
 
         public event RoutedPropertyChangedEventHandler<EducationPlace> DeleteButtonClicked
