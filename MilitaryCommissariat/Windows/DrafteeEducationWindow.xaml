@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:lib="clr-namespace:MilitaryCommissariat.Controls"
         Title="Места обучения" Height="511.25" Width="500">
-    <ScrollViewer VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+    <ScrollViewer VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalScrollBarVisibility="Auto">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="115" />
