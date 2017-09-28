@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MilitaryCommissariat.Controls"
              mc:Ignorable="d"
+             Name="RelView"
              d:DesignHeight="160" d:DesignWidth="300">
     <Grid>
         <Grid.RowDefinitions>
@@ -30,7 +31,7 @@
         <Label x:Name="RelationshipTypeValueLabel" Grid.Column="1" Margin="0" Grid.Row="1"
                VerticalContentAlignment="Center">
             <Label.Content>
-                <AccessText Margin="0" TextWrapping="Wrap" Text="{Binding ElementName=RelativeView, Path=Education}" />
+                <AccessText Margin="0" TextWrapping="Wrap" Text="{Binding ElementName=RelView, Path=RelationshipType}" />
             </Label.Content>
         </Label>
         <Label x:Name="FullNameLabel" Content="ФИО:" Margin="0" Grid.Row="2" Grid.Column="0"
@@ -39,7 +40,7 @@
                VerticalContentAlignment="Center">
             <Label.Content>
                 <AccessText Margin="0" TextWrapping="Wrap"
-                            Text="{Binding ElementName=EducationView, Path=EducationName}" />
+                            Text="{Binding ElementName=RelView, Path=FullName}" />
             </Label.Content>
         </Label>
         <Label x:Name="BirthYearLabel" Content="Год рождения:" Margin="0" Grid.Row="3" Grid.Column="0"
@@ -48,7 +49,7 @@
                VerticalContentAlignment="Center">
             <Label.Content>
                 <AccessText Margin="0" TextWrapping="Wrap"
-                            Text="{Binding ElementName=EducationView, Path=InstitutionType}" />
+                            Text="{Binding ElementName=RelView, Path=BirthYear}" />
             </Label.Content>
         </Label>
         <Label x:Name="BirthPlaceLabel" Content="Место рождения:" Margin="0" Grid.Row="4" Grid.Column="0"
@@ -56,7 +57,7 @@
         <Label x:Name="BirthPlaceValueLabel" Grid.Column="1" Margin="0" Grid.Row="4"
                VerticalContentAlignment="Center">
             <Label.Content>
-                <AccessText Margin="0" TextWrapping="Wrap" Text="{Binding ElementName=EducationView, Path=EndDate}" />
+                <AccessText Margin="0" TextWrapping="Wrap" Text="{Binding ElementName=RelView, Path=BirthPlace}" />
             </Label.Content>
         </Label>
         <Label x:Name="WorkPlaceLabel" Content="Место работы:" Margin="0" Grid.Row="5" Grid.Column="0"
@@ -64,7 +65,7 @@
         <Label x:Name="WorkPlaceValueLabel" Grid.Column="1" Margin="0" Grid.Row="5"
                VerticalContentAlignment="Center">
             <Label.Content>
-                <AccessText Margin="0" TextWrapping="Wrap" Text="{Binding ElementName=EducationView, Path=Faculty}" />
+                <AccessText Margin="0" TextWrapping="Wrap" Text="{Binding ElementName=RelView, Path=WorkPlace}" />
             </Label.Content>
         </Label>
     </Grid>
