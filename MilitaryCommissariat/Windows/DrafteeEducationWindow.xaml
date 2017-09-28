@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         xmlns:lib="clr-namespace:MilitaryCommissariat.Controls"
         Title="Места обучения" Height="511.25" Width="500">
-    <ScrollViewer VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalScrollBarVisibility="Auto">
+    <ScrollViewer VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"
+                  VerticalScrollBarVisibility="Auto">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="115" />
@@ -64,18 +65,14 @@
                 <Button Grid.Row="2" Content="Добавить" HorizontalAlignment="Right" Padding="10,1" Margin="0,5,5,5"
                         Height="26" Visibility="Collapsed" />
             </Grid>
-            <Grid Grid.Row="3">
+            <Grid Grid.Row="3" Margin="5,5,5,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition MinHeight="10" Height="1*" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Label x:Name="ForeignLanguagesLabel" Content="Иностранные языки:" Margin="0" Grid.Row="1"
+                <Label x:Name="ForeignLanguagesLabel" Content="Иностранные языки:" Margin="0"
                        VerticalContentAlignment="Center" />
-                <Label x:Name="ForeignLanguagesValueLabel" Grid.Column="1" Margin="0" Grid.Row="1">
+                <Label x:Name="ForeignLanguagesValueLabel" Grid.Column="1" Margin="0">
                     <Label.Content>
                         <AccessText Margin="0" TextWrapping="Wrap" Text="" />
                     </Label.Content>
