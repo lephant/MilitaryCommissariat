@@ -21,6 +21,7 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="0" Grid.RowSpan="7" CornerRadius="3" Grid.ColumnSpan="2"/>
         <WrapPanel Grid.Row="0" Grid.Column="0" Margin="0" Grid.ColumnSpan="2" FlowDirection="RightToLeft">
             <Button x:Name="EditButton" Content="Редактировать" Width="110" Margin="2,2,19,2" />
             <Button x:Name="DeleteButton" Content="Удалить" Width="80" Margin="2,2,2,2" />
