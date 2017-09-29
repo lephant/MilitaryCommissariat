@@ -6,126 +6,117 @@
         xmlns:local="clr-namespace:MilitaryCommissariat.Windows"
         mc:Ignorable="d"
         Title="Документы удостоверяющие личность" Height="416" Width="551" ResizeMode="NoResize">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="115" />
-            <RowDefinition Height="10" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="40" />
-        </Grid.RowDefinitions>
-        <Grid Height="115" VerticalAlignment="Top">
+    <ScrollViewer HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                  VerticalScrollBarVisibility="Auto">
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
+                <RowDefinition Height="115" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="40" />
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="1*" />
-            </Grid.ColumnDefinitions>
-            <Label x:Name="LastNameLabel" Content="Фамилия:" HorizontalAlignment="Left" Margin="10,0,0,0"
-                   VerticalAlignment="Center" Grid.Row="1" Height="25.96" Width="62.16" />
-            <Label x:Name="PatronymicLabel" Content="Отчество:" HorizontalAlignment="Left" Margin="10,0,0,0"
-                   VerticalAlignment="Center" Grid.Row="2"
-                   Grid.Column="0" Height="25.96" Width="63.48" />
-            <Label x:Name="LastNameValueLabel" Content="" Margin="0" Grid.Column="1" Background="Transparent"
-                   Grid.Row="1" VerticalContentAlignment="Center" />
-            <Label x:Name="PatronymicValueLabel" Content="" Margin="0" Grid.Row="2" Grid.Column="1"
-                   VerticalContentAlignment="Center" />
-            <Label x:Name="FirstNameLabel" Content="Имя:" HorizontalAlignment="Left" Margin="0"
-                   VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" Height="25.96" Width="36.05" />
-            <Label x:Name="BirthDateLabel" Content="Дата рождения:" HorizontalAlignment="Left" Margin="0"
-                   VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" Height="25.96" Width="97.157" />
-            <Label x:Name="FirstNameValueLabel" Content="" Margin="0" Grid.Column="3" Grid.Row="1"
-                   VerticalContentAlignment="Center" />
-            <Label x:Name="BirthDateValueLabel" Content="" Margin="0" Grid.Column="3" Grid.Row="2"
-                   VerticalContentAlignment="Center" />
-            <Label x:Name="TitleLabel" Content="Учетная карточка призывника" Margin="0"
-                   Grid.Row="0" Grid.ColumnSpan="4" Grid.Column="0"
-                   HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" />
-        </Grid>
-        <Separator Height="10" Margin="0" VerticalAlignment="Top"
-                   HorizontalContentAlignment="Center" Grid.Row="1" />
-        <Grid Grid.Row="2" Margin="5,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition Width="5" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="5" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Label x:Name="DocumentTitleLabel" Content="Документы, удостоверяющие личность" Margin="0" Grid.Row="0"
-                   Grid.ColumnSpan="3"
-                   Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            <Border BorderBrush="Black" BorderThickness="2,2,2,1" Grid.Row="1" Margin="0,0,0,0" Grid.ColumnSpan="3"
-                    Grid.Column="0">
-                <Label x:Name="PassportTitleLabel" Content="Паспорт" HorizontalAlignment="Center"
-                       VerticalAlignment="Center" />
-            </Border>
-            <Border BorderBrush="Black" BorderThickness="2,1,2,2" Margin="0" Grid.Row="2" Grid.ColumnSpan="3"
-                    Grid.Column="0">
-                <WrapPanel>
-                    <Label x:Name="PassportSeriesLabel" Content="Серия:" />
-                    <Label x:Name="PassportSeriesValueLabel" Content="" MinWidth="80" Margin="0,0,10,0" />
-                    <Label x:Name="PassportNumberLabel" Content="Номер:" />
-                    <Label x:Name="PassportNumberValueLabel" Content="" MinWidth="100" Margin="0,0,10,0" />
-                    <Label x:Name="PassportIssueDateLabel" Content="Дата выдачи:" />
-                    <Label x:Name="PassportIssueDateValueLabel" Content="" MinWidth="100" />
-                    <Label x:Name="PassportIssuedByLabel" Content="Кем выдан:" />
-                    <Label x:Name="PassportIssuedByValueLabel" Content="" />
-                </WrapPanel>
-            </Border>
-            <Border BorderBrush="Black" BorderThickness="2,2,2,1" Grid.Row="4" Grid.Column="0">
-                <Label Padding="5,0,5,0" VerticalContentAlignment="Center">
-                    <Label.Content>
+            <Grid Height="115" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Label x:Name="LastNameLabel" Content="Фамилия:" HorizontalAlignment="Left" Margin="10,0,0,0"
+                       VerticalAlignment="Center" Grid.Row="1" Height="25.96" Width="62.16" />
+                <Label x:Name="PatronymicLabel" Content="Отчество:" HorizontalAlignment="Left" Margin="10,0,0,0"
+                       VerticalAlignment="Center" Grid.Row="2"
+                       Grid.Column="0" Height="25.96" Width="63.48" />
+                <Label x:Name="LastNameValueLabel" Content="" Margin="0" Grid.Column="1" Background="Transparent"
+                       Grid.Row="1" VerticalContentAlignment="Center" />
+                <Label x:Name="PatronymicValueLabel" Content="" Margin="0" Grid.Row="2" Grid.Column="1"
+                       VerticalContentAlignment="Center" />
+                <Label x:Name="FirstNameLabel" Content="Имя:" HorizontalAlignment="Left" Margin="0"
+                       VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" Height="25.96" Width="36.05" />
+                <Label x:Name="BirthDateLabel" Content="Дата рождения:" HorizontalAlignment="Left" Margin="0"
+                       VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" Height="25.96" Width="97.157" />
+                <Label x:Name="FirstNameValueLabel" Content="" Margin="0" Grid.Column="3" Grid.Row="1"
+                       VerticalContentAlignment="Center" />
+                <Label x:Name="BirthDateValueLabel" Content="" Margin="0" Grid.Column="3" Grid.Row="2"
+                       VerticalContentAlignment="Center" />
+                <Label x:Name="TitleLabel" Content="Учетная карточка призывника" Margin="0"
+                       Grid.Row="0" Grid.ColumnSpan="4" Grid.Column="0"
+                       HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" />
+            </Grid>
+            <Separator Height="10" Margin="0" VerticalAlignment="Top"
+                       HorizontalContentAlignment="Center" Grid.Row="1" />
+            <Grid Grid.Row="2" Margin="5,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label x:Name="DocumentTitleLabel" Content="Документы, удостоверяющие личность" Margin="0" Grid.Row="0"
+                       Grid.ColumnSpan="3"
+                       Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Border BorderBrush="Black" BorderThickness="2,2,2,1" Grid.Row="1" Margin="0,0,0,0" Grid.ColumnSpan="3"
+                        Grid.Column="0">
+                    <Label x:Name="PassportTitleLabel" Content="Паспорт" HorizontalAlignment="Center"
+                           VerticalAlignment="Center" />
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="2,1,2,2" Margin="0" Grid.Row="2" Grid.ColumnSpan="3"
+                        Grid.Column="0">
+                    <WrapPanel>
+                        <Label x:Name="PassportSeriesLabel" Content="Серия:" MinWidth="140" Margin="0,0,10,0" />
+                        <Label x:Name="PassportNumberLabel" Content="Номер:" MinWidth="140" Margin="0,0,10,0" />
+                        <Label x:Name="PassportIssueDateLabel" Content="Дата выдачи:" MinWidth="160" />
+                        <Label x:Name="PassportIssuedByLabel" Content="Кем выдан:" MinWidth="300" />
+                    </WrapPanel>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="2,2,2,1" Grid.Row="4" Grid.Column="0">
+                    <Label Padding="5,0,5,0" VerticalContentAlignment="Center">
                         <AccessText Margin="0" TextWrapping="Wrap"
                                     Text="Удостоверение гражданина, подлежащего призыву на военную службу" />
-                    </Label.Content>
-                </Label>
-            </Border>
-            <Border BorderBrush="Black" BorderThickness="2,2,2,1" Grid.Row="4" Grid.Column="2">
-                <Label x:Name="TicketTitleLabel" Content="Военный билет" HorizontalAlignment="Center"
-                       VerticalAlignment="Center" />
+                    </Label>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="2,2,2,1" Grid.Row="4" Grid.Column="2">
+                    <Label x:Name="TicketTitleLabel" Content="Военный билет" HorizontalAlignment="Center"
+                           VerticalAlignment="Center" />
 
-            </Border>
-            <Border BorderBrush="Black" BorderThickness="2,1,2,2" Grid.Row="5" Grid.Column="0">
-                <WrapPanel>
-                    <Label x:Name="CertificateSeriesLabel" Content="Серия:" />
-                    <Label x:Name="CertificateSeriesValueLabel" Content="" MinWidth="60" Margin="0,0,10,0" />
-                    <Label x:Name="CertificateNumberLabel" Content="Номер:" />
-                    <Label x:Name="CertificateNumberValueLabel" Content="" MinWidth="80" Margin="0" />
-                    <Label x:Name="CertificateIssueDateLabel" Content="Дата выдачи:" />
-                    <Label x:Name="CertificateIssueDateValueLabel" Content="" MinWidth="100" />
-                </WrapPanel>
-            </Border>
-            <Border BorderBrush="Black" BorderThickness="2,1,2,2" Grid.Row="5" Grid.Column="2">
-                <WrapPanel>
-                    <Label x:Name="TicketSeriesLabel" Content="Серия:" />
-                    <Label x:Name="TicketSeriesValueLabel" Content="" MinWidth="60" Margin="0,0,10,0" />
-                    <Label x:Name="TicketNumberLabel" Content="Номер:" />
-                    <Label x:Name="TicketNumberValueLabel" Content="" MinWidth="80" Margin="0" />
-                    <Label x:Name="TicketIssueDateLabel" Content="Дата выдачи:" />
-                    <Label x:Name="TicketIssueDateValueLabel" Content="" MinWidth="100" />
-                </WrapPanel>
-            </Border>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="2,1,2,2" Grid.Row="5" Grid.Column="0">
+                    <WrapPanel>
+                        <Label x:Name="CertificateSeriesLabel" Content="Серия:" MinWidth="100" Margin="0,0,10,0" />
+                        <Label x:Name="CertificateNumberLabel" Content="Номер:" MinWidth="110" Margin="0" />
+                        <Label x:Name="CertificateIssueDateLabel" Content="Дата выдачи:" MinWidth="180" />
+                    </WrapPanel>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="2,1,2,2" Grid.Row="5" Grid.Column="2">
+                    <WrapPanel>
+                        <Label x:Name="TicketSeriesLabel" Content="Серия:" MinWidth="100" Margin="0,0,10,0" />
+                        <Label x:Name="TicketNumberLabel" Content="Номер:" MinWidth="110" Margin="0" />
+                        <Label x:Name="TicketIssueDateLabel" Content="Дата выдачи:" MinWidth="180" />
+                    </WrapPanel>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Stretch" Margin="0,10,0,0" Grid.Row="3" VerticalAlignment="Stretch" Width="Auto">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="SelectButton" Content="Перейти" HorizontalAlignment="Left" Margin="10,0,0,0"
+                        VerticalAlignment="Center" Width="75" Height="26" Grid.Column="1" />
+                <Button x:Name="ReturnButton" Content="Вернуться" HorizontalAlignment="Right" Margin="0,0,10,0"
+                        VerticalAlignment="Center" Width="75" Height="26" Grid.Column="0" />
+            </Grid>
         </Grid>
-        <Grid HorizontalAlignment="Stretch" Margin="0,10,0,0" Grid.Row="3" VerticalAlignment="Stretch" Width="Auto">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Button x:Name="SelectButton" Content="Перейти" HorizontalAlignment="Left" Margin="10,0,0,0"
-                    VerticalAlignment="Center" Width="75" Height="26" Grid.Column="1" />
-            <Button x:Name="ReturnButton" Content="Вернуться" HorizontalAlignment="Right" Margin="0,0,10,0"
-                    VerticalAlignment="Center" Width="75" Height="26" Grid.Column="0" />
-        </Grid>
-    </Grid>
+    </ScrollViewer>
 </Window>
