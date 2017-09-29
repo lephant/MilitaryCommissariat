@@ -9,9 +9,9 @@ namespace MilitaryCommissariat.Converters
     {
         public Document Convert(DataTable source)
         {
-            if (source.Rows.Count != 1)
+            if (source == null || source.Rows.Count < 1)
             {
-                throw new Exception("Число строк в переданной таблице отличается от 1");
+                return null;
             }
             DataRow dataRow = source.Rows[0];
             Document result = new Document();

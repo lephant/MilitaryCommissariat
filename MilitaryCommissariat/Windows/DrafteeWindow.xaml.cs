@@ -74,8 +74,6 @@ namespace MilitaryCommissariat.Windows
                 case "DocumentItem":
                     OpenDrafteeDocumentWindow();
                     break;
-                default:
-                    throw new Exception("Невозможно открыть этот раздел по техническим причинам!");
             }
         }
 
