@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilitaryCommissariat.Windows"
         mc:Ignorable="d"
-        Title="Документы удостоверяющие личность" Height="416" Width="551" ResizeMode="NoResize">
+        Title="Документы удостоверяющие личность" Height="416" Width="551">
     <ScrollViewer HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
                   VerticalScrollBarVisibility="Auto">
         <Grid>
