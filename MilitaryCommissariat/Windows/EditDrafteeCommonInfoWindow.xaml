@@ -5,8 +5,155 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilitaryCommissariat.Windows"
         mc:Ignorable="d"
-        Title="EditDrafteeCommonInfoWindow" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+        Title="EditDrafteeCommonInfoWindow" Height="459" Width="517">
+    <ScrollViewer HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                  VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="115" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <Grid Height="115" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Label x:Name="LastNameLabel" Content="Фамилия:" HorizontalAlignment="Left" Margin="10,0,0,0"
+                       VerticalAlignment="Center" Grid.Row="1" Height="25.96" Width="62.16" />
+                <Label x:Name="PatronymicLabel" Content="Отчество:" HorizontalAlignment="Left" Margin="10,0,0,0"
+                       VerticalAlignment="Center" Grid.Row="2"
+                       Grid.Column="0" Height="25.96" Width="63.48" />
+                <Label x:Name="LastNameValueLabel" Content="" Margin="0" Grid.Column="1" Background="Transparent"
+                       Grid.Row="1" VerticalContentAlignment="Center" />
+                <Label x:Name="PatronymicValueLabel" Content="" Margin="0" Grid.Row="2" Grid.Column="1"
+                       VerticalContentAlignment="Center" />
+                <Label x:Name="FirstNameLabel" Content="Имя:" HorizontalAlignment="Left" Margin="0"
+                       VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" Height="25.96" Width="36.05" />
+                <Label x:Name="BirthDateLabel" Content="Дата рождения:" HorizontalAlignment="Left" Margin="0"
+                       VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" Height="25.96" Width="97.157" />
+                <Label x:Name="FirstNameValueLabel" Content="" Margin="0" Grid.Column="3" Grid.Row="1"
+                       VerticalContentAlignment="Center" />
+                <Label x:Name="BirthDateValueLabel" Content="" Margin="0" Grid.Column="3" Grid.Row="2"
+                       VerticalContentAlignment="Center" />
+                <Label x:Name="TitleLabel" Content="Учетная карточка призывника" Margin="0"
+                       Grid.Row="0" Grid.ColumnSpan="4" Grid.Column="0"
+                       HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" />
+            </Grid>
+            <Separator Height="10" Margin="0" VerticalAlignment="Top"
+                       HorizontalContentAlignment="Center" Grid.Row="1" />
+            <Grid Margin="0" Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label x:Name="CommonInfoTitle" Content="Общие сведения:" VerticalContentAlignment="Center"
+                       HorizontalContentAlignment="Center" Grid.ColumnSpan="2" FontSize="14" />
+
+                <Label Content="Фамилия:" Grid.Row="1" Grid.Column="0" />
+                <TextBox x:Name="LastNameTextBox" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="1" VerticalAlignment="Center" />
+
+                <Label Content="Имя:" Grid.Row="2" Grid.Column="0" />
+                <TextBox x:Name="FristNameTextBox" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="2" VerticalAlignment="Center" />
+
+                <Label Content="Отчество:" Grid.Row="3" Grid.Column="0" />
+                <TextBox x:Name="PatronymicTextBox" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="3" VerticalAlignment="Center" />
+
+                <Label Content="Дата рождения:" Grid.Row="4" Grid.Column="0" />
+                <TextBox x:Name="BirthDateTextBox" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="4" VerticalAlignment="Center" />
+
+                <Label Content="Место рождения:" Grid.Row="5" Grid.Column="0" />
+                <TextBox x:Name="BirthPlaceTextBox" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="5" VerticalAlignment="Center" />
+
+                <Label Content="Категория:" Grid.Row="6" Grid.Column="0" />
+                <TextBox x:Name="CategoryTextBox" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="6" VerticalAlignment="Center" />
+
+                <Label Content="Роды войск:" Grid.Row="7" Grid.Column="0" />
+                <TextBox x:Name="TroopTypeTextBox" TextWrapping="Wrap" Grid.Column="0" Grid.ColumnSpan="2"
+                         Margin="10,5,5,5" Grid.Row="8" VerticalAlignment="Center" Height="100" />
+
+                <Label Content="Адрес места жительства:" Grid.Row="9" Grid.ColumnSpan="2"
+                       Grid.Column="0" HorizontalContentAlignment="Center" FontSize="14" />
+                
+                <Label Content="Муниципальный округ:" HorizontalAlignment="Left"
+                       VerticalAlignment="Top" Grid.Row="10" Grid.Column="0" />
+                <TextBox x:Name="MunicipalDistrictTextBox" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="10" VerticalAlignment="Center" />
+
+                <Label Content="Почтовый индекс:" HorizontalAlignment="Left"
+                       VerticalAlignment="Top" Grid.Row="11" Grid.Column="0" />
+                <TextBox x:Name="MailIndexTextBox" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="11" VerticalAlignment="Center" />
+                
+                <Label Content="Улица:" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       Grid.Row="12" Grid.Column="0" />
+                <TextBox x:Name="StreetNameTextBox" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="12" VerticalAlignment="Center" />
+                
+                <Label Content="Дом:" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       Grid.Row="13" Grid.Column="0" />
+                <TextBox x:Name="HouseNumberTextBox" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="13" VerticalAlignment="Center" />
+                
+                <Label Content="Корпус:" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       Grid.Row="14" Grid.Column="0" />
+                <TextBox x:Name="HousingNumberTextBox" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="14" VerticalAlignment="Center" />
+                
+                <Label Content="Квартира:" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       Grid.Row="15" Grid.Column="0" />
+                <TextBox x:Name="ApartmentTextBox" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="15" VerticalAlignment="Center" />
+                
+                <Label Content="Домашний телефон:" HorizontalAlignment="Left"
+                       VerticalAlignment="Top" Grid.Row="16" Grid.Column="0" />
+                <TextBox x:Name="HomePhoneTextBox" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="16" VerticalAlignment="Center" />
+            </Grid>
+            <Grid Margin="0" Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ReturnButton" Content="Вернуться" HorizontalAlignment="Right" Margin="0,0,10,0"
+                        VerticalAlignment="Center" Width="75" Height="26" />
+                <Button x:Name="EditButton" Content="Редактировать" Grid.Column="1" HorizontalAlignment="Left"
+                        Margin="10,0,0,0" VerticalAlignment="Center" Height="26" Width="100" />
+            </Grid>
+        </Grid>
+    </ScrollViewer>
 </Window>
