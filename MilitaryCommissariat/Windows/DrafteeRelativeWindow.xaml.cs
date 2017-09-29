@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using MilitaryCommissariat.Controls;
 using MilitaryCommissariat.Converters;
 using MilitaryCommissariat.DAO;
+using MilitaryCommissariat.Domain;
 
 namespace MilitaryCommissariat.Windows
 {
@@ -30,18 +22,36 @@ namespace MilitaryCommissariat.Windows
 
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
         {
-            var drafteeDao = new DrafteeDao();
-            var drafteeConverter = new DrafteeConverter();
-            var draftee = drafteeConverter.Convert(drafteeDao.GetById(DrafteeId));
+            FillData(GetCurrentDraftee());
+            FillData(GetCurrentRelatives());
+        }
+
+        private Draftee GetCurrentDraftee()
+        {
+            var dao = new DrafteeDao();
+            var converter = new DrafteeConverter();
+            return converter.Convert(dao.GetById(DrafteeId));
+        }
+
+        private List<Relative> GetCurrentRelatives()
+        {
+            var educationPlaceDao = new RelativeDao();
+            var educationPlaceConverter = new RelativeListConverter();
+            return educationPlaceConverter.Convert(educationPlaceDao.GetListByDraftee(DrafteeId));
+        }
+
+        private void FillData(Draftee draftee)
+        {
             FirstNameValueLabel.Content = draftee.FirstName;
             LastNameValueLabel.Content = draftee.LastName;
             PatronymicValueLabel.Content = draftee.Patronymic;
             BirthDateValueLabel.Content = draftee.BirthDate.ToString("yyyy.MM.dd");
+        }
 
-            var relativeDao = new RelativeDao();
-            var relativeConverter = new RelativeListConverter();
-            var educations = relativeConverter.Convert(relativeDao.GetListByDraftee(draftee.Id));
-            foreach (var relative in educations)
+        private void FillData(List<Relative> relatives)
+        {
+            RelativePanel.Children.Clear();
+            foreach (var relative in relatives)
             {
                 var view = new RelativeView();
                 view.Margin = new Thickness(5);
@@ -49,6 +59,12 @@ namespace MilitaryCommissariat.Windows
                 view.Relative = relative;
                 RelativePanel.Children.Add(view);
             }
+        }
+
+        public void Refresh()
+        {
+            FillData(GetCurrentDraftee());
+            FillData(GetCurrentRelatives());
         }
     }
 }
