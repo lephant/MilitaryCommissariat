@@ -83,7 +83,7 @@
                          Margin="5" Grid.Row="1" VerticalAlignment="Center" />
 
                 <Label Content="Имя:" Grid.Row="2" Grid.Column="0" />
-                <TextBox x:Name="FristNameTextBox" TextWrapping="Wrap" Grid.Column="1"
+                <TextBox x:Name="FirstNameTextBox" TextWrapping="Wrap" Grid.Column="1"
                          Margin="5" Grid.Row="2" VerticalAlignment="Center" />
 
                 <Label Content="Отчество:" Grid.Row="3" Grid.Column="0" />
