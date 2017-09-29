@@ -46,9 +46,20 @@ namespace MilitaryCommissariat.Windows
             BirthDateValueLabel.Content = draftee.BirthDate.ToString("yyyy.MM.dd");
         }
 
-        private void FillData(Document address)
+        private void FillData(Document document)
         {
+            PassportSeriesLabel.Content = "Серия: " + document.PassportSeries;
+            PassportNumberLabel.Content = "Номер: " + document.PassportNumber;
+            PassportIssueDateLabel.Content = "Дата выдачи: " + document.PassportIssueDate.ToString("yyyy.MM.dd");
+            PassportIssuedByLabel.Content = "Кем выдан: " + document.PassportIssuedBy;
 
+            CertificateSeriesLabel.Content = "Серия: " + document.CertificateSeries;
+            CertificateNumberLabel.Content = "Номер: " + document.CertificateNumber;
+            CertificateIssueDateLabel.Content = "Дата выдачи: " + document.CertificateIssueDate.ToString("yyyy.MM.dd");
+
+            TicketSeriesLabel.Content = "Серия: " + document.TicketSeries;
+            TicketNumberLabel.Content = "Номер: " + document.TicketNumber;
+            TicketIssueDateLabel.Content = "Дата выдачи: " + document.TicketIssueDate.ToString("yyyy.MM.dd");
         }
 
         public void Refresh()
