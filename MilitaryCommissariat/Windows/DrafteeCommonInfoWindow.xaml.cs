@@ -63,5 +63,29 @@ namespace MilitaryCommissariat.Windows
             FillData(GetCurrentDraftee());
             FillData(GetCurrentAddress());
         }
+
+        private void ReturnButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenEditDrafteeCommonInfoWindow();
+        }
+
+        private void OpenEditDrafteeCommonInfoWindow()
+        {
+            var window = new EditDrafteeCommonInfoWindow();
+            window.Owner = this;
+            window.DrafteeId = DrafteeId;
+            Hide();
+            window.Closed += (sender, args) =>
+            {
+                Refresh();
+                Show();
+            };
+            window.Show();
+        }
     }
 }
