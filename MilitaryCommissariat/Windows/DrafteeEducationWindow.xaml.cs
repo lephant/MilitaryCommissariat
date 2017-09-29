@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using MilitaryCommissariat.Controls;
 using MilitaryCommissariat.Converters;
 using MilitaryCommissariat.DAO;
+using MilitaryCommissariat.Domain;
 
 namespace MilitaryCommissariat.Windows
 {
@@ -30,17 +22,35 @@ namespace MilitaryCommissariat.Windows
 
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
         {
-            var drafteeDao = new DrafteeDao();
-            var drafteeConverter = new DrafteeConverter();
-            var draftee = drafteeConverter.Convert(drafteeDao.GetById(DrafteeId));
+            FillData(GetCurrentDraftee());
+            FillData(GetCurrentEducations());
+        }
+
+        private Draftee GetCurrentDraftee()
+        {
+            var dao = new DrafteeDao();
+            var converter = new DrafteeConverter();
+            return converter.Convert(dao.GetById(DrafteeId));
+        }
+
+        private List<EducationPlace> GetCurrentEducations()
+        {
+            var educationPlaceDao = new EducationPlaceDao();
+            var educationPlaceConverter = new EducationPlaceListConverter();
+            return educationPlaceConverter.Convert(educationPlaceDao.GetListByDraftee(DrafteeId));
+        }
+
+        private void FillData(Draftee draftee)
+        {
             FirstNameValueLabel.Content = draftee.FirstName;
             LastNameValueLabel.Content = draftee.LastName;
             PatronymicValueLabel.Content = draftee.Patronymic;
             BirthDateValueLabel.Content = draftee.BirthDate.ToString("yyyy.MM.dd");
+        }
 
-            var educationPlaceDao = new EducationPlaceDao();
-            var educationPlaceConverter = new EducationPlaceListConverter();
-            var educations = educationPlaceConverter.Convert(educationPlaceDao.GetListByDraftee(draftee.Id));
+        private void FillData(List<EducationPlace> educations)
+        {
+            EducationPlacePanel.Children.Clear();
             foreach (var educationPlace in educations)
             {
                 var view = new EducationPlaceView();
@@ -49,6 +59,12 @@ namespace MilitaryCommissariat.Windows
                 view.EducationPlace = educationPlace;
                 EducationPlacePanel.Children.Add(view);
             }
+        }
+
+        public void Refresh()
+        {
+            FillData(GetCurrentDraftee());
+            FillData(GetCurrentEducations());
         }
     }
 }
