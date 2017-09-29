@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilitaryCommissariat.Windows"
         mc:Ignorable="d"
-        Title="EditDrafteeCommonInfoWindow" Height="459" Width="517">
+        Title="Общие сведения" Height="459" Width="517">
     <ScrollViewer HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
                   VerticalScrollBarVisibility="Auto">
         <Grid>
@@ -108,7 +108,7 @@
 
                 <Label Content="Адрес места жительства:" Grid.Row="9" Grid.ColumnSpan="2"
                        Grid.Column="0" HorizontalContentAlignment="Center" FontSize="14" />
-                
+
                 <Label Content="Муниципальный округ:" HorizontalAlignment="Left"
                        VerticalAlignment="Top" Grid.Row="10" Grid.Column="0" />
                 <TextBox x:Name="MunicipalDistrictTextBox" TextWrapping="Wrap" Grid.Column="1"
@@ -118,27 +118,27 @@
                        VerticalAlignment="Top" Grid.Row="11" Grid.Column="0" />
                 <TextBox x:Name="MailIndexTextBox" TextWrapping="Wrap" Grid.Column="1"
                          Margin="5" Grid.Row="11" VerticalAlignment="Center" />
-                
+
                 <Label Content="Улица:" HorizontalAlignment="Left" VerticalAlignment="Top"
                        Grid.Row="12" Grid.Column="0" />
                 <TextBox x:Name="StreetNameTextBox" TextWrapping="Wrap" Grid.Column="1"
                          Margin="5" Grid.Row="12" VerticalAlignment="Center" />
-                
+
                 <Label Content="Дом:" HorizontalAlignment="Left" VerticalAlignment="Top"
                        Grid.Row="13" Grid.Column="0" />
                 <TextBox x:Name="HouseNumberTextBox" TextWrapping="Wrap" Grid.Column="1"
                          Margin="5" Grid.Row="13" VerticalAlignment="Center" />
-                
+
                 <Label Content="Корпус:" HorizontalAlignment="Left" VerticalAlignment="Top"
                        Grid.Row="14" Grid.Column="0" />
                 <TextBox x:Name="HousingNumberTextBox" TextWrapping="Wrap" Grid.Column="1"
                          Margin="5" Grid.Row="14" VerticalAlignment="Center" />
-                
+
                 <Label Content="Квартира:" HorizontalAlignment="Left" VerticalAlignment="Top"
                        Grid.Row="15" Grid.Column="0" />
                 <TextBox x:Name="ApartmentTextBox" TextWrapping="Wrap" Grid.Column="1"
                          Margin="5" Grid.Row="15" VerticalAlignment="Center" />
-                
+
                 <Label Content="Домашний телефон:" HorizontalAlignment="Left"
                        VerticalAlignment="Top" Grid.Row="16" Grid.Column="0" />
                 <TextBox x:Name="HomePhoneTextBox" TextWrapping="Wrap" Grid.Column="1"
