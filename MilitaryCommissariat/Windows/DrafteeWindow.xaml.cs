@@ -103,7 +103,11 @@ namespace MilitaryCommissariat.Windows
             window.Owner = this;
             window.DrafteeId = DrafteeId;
             Hide();
-            window.Closed += (sender, args) => { Show(); };
+            window.Closed += (sender, args) =>
+            {
+                Refresh();
+                Show();
+            };
             window.Show();
         }
 
