@@ -13,6 +13,7 @@
                 <RowDefinition Height="115" />
                 <RowDefinition Height="10" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="1*" />
                 <RowDefinition Height="40" />
             </Grid.RowDefinitions>
             <Grid Height="115" VerticalAlignment="Top">
@@ -107,7 +108,7 @@
                     </WrapPanel>
                 </Border>
             </Grid>
-            <Grid HorizontalAlignment="Stretch" Margin="0,10,0,0" Grid.Row="3" VerticalAlignment="Stretch" Width="Auto">
+            <Grid HorizontalAlignment="Stretch" Margin="0,10,0,0" Grid.Row="4" VerticalAlignment="Stretch" Width="Auto">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
