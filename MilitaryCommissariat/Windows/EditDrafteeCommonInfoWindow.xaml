@@ -149,9 +149,9 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Button x:Name="ReturnButton" Content="Вернуться" HorizontalAlignment="Right" Margin="0,0,10,0"
+                <Button x:Name="CancelButton" Content="Отменить" HorizontalAlignment="Right" Margin="0,0,10,0"
                         VerticalAlignment="Center" Width="75" Height="26" />
-                <Button x:Name="EditButton" Content="Редактировать" Grid.Column="1" HorizontalAlignment="Left"
+                <Button x:Name="SaveButton" Content="Сохранить" Grid.Column="1" HorizontalAlignment="Left"
                         Margin="10,0,0,0" VerticalAlignment="Center" Height="26" Width="100" />
             </Grid>
         </Grid>
