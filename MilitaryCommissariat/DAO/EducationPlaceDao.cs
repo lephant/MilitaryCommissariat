@@ -90,11 +90,20 @@ namespace MilitaryCommissariat.DAO
                     .Append("', ")
                     .Append("institution_type='")
                     .Append(educationPlace.InstitutionType)
-                    .Append("', ")
-                    .Append("end_date='")
-                    .Append(educationPlace.EndDate.ToString("yyyy-MM-dd"))
-                    .Append("', ")
-                    .Append("faculty='")
+                    .Append("', ");
+                if (educationPlace.EndDate != null)
+                {
+                    sqlBuilder.Append("end_date='")
+                        .Append(educationPlace.EndDate.Value.ToString("yyyy-MM-dd"))
+                        .Append("', ");
+                }
+                else
+                {
+                    sqlBuilder.Append("end_date=")
+                        .Append("NULL")
+                        .Append(", ");
+                }
+                sqlBuilder.Append("faculty='")
                     .Append(educationPlace.Faculty)
                     .Append("', ")
                     .Append("specialty='")
@@ -133,11 +142,18 @@ namespace MilitaryCommissariat.DAO
                     .Append("', ")
                     .Append("'")
                     .Append(educationPlace.InstitutionType)
-                    .Append("', ")
-                    .Append("'")
-                    .Append(educationPlace.EndDate.ToString("yyyy-MM-dd"))
-                    .Append("', ")
-                    .Append("'")
+                    .Append("', ");
+                if (educationPlace.EndDate != null)
+                {
+                    sqlBuilder.Append("'")
+                        .Append(educationPlace.EndDate.Value.ToString("yyyy-MM-dd"))
+                        .Append("', ");
+                }
+                else
+                {
+                    sqlBuilder.Append("NULL, ");
+                }
+                sqlBuilder.Append("'")
                     .Append(educationPlace.Faculty)
                     .Append("', ")
                     .Append("'")

@@ -42,18 +42,18 @@ namespace MilitaryCommissariat.Controls
                 typeof(RelativeView));
 
             CollapseButtonsProperty = DependencyProperty.Register("CollapseButtons", typeof(bool),
-                typeof(EducationPlaceView), new FrameworkPropertyMetadata(OnCollapseButtonsChanged));
+                typeof(RelativeView), new FrameworkPropertyMetadata(OnCollapseButtonsChanged));
 
             DeleteButtonClickedEvent = EventManager.RegisterRoutedEvent("DeleteButtonClicked", RoutingStrategy.Bubble,
-                typeof(RoutedPropertyChangedEventHandler<EducationPlace>), typeof(EducationPlaceView));
+                typeof(RoutedPropertyChangedEventHandler<Relative>), typeof(RelativeView));
             EditButtonClickedEvent = EventManager.RegisterRoutedEvent("EditButtonClicked", RoutingStrategy.Bubble,
-                typeof(RoutedPropertyChangedEventHandler<EducationPlace>), typeof(EducationPlaceView));
+                typeof(RoutedPropertyChangedEventHandler<Relative>), typeof(RelativeView));
         }
 
         private static void OnCollapseButtonsChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             bool newValue = (bool) e.NewValue;
-            EducationPlaceView view = (EducationPlaceView) sender;
+            RelativeView view = (RelativeView) sender;
             if (newValue)
             {
                 view.DeleteButton.Visibility = Visibility.Collapsed;
@@ -120,13 +120,13 @@ namespace MilitaryCommissariat.Controls
             set { SetValue(CollapseButtonsProperty, value); }
         }
 
-        public event RoutedPropertyChangedEventHandler<EducationPlace> DeleteButtonClicked
+        public event RoutedPropertyChangedEventHandler<RelativeView> DeleteButtonClicked
         {
             add { AddHandler(DeleteButtonClickedEvent, value); }
             remove { RemoveHandler(DeleteButtonClickedEvent, value); }
         }
 
-        public event RoutedPropertyChangedEventHandler<EducationPlace> EditButtonClicked
+        public event RoutedPropertyChangedEventHandler<RelativeView> EditButtonClicked
         {
             add { AddHandler(EditButtonClickedEvent, value); }
             remove { RemoveHandler(EditButtonClickedEvent, value); }

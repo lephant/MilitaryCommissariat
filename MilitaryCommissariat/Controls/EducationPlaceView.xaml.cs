@@ -39,7 +39,7 @@ namespace MilitaryCommissariat.Controls
                 typeof(EducationPlaceView));
             InstitutionTypeProperty = DependencyProperty.Register("InstitutionType", typeof(string),
                 typeof(EducationPlaceView));
-            EndDateProperty = DependencyProperty.Register("EndDate", typeof(DateTime),
+            EndDateProperty = DependencyProperty.Register("EndDate", typeof(DateTime?),
                 typeof(EducationPlaceView));
             FacultyProperty = DependencyProperty.Register("Faculty", typeof(string),
                 typeof(EducationPlaceView));
@@ -79,7 +79,7 @@ namespace MilitaryCommissariat.Controls
             view.Education = newPlace.Education;
             view.EducationName = newPlace.Name;
             view.InstitutionType = newPlace.InstitutionType;
-            view.EndDate = newPlace.EndDate;
+            if (newPlace.EndDate != null) view.EndDate = newPlace.EndDate.Value;
             view.Faculty = newPlace.Faculty;
             view.Specialty = newPlace.Specialty;
         }
@@ -108,9 +108,9 @@ namespace MilitaryCommissariat.Controls
             set { SetValue(InstitutionTypeProperty, value); }
         }
 
-        public DateTime EndDate
+        public DateTime? EndDate
         {
-            get { return (DateTime) GetValue(EndDateProperty); }
+            get { return (DateTime?) GetValue(EndDateProperty); }
             set { SetValue(EndDateProperty, value); }
         }
 

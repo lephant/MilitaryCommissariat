@@ -64,11 +64,20 @@ namespace MilitaryCommissariat.DAO
                     .Append("', ")
                     .Append("passport_number='")
                     .Append(document.PassportNumber)
-                    .Append("', ")
-                    .Append("passport_issue_date='")
-                    .Append(document.PassportIssueDate.ToString("yyyy-MM-dd"))
-                    .Append("', ")
-                    .Append("passport_issued_by='")
+                    .Append("', ");
+                if (document.PassportIssueDate != null)
+                {
+                    sqlBuilder.Append("passport_issue_date='")
+                        .Append(document.PassportIssueDate.Value.ToString("yyyy-MM-dd"))
+                        .Append("', ");
+                }
+                else
+                {
+                    sqlBuilder.Append("passport_issue_date=")
+                        .Append("NULL")
+                        .Append(", ");
+                }
+                    sqlBuilder.Append("passport_issued_by='")
                     .Append(document.PassportIssuedBy)
                     .Append("', ")
                     .Append("certificate_series='")
@@ -76,18 +85,36 @@ namespace MilitaryCommissariat.DAO
                     .Append("', ")
                     .Append("certificate_number='")
                     .Append(document.CertificateNumber)
-                    .Append("', ")
-                    .Append("certificate_issue_date='")
-                    .Append(document.CertificateIssueDate.ToString("yyyy-MM-dd"))
-                    .Append("', ")
-                    .Append("ticket_series='")
+                    .Append("', ");
+                if (document.CertificateIssueDate != null)
+                {
+                    sqlBuilder.Append("certificate_issue_date='")
+                        .Append(document.CertificateIssueDate.Value.ToString("yyyy-MM-dd"))
+                        .Append("', ");
+                }
+                else
+                {
+                    sqlBuilder.Append("certificate_issue_date=")
+                        .Append("NULL")
+                        .Append(", ");
+                }
+                sqlBuilder.Append("ticket_series='")
                     .Append(document.TicketSeries)
-                    .Append("', ")
-                    .Append("ticket_number='")
+                    .Append("', ");
+                if (document.TicketIssueDate != null)
+                {
+                    sqlBuilder.Append("ticket_issue_date='")
+                        .Append(document.TicketIssueDate.Value.ToString("yyyy-MM-dd"))
+                        .Append("', ");
+                }
+                else
+                {
+                    sqlBuilder.Append("ticket_issue_date=")
+                        .Append("NULL")
+                        .Append(", ");
+                }
+                sqlBuilder.Append("ticket_number='")
                     .Append(document.TicketNumber)
-                    .Append("', ")
-                    .Append("ticket_issue_date='")
-                    .Append(document.TicketIssueDate.ToString("yyyy-MM-dd"))
                     .Append("' ")
                     .Append("WHERE draftee_id=")
                     .Append(document.DrafteeId)

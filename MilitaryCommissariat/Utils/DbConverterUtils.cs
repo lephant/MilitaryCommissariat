@@ -13,13 +13,13 @@ namespace MilitaryCommissariat.Utils
             return (string) source;
         }
 
-        public static DateTime ConvertDateTime(object source)
+        public static DateTime? ConvertDateTime(object source)
         {
             if (Convert.IsDBNull(source))
             {
-                return new DateTime();
+                return null;
             }
-            return (DateTime) source;
+            return (DateTime?) source;
         }
 
         public static long ConvertLong(object source)
