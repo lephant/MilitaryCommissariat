@@ -72,9 +72,9 @@
                 </Grid.ColumnDefinitions>
                 <Label x:Name="ForeignLanguagesLabel" Content="Иностранные языки:" Margin="0"
                        VerticalContentAlignment="Center" />
-                <Label x:Name="ForeignLanguagesValueLabel" Grid.Column="1" Margin="0">
+                <Label Grid.Column="1" Margin="0">
                     <Label.Content>
-                        <AccessText Margin="0" TextWrapping="Wrap" Text="" />
+                        <AccessText x:Name="ForeignLanguagesValueLabel" Margin="0" TextWrapping="Wrap" />
                     </Label.Content>
                 </Label>
             </Grid>
@@ -83,8 +83,8 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Button x:Name="SelectButton" Content="Перейти" HorizontalAlignment="Left" Margin="10,0,0,0"
-                        VerticalAlignment="Center" Width="75" Height="26" Grid.Column="1" />
+                <Button x:Name="EditButton" Content="Редактировать" HorizontalAlignment="Left" Margin="10,0,0,0"
+                        VerticalAlignment="Center" Width="100" Height="26" Grid.Column="1" />
                 <Button x:Name="ReturnButton" Content="Вернуться" HorizontalAlignment="Right" Margin="0,0,10,0"
                         VerticalAlignment="Center" Width="75" Height="26" Grid.Column="0" />
             </Grid>

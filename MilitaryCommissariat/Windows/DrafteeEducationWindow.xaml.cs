@@ -46,6 +46,7 @@ namespace MilitaryCommissariat.Windows
             LastNameValueLabel.Content = draftee.LastName;
             PatronymicValueLabel.Content = draftee.Patronymic;
             BirthDateValueLabel.Content = draftee.BirthDate?.ToString("yyyy.MM.dd");
+            ForeignLanguagesValueLabel.Text = draftee.ForeignLanguages;
         }
 
         private void FillData(List<EducationPlace> educations)
