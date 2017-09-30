@@ -72,7 +72,7 @@
                 </Grid.ColumnDefinitions>
                 
                 <Label x:Name="CommonInfoTitle" Content="Общие сведения:" VerticalContentAlignment="Center"
-                       HorizontalContentAlignment="Center" Grid.ColumnSpan="2" />
+                       HorizontalContentAlignment="Center" Grid.ColumnSpan="2" FontSize="14" />
                 
                 <Label x:Name="BirthPlaceLabel" Content="Место рождения:" Grid.Row="1" Grid.Column="0" />
                 <Label Grid.Column="1" Margin="0"
@@ -99,7 +99,7 @@
                 </Label>
 
                 <Label x:Name="AddressTitle" Content="Адрес места жительства:" Grid.Row="4" Grid.ColumnSpan="2"
-                       Grid.Column="0" HorizontalContentAlignment="Center" />
+                       Grid.Column="0" HorizontalContentAlignment="Center" FontSize="14" />
                 
                 <Label x:Name="MunicipalDistrictLabel" Content="Муниципальный округ:" HorizontalAlignment="Left"
                        VerticalAlignment="Top" Grid.Row="5" Grid.Column="0" />

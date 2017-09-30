@@ -58,7 +58,7 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="30" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="5" />
@@ -67,7 +67,7 @@
                 </Grid.RowDefinitions>
                 <Label x:Name="DocumentTitleLabel" Content="Документы, удостоверяющие личность" Margin="0" Grid.Row="0"
                        Grid.ColumnSpan="3"
-                       Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                       Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" />
                 <Border BorderBrush="Black" BorderThickness="2,2,2,1" Grid.Row="1" Margin="0,0,0,0" Grid.ColumnSpan="3"
                         Grid.Column="0">
                     <Label x:Name="PassportTitleLabel" Content="Паспорт" HorizontalAlignment="Center"
