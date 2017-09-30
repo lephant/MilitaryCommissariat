@@ -81,9 +81,9 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Button x:Name="EditButton" Content="Редактировать" HorizontalAlignment="Left" Margin="10,0,0,0"
-                        VerticalAlignment="Center" Width="100" Height="26" Grid.Column="1" />
+                        VerticalAlignment="Center" Width="100" Height="26" Grid.Column="1" Click="EditButton_OnClick" />
                 <Button x:Name="ReturnButton" Content="Вернуться" HorizontalAlignment="Right" Margin="0,0,10,0"
-                        VerticalAlignment="Center" Width="75" Height="26" Grid.Column="0" />
+                        VerticalAlignment="Center" Width="75" Height="26" Grid.Column="0" Click="ReturnButton_OnClick" />
             </Grid>
         </Grid>
     </ScrollViewer>
