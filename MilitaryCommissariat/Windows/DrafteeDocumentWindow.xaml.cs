@@ -24,6 +24,30 @@ namespace MilitaryCommissariat.Windows
             FillData(GetCurrentDocument());
         }
 
+        private void SelectButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            OpenEditDrafteeDocumentWindow();
+        }
+
+        private void ReturnButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void OpenEditDrafteeDocumentWindow()
+        {
+            var window = new EditDrafteeDocumentWindow();
+            window.Owner = this;
+            window.DrafteeId = DrafteeId;
+            Hide();
+            window.Closed += (sender, args) =>
+            {
+                Refresh();
+                Show();
+            };
+            window.Show();
+        }
+
         private Draftee GetCurrentDraftee()
         {
             var dao = new DrafteeDao();

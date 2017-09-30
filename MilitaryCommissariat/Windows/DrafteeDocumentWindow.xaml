@@ -108,15 +108,15 @@
                     </WrapPanel>
                 </Border>
             </Grid>
-            <Grid HorizontalAlignment="Stretch" Margin="0,10,0,0" Grid.Row="4" VerticalAlignment="Stretch" Width="Auto">
+            <Grid HorizontalAlignment="Stretch" Margin="0" Grid.Row="4" VerticalAlignment="Stretch" Width="Auto">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Button x:Name="SelectButton" Content="Перейти" HorizontalAlignment="Left" Margin="10,0,0,0"
-                        VerticalAlignment="Center" Width="75" Height="26" Grid.Column="1" />
+                        VerticalAlignment="Center" Width="75" Height="26" Grid.Column="1" Click="SelectButton_OnClick" />
                 <Button x:Name="ReturnButton" Content="Вернуться" HorizontalAlignment="Right" Margin="0,0,10,0"
-                        VerticalAlignment="Center" Width="75" Height="26" Grid.Column="0" />
+                        VerticalAlignment="Center" Width="75" Height="26" Grid.Column="0" Click="ReturnButton_OnClick" />
             </Grid>
         </Grid>
     </ScrollViewer>

@@ -17,6 +17,8 @@ namespace MilitaryCommissariat.Windows
     /// </summary>
     public partial class EditDrafteeDocumentWindow : Window
     {
+        public long DrafteeId { get; set; }
+
         public EditDrafteeDocumentWindow()
         {
             InitializeComponent();
