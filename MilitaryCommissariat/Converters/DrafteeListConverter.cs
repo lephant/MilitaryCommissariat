@@ -22,6 +22,7 @@ namespace MilitaryCommissariat.Converters
                 draftee.BirthPlace = DbConverterUtils.ConvertString(dataRow["birth_place"]);
                 draftee.Category = DbConverterUtils.ConvertString(dataRow["category"]);
                 draftee.TroopType = DbConverterUtils.ConvertString(dataRow["troop_type"]);
+                draftee.ForeignLanguages = DbConverterUtils.ConvertString(dataRow["foreign_languages"]);
                 result.Add(draftee);
             }
             return result;

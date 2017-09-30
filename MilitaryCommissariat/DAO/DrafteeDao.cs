@@ -17,7 +17,7 @@ namespace MilitaryCommissariat.DAO
                 sqlBuilder
                     .Append("SELECT dr.id id, dr.last_name last_name, dr.first_name first_name, ")
                     .Append("dr.patronymic patronymic, dr.birth_date birth_date, dr.birth_place, ")
-                    .Append("dr.category category, dr.troop_type troop_type ")
+                    .Append("dr.category category, dr.troop_type troop_type, dr.foreign_languages foreign_languages ")
                     .Append("FROM draftees dr;");
                 var dataAdapter = new MySqlDataAdapter(sqlBuilder.ToString(), ConnectionUtils.GetConnection());
                 DataTable dataTable = new DataTable();
@@ -86,7 +86,7 @@ namespace MilitaryCommissariat.DAO
                 sqlBuilder
                     .Append("SELECT dr.id id, dr.last_name last_name, dr.first_name first_name, ")
                     .Append("dr.patronymic patronymic, dr.birth_date birth_date, dr.birth_place, ")
-                    .Append("dr.category category, dr.troop_type troop_type ")
+                    .Append("dr.category category, dr.troop_type troop_type, dr.foreign_languages foreign_languages ")
                     .Append("FROM draftees dr ")
                     .Append("WHERE id=")
                     .Append(id)
@@ -161,6 +161,9 @@ namespace MilitaryCommissariat.DAO
                     .Append("', ")
                     .Append("troop_type='")
                     .Append(draftee.TroopType)
+                    .Append("', ")
+                    .Append("foreign_languages='")
+                    .Append(draftee.ForeignLanguages)
                     .Append("' ")
                     .Append("WHERE id=")
                     .Append(draftee.Id)
@@ -184,7 +187,7 @@ namespace MilitaryCommissariat.DAO
                 StringBuilder sqlBuilder = new StringBuilder();
                 sqlBuilder
                     .Append("INSERT INTO draftees ")
-                    .Append("(last_name, first_name, patronymic, birth_date, birth_place, category, troop_type) ")
+                    .Append("(last_name, first_name, patronymic, birth_date, birth_place, category, troop_type, foreign_languages) ")
                     .Append("VALUES (")
                     .Append("'")
                     .Append(draftee.LastName)
@@ -206,6 +209,9 @@ namespace MilitaryCommissariat.DAO
                     .Append("', ")
                     .Append("'")
                     .Append(draftee.TroopType)
+                    .Append("', ")
+                    .Append("'")
+                    .Append(draftee.ForeignLanguages)
                     .Append("');");
                 connection.Open();
                 transaction = connection.BeginTransaction();
@@ -243,7 +249,7 @@ namespace MilitaryCommissariat.DAO
                 StringBuilder sqlBuilder = new StringBuilder();
                 sqlBuilder
                     .Append("INSERT INTO draftees ")
-                    .Append("(last_name, first_name, patronymic, birth_date, birth_place, category, troop_type) ")
+                    .Append("(last_name, first_name, patronymic, birth_date, birth_place, category, troop_type, foreign_languages) ")
                     .Append("VALUES (")
                     .Append("'")
                     .Append(draftee.LastName)
@@ -265,6 +271,9 @@ namespace MilitaryCommissariat.DAO
                     .Append("', ")
                     .Append("'")
                     .Append(draftee.TroopType)
+                    .Append("', ")
+                    .Append("'")
+                    .Append(draftee.ForeignLanguages)
                     .Append("');");
                 connection.Open();
                 transaction = connection.BeginTransaction();
