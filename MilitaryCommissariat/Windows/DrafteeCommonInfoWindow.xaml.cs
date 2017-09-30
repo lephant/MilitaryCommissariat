@@ -45,6 +45,8 @@ namespace MilitaryCommissariat.Windows
             PatronymicValueLabel.Content = draftee.Patronymic;
             BirthDateValueLabel.Content = draftee.BirthDate?.ToString("yyyy.MM.dd");
             BirthPlaceValueLabel.Text = draftee.BirthPlace;
+            CategoryValueLabel.Text = draftee.Category;
+            TroopTypeValueLabel.Text = draftee.TroopType;
         }
 
         private void FillData(Address address)
