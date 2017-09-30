@@ -39,7 +39,7 @@ namespace MilitaryCommissariat.Windows
             FirstNameValueLabel.Content = draftee.FirstName;
             LastNameValueLabel.Content = draftee.LastName;
             PatronymicValueLabel.Content = draftee.Patronymic;
-            BirthDateValueLabel.Content = draftee.BirthDate.ToString("yyyy.MM.dd");
+            BirthDateValueLabel.Content = draftee.BirthDate?.ToString("yyyy.MM.dd");
         }
 
         public void Refresh()
