@@ -52,20 +52,9 @@ namespace MilitaryCommissariat.Windows
             OpenDrafteeWindow(tableDraftee.Id);
         }
 
-        private void UpdateMenuItem_OnClick(object sender, RoutedEventArgs e)
-        {
-            TableDraftee tableDraftee = ResultsListView.SelectedItem as TableDraftee;
-            if (tableDraftee == null)
-            {
-                MessageBox.Show(this, "Не выбрана запись в таблице!", "Сообщение");
-                return;
-            }
-            //TODO
-        }
-
         private void CreateMenuItem_OnClick(object sender, RoutedEventArgs e)
         {
-            //TODO
+            OpenEditDrafteeCommonInfoWindow();
         }
 
         private void DeleteMenuItem_OnClick(object sender, RoutedEventArgs e)
@@ -88,6 +77,16 @@ namespace MilitaryCommissariat.Windows
             Hide();
             drafteeWindow.Closed += (sender, args) => { Show(); };
             drafteeWindow.Show();
+        }
+
+        private void OpenEditDrafteeCommonInfoWindow()
+        {
+            var window = new EditDrafteeCommonInfoWindow();
+            window.Owner = this;
+            window.DrafteeId = 0;
+            Hide();
+            window.Closed += (sender, args) => { Show(); };
+            window.Show();
         }
 
         private void ResultsListView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)

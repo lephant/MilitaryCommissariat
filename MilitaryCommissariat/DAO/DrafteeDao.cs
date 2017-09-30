@@ -233,5 +233,91 @@ namespace MilitaryCommissariat.DAO
                 connection.Close();
             }
         }
+
+        public void Insert(Draftee draftee, Address address)
+        {
+            MySqlConnection connection = ConnectionUtils.GetConnection();
+            MySqlTransaction transaction = null;
+            try
+            {
+                StringBuilder sqlBuilder = new StringBuilder();
+                sqlBuilder
+                    .Append("INSERT INTO draftees ")
+                    .Append("(last_name, first_name, patronymic, birth_date, birth_place, category, troop_type) ")
+                    .Append("VALUES (")
+                    .Append("'")
+                    .Append(draftee.LastName)
+                    .Append("', ")
+                    .Append("'")
+                    .Append(draftee.FirstName)
+                    .Append("', ")
+                    .Append("'")
+                    .Append(draftee.Patronymic)
+                    .Append("', ")
+                    .Append("'")
+                    .Append(draftee.BirthDate?.ToString("yyyy-MM-dd"))
+                    .Append("', ")
+                    .Append("'")
+                    .Append(draftee.BirthPlace)
+                    .Append("', ")
+                    .Append("'")
+                    .Append(draftee.Category)
+                    .Append("', ")
+                    .Append("'")
+                    .Append(draftee.TroopType)
+                    .Append("');");
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                MySqlCommand drafteeCommand = new MySqlCommand(sqlBuilder.ToString(), connection, transaction);
+                drafteeCommand.ExecuteNonQuery();
+
+                StringBuilder addressBuilder = new StringBuilder();
+                addressBuilder
+                    .Append("INSERT INTO addresses ")
+                    .Append("(draftee_id, municipal_district, mail_index, street_name, ")
+                    .Append("house_number, housing_number, apartment, home_phone) ")
+                    .Append("VALUES (")
+                    .Append("last_insert_id()")
+                    .Append(", '")
+                    .Append(address.MunicipalDistrict)
+                    .Append("', ")
+                    .Append("'")
+                    .Append(address.MailIndex)
+                    .Append("', ")
+                    .Append("'")
+                    .Append(address.StreetName)
+                    .Append("', ")
+                    .Append("'")
+                    .Append(address.HouseNumber)
+                    .Append("', ")
+                    .Append("'")
+                    .Append(address.HousingNumber)
+                    .Append("', ")
+                    .Append("'")
+                    .Append(address.Apartment)
+                    .Append("', ")
+                    .Append("'")
+                    .Append(address.HomePhone)
+                    .Append("');");
+                MySqlCommand addressCommand = new MySqlCommand(addressBuilder.ToString(), connection, transaction);
+                addressCommand.ExecuteNonQuery();
+
+                string documentSql = "INSERT INTO documents (draftee_id) VALUES (last_insert_id());";
+                MySqlCommand documentCommand = new MySqlCommand(documentSql, connection, transaction);
+                documentCommand.ExecuteNonQuery();
+
+                transaction.Commit();
+            }
+            catch
+            {
+                transaction?.Rollback();
+            }
+            finally
+            {
+                transaction?.Dispose();
+                connection.Close();
+            }
+        }
     }
 }
