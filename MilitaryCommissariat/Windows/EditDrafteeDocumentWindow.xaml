@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilitaryCommissariat.Windows"
         mc:Ignorable="d"
+        Name="This"
         Title="Документы удостоверяющие личность" Height="416" Width="551">
     <ScrollViewer HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
                   VerticalScrollBarVisibility="Auto">
@@ -75,58 +76,69 @@
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Label x:Name="CommonInfoTitle" Content="Документы, удостоверяющие личность:" VerticalContentAlignment="Center"
+                <Label x:Name="CommonInfoTitle" Content="Документы, удостоверяющие личность:"
+                       VerticalContentAlignment="Center"
                        HorizontalContentAlignment="Center" Grid.ColumnSpan="2" FontSize="14" />
 
                 <Label Content="Серия паспорта:" Grid.Row="1" Grid.Column="0" />
-                <TextBox TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="1" VerticalAlignment="Center" />
+                <TextBox x:Name="PassportSeriesText" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="1" VerticalAlignment="Center"
+                         Text="{Binding ElementName=This, Path=PassportSeries}" />
 
                 <Label Content="Номер паспорта:" Grid.Row="2" Grid.Column="0" />
-                <TextBox  TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="2" VerticalAlignment="Center" />
+                <TextBox x:Name="PassportNumberText" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="2" VerticalAlignment="Center"
+                         Text="{Binding ElementName=This, Path=PassportNumber}" />
 
                 <Label Content="Дата выдачи паспорта:" Grid.Row="3" Grid.Column="0" />
-                <TextBox TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="3" VerticalAlignment="Center" />
+                <TextBox x:Name="PassportIssueDateText" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="3" VerticalAlignment="Center"
+                         Text="{Binding ElementName=This, Path=PassportIssueDate}" />
 
                 <Label Content="Кем выдан паспорт:" Grid.Row="4" Grid.Column="0" />
-                <TextBox TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="3" VerticalAlignment="Center" />
+                <TextBox x:Name="PassportIssuedByText" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="4" VerticalAlignment="Center"
+                         Text="{Binding ElementName=This, Path=PassportIssuedBy}" />
 
                 <Label Content="Серия удостоверения:" Grid.Row="5" Grid.Column="0" />
-                <TextBox TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="5" VerticalAlignment="Center" />
+                <TextBox x:Name="CertificateSeriesText" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="5" VerticalAlignment="Center"
+                         Text="{Binding ElementName=This, Path=CertificateSeries}" />
 
                 <Label Content="Номер удостоверения:" Grid.Row="6" Grid.Column="0" />
-                <TextBox TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="6" VerticalAlignment="Center" />
+                <TextBox x:Name="CertificateNumberText" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="6" VerticalAlignment="Center"
+                         Text="{Binding ElementName=This, Path=CertificateNumber}" />
 
                 <Label Content="Дата выдачи удостоверения:" Grid.Row="7" Grid.Column="0" />
-                <TextBox TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="7" VerticalAlignment="Center" />
+                <TextBox x:Name="CertificateIssueDateText" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="7" VerticalAlignment="Center"
+                         Text="{Binding ElementName=This, Path=CertificateIssueDate}" />
 
                 <Label Content="Серия военного билета:" Grid.Row="8" Grid.Column="0" />
-                <TextBox TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="8" VerticalAlignment="Center" />
+                <TextBox x:Name="TicketSeriesText" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="8" VerticalAlignment="Center"
+                         Text="{Binding ElementName=This, Path=TicketSeries}" />
 
                 <Label Content="Номер военного билета:" Grid.Row="9" Grid.Column="0" />
-                <TextBox TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="9" VerticalAlignment="Center" />
+                <TextBox x:Name="TicketNumberText" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="9" VerticalAlignment="Center"
+                         Text="{Binding ElementName=This, Path=TicketNumber}" />
 
                 <Label Content="Дата выдачи военного билета:" Grid.Row="10" Grid.Column="0" />
-                <TextBox TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="10" VerticalAlignment="Center" />
+                <TextBox x:Name="TicketIssueDateText" TextWrapping="Wrap" Grid.Column="1"
+                         Margin="5" Grid.Row="10" VerticalAlignment="Center"
+                         Text="{Binding ElementName=This, Path=TicketIssueDate}" />
             </Grid>
             <Grid Margin="0" Grid.Row="4">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Button x:Name="ReturnButton" Content="Вернуться" HorizontalAlignment="Right" Margin="0,0,10,0"
-                        VerticalAlignment="Center" Width="75" Height="26" />
-                <Button x:Name="EditButton" Content="Редактировать" Grid.Column="1" HorizontalAlignment="Left"
-                        Margin="10,0,0,0" VerticalAlignment="Center" Height="26" Width="100" />
+                <Button x:Name="ReturnButton" Content="Отменить" HorizontalAlignment="Right" Margin="0,0,10,0"
+                        VerticalAlignment="Center" Width="75" Height="26" Click="ReturnButton_OnClick" />
+                <Button x:Name="EditButton" Content="Сохранить" Grid.Column="1" HorizontalAlignment="Left"
+                        Margin="10,0,0,0" VerticalAlignment="Center" Height="26" Width="100" Click="EditButton_OnClick" />
             </Grid>
         </Grid>
     </ScrollViewer>
