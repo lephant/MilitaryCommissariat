@@ -19,7 +19,7 @@ namespace MilitaryCommissariat.Converters
             draftee.LastName = DbConverterUtils.ConvertString(dataRow["last_name"]);
             draftee.FirstName = DbConverterUtils.ConvertString(dataRow["first_name"]);
             draftee.Patronymic = DbConverterUtils.ConvertString(dataRow["patronymic"]);
-            draftee.BirthDate = (DateTime) DbConverterUtils.ConvertDateTime(dataRow["birth_date"]);
+            draftee.BirthDate = DbConverterUtils.ConvertDateTime(dataRow["birth_date"]);
             draftee.BirthPlace = DbConverterUtils.ConvertString(dataRow["birth_place"]);
             draftee.Category = DbConverterUtils.ConvertString(dataRow["category"]);
             draftee.TroopType = DbConverterUtils.ConvertString(dataRow["troop_type"]);
