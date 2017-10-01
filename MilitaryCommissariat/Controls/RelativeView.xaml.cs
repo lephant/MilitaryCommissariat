@@ -18,8 +18,8 @@ namespace MilitaryCommissariat.Controls
 
         public static DependencyProperty CollapseButtonsProperty;
 
-        public static readonly RoutedEvent DeleteButtonClickedEvent;
-        public static readonly RoutedEvent EditButtonClickedEvent;
+        public static RoutedEvent DeleteButtonClickedEvent;
+        public static RoutedEvent EditButtonClickedEvent;
 
         public RelativeView()
         {
@@ -45,9 +45,9 @@ namespace MilitaryCommissariat.Controls
                 typeof(RelativeView), new FrameworkPropertyMetadata(OnCollapseButtonsChanged));
 
             DeleteButtonClickedEvent = EventManager.RegisterRoutedEvent("DeleteButtonClicked", RoutingStrategy.Bubble,
-                typeof(RoutedPropertyChangedEventHandler<Relative>), typeof(RelativeView));
+                typeof(RoutedEventHandler), typeof(RelativeView));
             EditButtonClickedEvent = EventManager.RegisterRoutedEvent("EditButtonClicked", RoutingStrategy.Bubble,
-                typeof(RoutedPropertyChangedEventHandler<Relative>), typeof(RelativeView));
+                typeof(RoutedEventHandler), typeof(RelativeView));
         }
 
         private static void OnCollapseButtonsChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
@@ -120,16 +120,28 @@ namespace MilitaryCommissariat.Controls
             set { SetValue(CollapseButtonsProperty, value); }
         }
 
-        public event RoutedPropertyChangedEventHandler<RelativeView> DeleteButtonClicked
+        public event RoutedEventHandler DeleteButtonClicked
         {
             add { AddHandler(DeleteButtonClickedEvent, value); }
             remove { RemoveHandler(DeleteButtonClickedEvent, value); }
         }
 
-        public event RoutedPropertyChangedEventHandler<RelativeView> EditButtonClicked
+        public event RoutedEventHandler EditButtonClicked
         {
             add { AddHandler(EditButtonClickedEvent, value); }
             remove { RemoveHandler(EditButtonClickedEvent, value); }
+        }
+
+        private void EditButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            RoutedEventArgs args = new RoutedEventArgs(EditButtonClickedEvent, Relative);
+            RaiseEvent(args);
+        }
+
+        private void DeleteButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            RoutedEventArgs args = new RoutedEventArgs(DeleteButtonClickedEvent, Relative);
+            RaiseEvent(args);
         }
     }
 }

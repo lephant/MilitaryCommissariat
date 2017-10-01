@@ -20,8 +20,8 @@ namespace MilitaryCommissariat.Controls
 
         public static DependencyProperty CollapseButtonsProperty;
 
-        public static readonly RoutedEvent DeleteButtonClickedEvent;
-        public static readonly RoutedEvent EditButtonClickedEvent;
+        public static RoutedEvent DeleteButtonClickedEvent;
+        public static RoutedEvent EditButtonClickedEvent;
 
 
         public EducationPlaceView()
@@ -50,9 +50,9 @@ namespace MilitaryCommissariat.Controls
                 typeof(EducationPlaceView), new FrameworkPropertyMetadata(OnCollapseButtonsChanged));
 
             DeleteButtonClickedEvent = EventManager.RegisterRoutedEvent("DeleteButtonClicked", RoutingStrategy.Bubble,
-                typeof(RoutedPropertyChangedEventHandler<EducationPlace>), typeof(EducationPlaceView));
+                typeof(RoutedEventHandler), typeof(EducationPlaceView));
             EditButtonClickedEvent = EventManager.RegisterRoutedEvent("EditButtonClicked", RoutingStrategy.Bubble,
-                typeof(RoutedPropertyChangedEventHandler<EducationPlace>), typeof(EducationPlaceView));
+                typeof(RoutedEventHandler), typeof(EducationPlaceView));
         }
 
         private static void OnCollapseButtonsChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
@@ -132,16 +132,28 @@ namespace MilitaryCommissariat.Controls
             set { SetValue(CollapseButtonsProperty, value); }
         }
 
-        public event RoutedPropertyChangedEventHandler<EducationPlace> DeleteButtonClicked
+        public event RoutedEventHandler DeleteButtonClicked
         {
             add { AddHandler(DeleteButtonClickedEvent, value); }
             remove { RemoveHandler(DeleteButtonClickedEvent, value); }
         }
 
-        public event RoutedPropertyChangedEventHandler<EducationPlace> EditButtonClicked
+        public event RoutedEventHandler EditButtonClicked
         {
             add { AddHandler(EditButtonClickedEvent, value); }
             remove { RemoveHandler(EditButtonClickedEvent, value); }
+        }
+
+        private void EditButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            RoutedEventArgs args = new RoutedEventArgs(EditButtonClickedEvent, EducationPlace);
+            RaiseEvent(args);
+        }
+
+        private void DeleteButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            RoutedEventArgs args = new RoutedEventArgs(DeleteButtonClickedEvent, EducationPlace);
+            RaiseEvent(args);
         }
     }
 }

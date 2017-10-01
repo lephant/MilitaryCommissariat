@@ -23,8 +23,8 @@
         <Border BorderBrush="Black" BorderThickness="1" Margin="0" Grid.RowSpan="6" CornerRadius="3"
                 Grid.ColumnSpan="2" />
         <WrapPanel Grid.Row="0" Grid.Column="0" Margin="0" Grid.ColumnSpan="2" FlowDirection="RightToLeft">
-            <Button x:Name="EditButton" Content="Редактировать" Width="110" Margin="2,2,19,2" />
-            <Button x:Name="DeleteButton" Content="Удалить" Width="80" Margin="2,2,2,2" />
+            <Button x:Name="EditButton" Content="Редактировать" Width="110" Margin="4,4,19,4" Click="EditButton_OnClick" />
+            <Button x:Name="DeleteButton" Content="Удалить" Width="80" Margin="4,4,4,4" Click="DeleteButton_OnClick" />
         </WrapPanel>
         <Label x:Name="RelationshipTypeLabel" Content="Родство:" Margin="0" Grid.Row="1" Grid.Column="0"
                VerticalContentAlignment="Center" />
