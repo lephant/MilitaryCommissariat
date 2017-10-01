@@ -32,19 +32,19 @@ namespace MilitaryCommissariat.Controls
         static EducationPlaceView()
         {
             EducationPlaceProperty = DependencyProperty.Register("EducationPlace", typeof(EducationPlace),
-                typeof(EducationPlaceView), new FrameworkPropertyMetadata(OnEducationPlacePropertyChanged));
+                typeof(EducationPlaceView), new FrameworkPropertyMetadata(OnEducationPlaceChanged));
             EducationProperty = DependencyProperty.Register("Education", typeof(string),
-                typeof(EducationPlaceView));
+                typeof(EducationPlaceView), new FrameworkPropertyMetadata(OnEducationPlacePropertyChanged));
             EducationNameProperty = DependencyProperty.Register("EducationName", typeof(string),
-                typeof(EducationPlaceView));
+                typeof(EducationPlaceView), new FrameworkPropertyMetadata(OnEducationPlacePropertyChanged));
             InstitutionTypeProperty = DependencyProperty.Register("InstitutionType", typeof(string),
-                typeof(EducationPlaceView));
+                typeof(EducationPlaceView), new FrameworkPropertyMetadata(OnEducationPlacePropertyChanged));
             EndDateProperty = DependencyProperty.Register("EndDate", typeof(DateTime?),
-                typeof(EducationPlaceView));
+                typeof(EducationPlaceView), new FrameworkPropertyMetadata(OnEducationPlacePropertyChanged));
             FacultyProperty = DependencyProperty.Register("Faculty", typeof(string),
-                typeof(EducationPlaceView));
+                typeof(EducationPlaceView), new FrameworkPropertyMetadata(OnEducationPlacePropertyChanged));
             SpecialtyProperty = DependencyProperty.Register("Specialty", typeof(string),
-                typeof(EducationPlaceView));
+                typeof(EducationPlaceView), new FrameworkPropertyMetadata(OnEducationPlacePropertyChanged));
 
             CollapseButtonsProperty = DependencyProperty.Register("CollapseButtons", typeof(bool),
                 typeof(EducationPlaceView), new FrameworkPropertyMetadata(OnCollapseButtonsChanged));
@@ -71,7 +71,7 @@ namespace MilitaryCommissariat.Controls
             }
         }
 
-        private static void OnEducationPlacePropertyChanged(DependencyObject sender,
+        private static void OnEducationPlaceChanged(DependencyObject sender,
             DependencyPropertyChangedEventArgs e)
         {
             EducationPlace newPlace = (EducationPlace) e.NewValue;
@@ -82,6 +82,25 @@ namespace MilitaryCommissariat.Controls
             if (newPlace.EndDate != null) view.EndDate = newPlace.EndDate.Value;
             view.Faculty = newPlace.Faculty;
             view.Specialty = newPlace.Specialty;
+        }
+
+        private static void OnEducationPlacePropertyChanged(DependencyObject sender,
+            DependencyPropertyChangedEventArgs e)
+        {
+            var view = (EducationPlaceView) sender;
+            EducationPlace place = view.EducationPlace;
+            if (e.Property == EducationProperty)
+                place.Education = (string) e.NewValue;
+            else if (e.Property == EducationNameProperty)
+                place.Name = (string) e.NewValue;
+            else if (e.Property == InstitutionTypeProperty)
+                place.InstitutionType = (string) e.NewValue;
+            else if (e.Property == EndDateProperty)
+                place.EndDate = (DateTime?) e.NewValue;
+            else if (e.Property == FacultyProperty)
+                place.Faculty = (string) e.NewValue;
+            else if (e.Property == SpecialtyProperty)
+                place.Specialty = (string) e.NewValue;
         }
 
         public EducationPlace EducationPlace
