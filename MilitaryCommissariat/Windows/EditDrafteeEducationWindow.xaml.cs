@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.Remoting.Channels;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using MilitaryCommissariat.Controls;
 using MilitaryCommissariat.Converters;
 using MilitaryCommissariat.DAO;
@@ -45,6 +35,35 @@ namespace MilitaryCommissariat.Windows
             {
                 AddEducationPlace(place);
             }
+        }
+
+        private void SaveButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            draftee.ForeignLanguages = ForeignLanguagesText.Text;
+            var drafteeDao = new DrafteeDao();
+            var educationDao = new EducationPlaceDao();
+            drafteeDao.Update(draftee);
+            foreach (long id in idsForDelete)
+            {
+                educationDao.Delete(id);
+            }
+            foreach (var place in educationPlaces)
+            {
+                if (place.Id > 0)
+                {
+                    educationDao.Update(place);
+                }
+                else
+                {
+                    educationDao.Insert(place);
+                }
+            }
+            Close();
+        }
+
+        private void CancelButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
 
         private Draftee GetCurrentDraftee()
