@@ -29,17 +29,17 @@ namespace MilitaryCommissariat.Controls
         static RelativeView()
         {
             RelativeProperty = DependencyProperty.Register("Relative", typeof(Relative),
-                typeof(RelativeView), new FrameworkPropertyMetadata(OnRelativePropertyChanged));
+                typeof(RelativeView), new FrameworkPropertyMetadata(OnRelativeChanged));
             RelationshipTypeProperty = DependencyProperty.Register("RelationshipType", typeof(string),
-                typeof(RelativeView));
+                typeof(RelativeView), new FrameworkPropertyMetadata(OnRelativePropertyChanged));
             FullNameProperty = DependencyProperty.Register("FullName", typeof(string),
-                typeof(RelativeView));
+                typeof(RelativeView), new FrameworkPropertyMetadata(OnRelativePropertyChanged));
             BirthYearProperty = DependencyProperty.Register("BirthYear", typeof(int),
-                typeof(RelativeView));
+                typeof(RelativeView), new FrameworkPropertyMetadata(OnRelativePropertyChanged));
             BirthPlaceProperty = DependencyProperty.Register("BirthPlace", typeof(string),
-                typeof(RelativeView));
+                typeof(RelativeView), new FrameworkPropertyMetadata(OnRelativePropertyChanged));
             WorkPlaceProperty = DependencyProperty.Register("WorkPlace", typeof(string),
-                typeof(RelativeView));
+                typeof(RelativeView), new FrameworkPropertyMetadata(OnRelativePropertyChanged));
 
             CollapseButtonsProperty = DependencyProperty.Register("CollapseButtons", typeof(bool),
                 typeof(RelativeView), new FrameworkPropertyMetadata(OnCollapseButtonsChanged));
@@ -66,7 +66,7 @@ namespace MilitaryCommissariat.Controls
             }
         }
 
-        private static void OnRelativePropertyChanged(DependencyObject sender,
+        private static void OnRelativeChanged(DependencyObject sender,
             DependencyPropertyChangedEventArgs e)
         {
             Relative newRelative = (Relative) e.NewValue;
@@ -76,6 +76,22 @@ namespace MilitaryCommissariat.Controls
             view.BirthYear = newRelative.BirthYear;
             view.BirthPlace = newRelative.BirthPlace;
             view.WorkPlace = newRelative.WorkPlace;
+        }
+
+        private static void OnRelativePropertyChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        {
+            var view = (RelativeView) sender;
+            Relative relative = view.Relative;
+            if (e.Property == RelationshipTypeProperty)
+                relative.RelationshipType = (string) e.NewValue;
+            else if (e.Property == FullNameProperty)
+                relative.FullName = (string) e.NewValue;
+            else if (e.Property == BirthYearProperty)
+                relative.BirthYear = (int) e.NewValue;
+            else if (e.Property == BirthPlaceProperty)
+                relative.BirthPlace = (string) e.NewValue;
+            else if (e.Property == WorkPlaceProperty)
+                relative.WorkPlace = (string) e.NewValue;
         }
 
         public Relative Relative
