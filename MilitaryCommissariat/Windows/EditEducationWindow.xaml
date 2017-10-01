@@ -56,10 +56,10 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Применить" HorizontalContentAlignment="Center" HorizontalAlignment="Right"
-                    Margin="0,0,10,0" Height="26" Width="85" />
-            <Button Grid.Column="1" Content="Отменить" HorizontalAlignment="Left" Margin="10,0,0,0" Padding="1"
-                    Height="26" Width="75" />
+            <Button x:Name="ApplyButton" Grid.Column="0" Content="Применить" HorizontalContentAlignment="Center"
+                    HorizontalAlignment="Right" Margin="0,0,10,0" Height="26" Width="85" Click="ApplyButton_OnClick" />
+            <Button x:Name="CancelButton" Grid.Column="1" Content="Отменить" HorizontalAlignment="Left"
+                    Margin="10,0,0,0" Padding="1" Height="26" Width="75" Click="CancelButton_OnClick" />
         </Grid>
     </Grid>
 </Window>

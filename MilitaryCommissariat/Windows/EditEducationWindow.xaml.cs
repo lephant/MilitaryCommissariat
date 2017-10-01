@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using MilitaryCommissariat.Domain;
 
 namespace MilitaryCommissariat.Windows
 {
@@ -17,9 +9,43 @@ namespace MilitaryCommissariat.Windows
     /// </summary>
     public partial class EditEducationWindow : Window
     {
+        public EducationPlace EducationPlace { get; set; }
+
         public EditEducationWindow()
         {
             InitializeComponent();
+            Loaded += OnLoaded;
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
+        {
+            FillData(EducationPlace);
+        }
+
+        private void ApplyButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            EducationPlace.Education = EducationText.Text;
+            EducationPlace.Name = EducationPlaceNameText.Text;
+            EducationPlace.InstitutionType = InstitutionTypeText.Text;
+            EducationPlace.EndDate = Convert.ToDateTime(EndDateText.Text);
+            EducationPlace.Faculty = FacultyText.Text;
+            EducationPlace.Specialty = SpecialtyText.Text;
+            Close();
+        }
+
+        private void CancelButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void FillData(EducationPlace place)
+        {
+            EducationText.Text = place.Education;
+            EducationPlaceNameText.Text = place.Name;
+            InstitutionTypeText.Text = place.InstitutionType;
+            if (place.EndDate != null) EndDateText.Text = place.EndDate.Value.ToString("yyyy.MM.dd");
+            FacultyText.Text = place.Faculty;
+            SpecialtyText.Text = place.Specialty;
         }
     }
 }
