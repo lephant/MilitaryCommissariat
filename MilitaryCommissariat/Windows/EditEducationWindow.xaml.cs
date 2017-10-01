@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using MilitaryCommissariat.Controls;
 using MilitaryCommissariat.Domain;
 
 namespace MilitaryCommissariat.Windows
@@ -9,27 +10,30 @@ namespace MilitaryCommissariat.Windows
     /// </summary>
     public partial class EditEducationWindow : Window
     {
-        public EducationPlace EducationPlace { get; set; }
+        public EducationPlaceView EducationPlaceView { get; set; }
+        public bool ApplyClicked { get; set; }
 
         public EditEducationWindow()
         {
             InitializeComponent();
+            ApplyClicked = false;
             Loaded += OnLoaded;
         }
 
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
         {
-            FillData(EducationPlace);
+            FillData(EducationPlaceView.EducationPlace);
         }
 
         private void ApplyButton_OnClick(object sender, RoutedEventArgs e)
         {
-            EducationPlace.Education = EducationText.Text;
-            EducationPlace.Name = EducationPlaceNameText.Text;
-            EducationPlace.InstitutionType = InstitutionTypeText.Text;
-            EducationPlace.EndDate = Convert.ToDateTime(EndDateText.Text);
-            EducationPlace.Faculty = FacultyText.Text;
-            EducationPlace.Specialty = SpecialtyText.Text;
+            EducationPlaceView.Education = EducationText.Text;
+            EducationPlaceView.EducationName = EducationPlaceNameText.Text;
+            EducationPlaceView.InstitutionType = InstitutionTypeText.Text;
+            EducationPlaceView.EndDate = Convert.ToDateTime(EndDateText.Text);
+            EducationPlaceView.Faculty = FacultyText.Text;
+            EducationPlaceView.Specialty = SpecialtyText.Text;
+            ApplyClicked = true;
             Close();
         }
 
