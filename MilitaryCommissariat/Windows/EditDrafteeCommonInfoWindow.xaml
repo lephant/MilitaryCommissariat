@@ -67,14 +67,6 @@
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -117,51 +109,6 @@
                 <TextBox x:Name="TroopTypeTextBox" TextWrapping="Wrap" Grid.Column="0" Grid.ColumnSpan="2"
                          Margin="10,5,5,5" Grid.Row="8" VerticalAlignment="Center" Height="100"
                          Text="{Binding ElementName=This, Path=TroopType}" />
-
-                <Label Content="Адрес места жительства:" Grid.Row="9" Grid.ColumnSpan="2"
-                       Grid.Column="0" HorizontalContentAlignment="Center" FontSize="14" />
-
-                <Label Content="Муниципальный округ:" HorizontalAlignment="Left"
-                       VerticalAlignment="Top" Grid.Row="10" Grid.Column="0" />
-                <TextBox x:Name="MunicipalDistrictTextBox" TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="10" VerticalAlignment="Center"
-                         Text="{Binding ElementName=This, Path=MunicipalDistrict}" />
-
-                <Label Content="Почтовый индекс:" HorizontalAlignment="Left"
-                       VerticalAlignment="Top" Grid.Row="11" Grid.Column="0" />
-                <TextBox x:Name="MailIndexTextBox" TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="11" VerticalAlignment="Center"
-                         Text="{Binding ElementName=This, Path=MailIndex}" />
-
-                <Label Content="Улица:" HorizontalAlignment="Left" VerticalAlignment="Top"
-                       Grid.Row="12" Grid.Column="0" />
-                <TextBox x:Name="StreetNameTextBox" TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="12" VerticalAlignment="Center"
-                         Text="{Binding ElementName=This, Path=StreetName}" />
-
-                <Label Content="Дом:" HorizontalAlignment="Left" VerticalAlignment="Top"
-                       Grid.Row="13" Grid.Column="0" />
-                <TextBox x:Name="HouseNumberTextBox" TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="13" VerticalAlignment="Center"
-                         Text="{Binding ElementName=This, Path=HouseNumber}" />
-
-                <Label Content="Корпус:" HorizontalAlignment="Left" VerticalAlignment="Top"
-                       Grid.Row="14" Grid.Column="0" />
-                <TextBox x:Name="HousingNumberTextBox" TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="14" VerticalAlignment="Center"
-                         Text="{Binding ElementName=This, Path=HousingNumber}" />
-
-                <Label Content="Квартира:" HorizontalAlignment="Left" VerticalAlignment="Top"
-                       Grid.Row="15" Grid.Column="0" />
-                <TextBox x:Name="ApartmentTextBox" TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="15" VerticalAlignment="Center"
-                         Text="{Binding ElementName=This, Path=Apartment}" />
-
-                <Label Content="Домашний телефон:" HorizontalAlignment="Left"
-                       VerticalAlignment="Top" Grid.Row="16" Grid.Column="0" />
-                <TextBox x:Name="HomePhoneTextBox" TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="16" VerticalAlignment="Center"
-                         Text="{Binding ElementName=This, Path=HomePhone}" />
             </Grid>
             <Grid Margin="0" Grid.Row="4">
                 <Grid.ColumnDefinitions>

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -65,6 +64,9 @@ namespace MilitaryCommissariat.Windows
                 case "CommonInfoItem":
                     OpenDrafteeCommonInfoWindow();
                     break;
+                case "AddressItem":
+                    OpenDrafteeAddressWindow();
+                    break;
                 case "EducationItem":
                     OpenDrafteeEducationWindow();
                     break;
@@ -97,9 +99,28 @@ namespace MilitaryCommissariat.Windows
             OpenDrafteeDocumentWindow();
         }
 
+        private void AddressItem_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            OpenDrafteeAddressWindow();
+        }
+
         private void OpenDrafteeCommonInfoWindow()
         {
             var window = new DrafteeCommonInfoWindow();
+            window.Owner = this;
+            window.DrafteeId = DrafteeId;
+            Hide();
+            window.Closed += (sender, args) =>
+            {
+                Refresh();
+                Show();
+            };
+            window.Show();
+        }
+
+        private void OpenDrafteeAddressWindow()
+        {
+            var window = new DrafteeAddressWindow();
             window.Owner = this;
             window.DrafteeId = DrafteeId;
             Hide();

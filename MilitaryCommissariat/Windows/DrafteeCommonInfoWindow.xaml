@@ -57,14 +57,6 @@
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -95,65 +87,6 @@
                        Grid.Row="3" VerticalAlignment="Center">
                     <Label.Content>
                         <AccessText x:Name="TroopTypeValueLabel" Margin="0" TextWrapping="Wrap" Text="" />
-                    </Label.Content>
-                </Label>
-
-                <Label x:Name="AddressTitle" Content="Адрес места жительства:" Grid.Row="4" Grid.ColumnSpan="2"
-                       Grid.Column="0" HorizontalContentAlignment="Center" FontSize="14" />
-                
-                <Label x:Name="MunicipalDistrictLabel" Content="Муниципальный округ:" HorizontalAlignment="Left"
-                       VerticalAlignment="Top" Grid.Row="5" Grid.Column="0" />
-                <Label Grid.Row="5" Grid.Column="1">
-                    <Label.Content>
-                        <AccessText x:Name="MunicipalDistrictValueLabel" Margin="0" TextWrapping="Wrap" Text="" />
-                    </Label.Content>
-                </Label>
-                
-                <Label x:Name="MailIndexLabel" Content="Почтовый индекс:" HorizontalAlignment="Left"
-                       VerticalAlignment="Top" Grid.Row="6" Grid.Column="0" />
-                <Label Grid.Row="6" Grid.Column="1">
-                    <Label.Content>
-                        <AccessText x:Name="MailIndexValueLabel" Margin="0" TextWrapping="Wrap" Text="" />
-                    </Label.Content>
-                </Label>
-                
-                <Label x:Name="StreetNameLabel" Content="Улица:" HorizontalAlignment="Left" VerticalAlignment="Top"
-                       Grid.Row="7" Grid.Column="0" />
-                <Label Grid.Row="7" Grid.Column="1">
-                    <Label.Content>
-                        <AccessText x:Name="StreetNameValueLabel" Margin="0" TextWrapping="Wrap" Text="" />
-                    </Label.Content>
-                </Label>
-                
-                <Label x:Name="HouseNumberLabel" Content="Дом:" HorizontalAlignment="Left" VerticalAlignment="Top"
-                       Grid.Row="8" Grid.Column="0" />
-                <Label Grid.Row="8" Grid.Column="1">
-                    <Label.Content>
-                        <AccessText x:Name="HouseNumberValueLabel" Margin="0" TextWrapping="Wrap" Text="" />
-                    </Label.Content>
-                </Label>
-                
-                <Label x:Name="HousingNumberLabel" Content="Корпус:" HorizontalAlignment="Left" VerticalAlignment="Top"
-                       Grid.Row="9" Grid.Column="0" />
-                <Label Grid.Row="9" Grid.Column="1">
-                    <Label.Content>
-                        <AccessText x:Name="HousingNumberValueLabel" Margin="0" TextWrapping="Wrap" Text="" />
-                    </Label.Content>
-                </Label>
-                
-                <Label x:Name="ApartmentLabel" Content="Квартира:" HorizontalAlignment="Left" VerticalAlignment="Top"
-                       Grid.Row="10" Grid.Column="0" />
-                <Label Grid.Row="10" Grid.Column="1">
-                    <Label.Content>
-                        <AccessText x:Name="ApartmentValueLabel" Margin="0" TextWrapping="Wrap" Text="" />
-                    </Label.Content>
-                </Label>
-                
-                <Label x:Name="HomePhoneLabel" Content="Домашний телефон:" HorizontalAlignment="Left"
-                       VerticalAlignment="Top" Grid.Row="11" Grid.Column="0" />
-                <Label Grid.Row="11" Grid.Column="1">
-                    <Label.Content>
-                        <AccessText x:Name="HomePhoneValueLabel" Margin="0" TextWrapping="Wrap" Text="" />
                     </Label.Content>
                 </Label>
             </Grid>

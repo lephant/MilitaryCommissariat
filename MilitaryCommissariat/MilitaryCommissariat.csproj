@@ -58,6 +58,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\DrafteeAddressWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\DrafteeCommonInfoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -75,6 +79,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\DrafteeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditDrafteeAddressWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -139,6 +147,9 @@
     <Compile Include="SearchCriterias\TableDrafteeCriteria.cs" />
     <Compile Include="Utils\ConnectionUtils.cs" />
     <Compile Include="Utils\DbConverterUtils.cs" />
+    <Compile Include="Windows\DrafteeAddressWindow.xaml.cs">
+      <DependentUpon>DrafteeAddressWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\DrafteeCommonInfoWindow.xaml.cs">
       <DependentUpon>DrafteeCommonInfoWindow.xaml</DependentUpon>
     </Compile>
@@ -153,6 +164,9 @@
     </Compile>
     <Compile Include="Windows\DrafteeWindow.xaml.cs">
       <DependentUpon>DrafteeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditDrafteeAddressWindow.xaml.cs">
+      <DependentUpon>EditDrafteeAddressWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\EditDrafteeCommonInfoWindow.xaml.cs">
       <DependentUpon>EditDrafteeCommonInfoWindow.xaml</DependentUpon>

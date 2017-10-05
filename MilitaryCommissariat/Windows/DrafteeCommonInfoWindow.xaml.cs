@@ -21,7 +21,6 @@ namespace MilitaryCommissariat.Windows
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
         {
             FillData(GetCurrentDraftee());
-            FillData(GetCurrentAddress());
         }
 
         private Draftee GetCurrentDraftee()
@@ -29,13 +28,6 @@ namespace MilitaryCommissariat.Windows
             var dao = new DrafteeDao();
             var converter = new DrafteeConverter();
             return converter.Convert(dao.GetById(DrafteeId));
-        }
-
-        private Address GetCurrentAddress()
-        {
-            var dao = new AddressDao();
-            var converter = new AddressConverter();
-            return converter.Convert(dao.GetByDraftee(DrafteeId));
         }
 
         private void FillData(Draftee draftee)
@@ -49,21 +41,9 @@ namespace MilitaryCommissariat.Windows
             TroopTypeValueLabel.Text = draftee.TroopType;
         }
 
-        private void FillData(Address address)
-        {
-            MunicipalDistrictValueLabel.Text = address.MunicipalDistrict;
-            MailIndexValueLabel.Text = address.MailIndex;
-            StreetNameValueLabel.Text = address.StreetName;
-            HouseNumberValueLabel.Text = address.HouseNumber;
-            HousingNumberValueLabel.Text = address.HousingNumber;
-            ApartmentValueLabel.Text = address.Apartment;
-            HomePhoneValueLabel.Text = address.HomePhone;
-        }
-
         public void Refresh()
         {
             FillData(GetCurrentDraftee());
-            FillData(GetCurrentAddress());
         }
 
         private void ReturnButton_Click(object sender, RoutedEventArgs e)

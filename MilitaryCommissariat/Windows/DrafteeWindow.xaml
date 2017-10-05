@@ -54,6 +54,8 @@
             <ListBox x:Name="SectionListBox" Height="110" Margin="10" FontSize="14">
                 <ListBoxItem x:Name="CommonInfoItem" Content="Основные сведения"
                              MouseDoubleClick="CommonInfoItem_MouseDoubleClick" />
+                <ListBoxItem x:Name="AddressItem" Content="Адрес места жительства"
+                             MouseDoubleClick="AddressItem_OnMouseDoubleClick" />
                 <ListBoxItem x:Name="EducationItem" Content="Образование"
                              MouseDoubleClick="EducationItem_MouseDoubleClick" />
                 <ListBoxItem x:Name="RelativeItem" Content="Состав семьи"
