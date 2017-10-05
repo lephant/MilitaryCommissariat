@@ -181,7 +181,6 @@ namespace MilitaryCommissariat.DAO
         public void Insert(Draftee draftee)
         {
             MySqlConnection connection = ConnectionUtils.GetConnection();
-            MySqlTransaction transaction = null;
             try
             {
                 StringBuilder sqlBuilder = new StringBuilder();
@@ -214,28 +213,12 @@ namespace MilitaryCommissariat.DAO
                     .Append(draftee.ForeignLanguages)
                     .Append("');");
                 connection.Open();
-                transaction = connection.BeginTransaction();
 
-                MySqlCommand drafteeCommand = new MySqlCommand(sqlBuilder.ToString(), connection, transaction);
+                MySqlCommand drafteeCommand = new MySqlCommand(sqlBuilder.ToString(), connection);
                 drafteeCommand.ExecuteNonQuery();
-
-                string addressSql = "INSERT INTO addresses (draftee_id) VALUES (last_insert_id());";
-                MySqlCommand addressCommand = new MySqlCommand(addressSql, connection, transaction);
-                addressCommand.ExecuteNonQuery();
-
-                string documentSql = "INSERT INTO documents (draftee_id) VALUES (last_insert_id());";
-                MySqlCommand documentCommand = new MySqlCommand(documentSql, connection, transaction);
-                documentCommand.ExecuteNonQuery();
-
-                transaction.Commit();
-            }
-            catch
-            {
-                transaction?.Rollback();
             }
             finally
             {
-                transaction?.Dispose();
                 connection.Close();
             }
         }
