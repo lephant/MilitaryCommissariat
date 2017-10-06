@@ -51,73 +51,59 @@ namespace MilitaryCommissariat.DAO
             return GetByDraftee(tableDraftee.Id);
         }
 
-        public void Update(Document document)
+        public void InsertUpdate(Document document)
         {
             MySqlConnection connection = ConnectionUtils.GetConnection();
             try
             {
                 StringBuilder sqlBuilder = new StringBuilder();
                 sqlBuilder
-                    .Append("UPDATE documents SET ")
-                    .Append("passport_series='")
-                    .Append(document.PassportSeries)
-                    .Append("', ")
-                    .Append("passport_number='")
-                    .Append(document.PassportNumber)
-                    .Append("', ");
-                if (document.PassportIssueDate != null)
-                {
-                    sqlBuilder.Append("passport_issue_date='")
-                        .Append(document.PassportIssueDate.Value.ToString("yyyy-MM-dd"))
-                        .Append("', ");
-                }
-                else
-                {
-                    sqlBuilder.Append("passport_issue_date=")
-                        .Append("NULL")
-                        .Append(", ");
-                }
-                    sqlBuilder.Append("passport_issued_by='")
-                    .Append(document.PassportIssuedBy)
-                    .Append("', ")
-                    .Append("certificate_series='")
-                    .Append(document.CertificateSeries)
-                    .Append("', ")
-                    .Append("certificate_number='")
-                    .Append(document.CertificateNumber)
-                    .Append("', ");
-                if (document.CertificateIssueDate != null)
-                {
-                    sqlBuilder.Append("certificate_issue_date='")
-                        .Append(document.CertificateIssueDate.Value.ToString("yyyy-MM-dd"))
-                        .Append("', ");
-                }
-                else
-                {
-                    sqlBuilder.Append("certificate_issue_date=")
-                        .Append("NULL")
-                        .Append(", ");
-                }
-                sqlBuilder.Append("ticket_series='")
-                    .Append(document.TicketSeries)
-                    .Append("', ");
-                if (document.TicketIssueDate != null)
-                {
-                    sqlBuilder.Append("ticket_issue_date='")
-                        .Append(document.TicketIssueDate.Value.ToString("yyyy-MM-dd"))
-                        .Append("', ");
-                }
-                else
-                {
-                    sqlBuilder.Append("ticket_issue_date=")
-                        .Append("NULL")
-                        .Append(", ");
-                }
-                sqlBuilder.Append("ticket_number='")
-                    .Append(document.TicketNumber)
-                    .Append("' ")
-                    .Append("WHERE draftee_id=")
-                    .Append(document.DrafteeId)
+                    .Append("INSERT INTO documents (draftee_id, passport_series, ")
+                    .Append("passport_number, passport_issue_date, passport_issued_by, ")
+                    .Append("certificate_series, certificate_number, certificate_issue_date, ")
+                    .Append("ticket_series, ticket_number, ticket_issue_date) ")
+                    .Append("VALUES (")
+                    .AppendFormat("{0}, ", document.DrafteeId)
+                    .AppendFormat("'{0}', ", document.PassportSeries)
+                    .AppendFormat("'{0}', ", document.PassportNumber)
+                    .AppendFormat("{0}, ",
+                        document.PassportIssueDate != null
+                            ? "'" + document.PassportIssueDate?.ToString("yyyy-MM-dd") + "'"
+                            : "NULL")
+                    .AppendFormat("'{0}', ", document.PassportIssuedBy)
+                    .AppendFormat("'{0}', ", document.CertificateSeries)
+                    .AppendFormat("'{0}', ", document.CertificateNumber)
+                    .AppendFormat("{0}, ",
+                        document.CertificateIssueDate != null
+                            ? "'" + document.CertificateIssueDate?.ToString("yyyy-MM-dd") + "'"
+                            : "NULL")
+                    .AppendFormat("'{0}', ", document.TicketSeries)
+                    .AppendFormat("'{0}', ", document.TicketNumber)
+                    .AppendFormat("{0}",
+                        document.TicketIssueDate != null
+                            ? "'" + document.TicketIssueDate?.ToString("yyyy-MM-dd") + "'"
+                            : "NULL")
+                    .Append(") ")
+                    .Append("ON DUPLICATE KEY UPDATE ")
+                    .AppendFormat("passport_series='{0}', ", document.PassportSeries)
+                    .AppendFormat("passport_number='{0}', ", document.PassportNumber)
+                    .AppendFormat("passport_issue_date={0}, ",
+                        document.PassportIssueDate != null
+                            ? "'" + document.PassportIssueDate?.ToString("yyyy-MM-dd") + "'"
+                            : "NULL")
+                    .AppendFormat("passport_issued_by='{0}', ", document.PassportIssuedBy)
+                    .AppendFormat("certificate_series='{0}', ", document.CertificateSeries)
+                    .AppendFormat("certificate_number='{0}', ", document.CertificateSeries)
+                    .AppendFormat("certificate_issue_date={0}, ",
+                        document.CertificateIssueDate != null
+                            ? "'" + document.CertificateIssueDate?.ToString("yyyy-MM-dd") + "'"
+                            : "NULL")
+                    .AppendFormat("ticket_series='{0}', ", document.TicketSeries)
+                    .AppendFormat("ticket_number='{0}', ", document.TicketNumber)
+                    .AppendFormat("ticket_issue_date={0}",
+                        document.TicketIssueDate != null
+                            ? "'" + document.TicketIssueDate?.ToString("yyyy-MM-dd") + "'"
+                            : "NULL")
                     .Append(";");
                 MySqlCommand command = new MySqlCommand(sqlBuilder.ToString(), connection);
                 connection.Open();

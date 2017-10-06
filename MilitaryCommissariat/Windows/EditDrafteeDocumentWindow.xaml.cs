@@ -82,6 +82,7 @@ namespace MilitaryCommissariat.Windows
             else
             {
                 Document = new Document();
+                Document.DrafteeId = DrafteeId;
             }
         }
 
@@ -108,7 +109,7 @@ namespace MilitaryCommissariat.Windows
         private void EditButton_OnClick(object sender, RoutedEventArgs e)
         {
             var dao = new DocumentDao();
-            dao.Update(Document);
+            dao.InsertUpdate(Document);
             Close();
         }
 

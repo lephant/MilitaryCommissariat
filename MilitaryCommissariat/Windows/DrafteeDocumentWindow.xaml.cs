@@ -59,7 +59,13 @@ namespace MilitaryCommissariat.Windows
         {
             var dao = new DocumentDao();
             var converter = new DocumentConverter();
-            return converter.Convert(dao.GetByDraftee(DrafteeId));
+            var document = converter.Convert(dao.GetByDraftee(DrafteeId));
+            if (document == null)
+            {
+                document = new Document();
+                document.DrafteeId = DrafteeId;
+            }
+            return document;
         }
 
         private void FillData(Draftee draftee)
