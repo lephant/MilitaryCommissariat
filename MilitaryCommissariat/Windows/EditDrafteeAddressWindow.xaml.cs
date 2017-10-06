@@ -114,15 +114,7 @@ namespace MilitaryCommissariat.Windows
 
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
         {
-            Draftee draftee = GetCurrentDraftee();
-            if (draftee != null)
-            {
-                Draftee = draftee;
-            }
-            else
-            {
-                Draftee = new Draftee();
-            }
+            Draftee = GetCurrentDraftee();
 
             Address address = GetCurrentAddress();
             if (address != null)
@@ -132,6 +124,7 @@ namespace MilitaryCommissariat.Windows
             else
             {
                 Address = new Address();
+                Address.DrafteeId = DrafteeId;
             }
         }
 
@@ -142,17 +135,8 @@ namespace MilitaryCommissariat.Windows
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            var drafteeDao = new DrafteeDao();
             var addressDao = new AddressDao();
-            if (Draftee.Id > 0)
-            {
-                drafteeDao.Update(Draftee);
-                addressDao.Update(Address);
-            }
-            else
-            {
-                drafteeDao.Insert(Draftee, Address);
-            }
+            addressDao.InsertUpdate(Address);
             Close();
         }
 
@@ -167,7 +151,13 @@ namespace MilitaryCommissariat.Windows
         {
             var dao = new AddressDao();
             var converter = new AddressConverter();
-            return converter.Convert(dao.GetByDraftee(DrafteeId));
+            var address = converter.Convert(dao.GetByDraftee(DrafteeId));
+            if (address == null)
+            {
+                address = new Address();
+                address.DrafteeId = DrafteeId;
+            }
+            return address;
         }
 
         public Draftee Draftee

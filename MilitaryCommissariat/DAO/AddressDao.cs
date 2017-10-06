@@ -48,37 +48,33 @@ namespace MilitaryCommissariat.DAO
             return GetByDraftee(tableDraftee.Id);
         }
 
-        public void Update(Address address)
+        public void InsertUpdate(Address address)
         {
             MySqlConnection connection = ConnectionUtils.GetConnection();
             try
             {
                 StringBuilder sqlBuilder = new StringBuilder();
                 sqlBuilder
-                    .Append("UPDATE addresses SET ")
-                    .Append("municipal_district='")
-                    .Append(address.MunicipalDistrict)
-                    .Append("', ")
-                    .Append("mail_index='")
-                    .Append(address.MailIndex)
-                    .Append("', ")
-                    .Append("street_name='")
-                    .Append(address.StreetName)
-                    .Append("', ")
-                    .Append("house_number='")
-                    .Append(address.HouseNumber)
-                    .Append("', ")
-                    .Append("housing_number='")
-                    .Append(address.HousingNumber)
-                    .Append("', ")
-                    .Append("apartment='")
-                    .Append(address.Apartment)
-                    .Append("', ")
-                    .Append("home_phone='")
-                    .Append(address.HomePhone)
-                    .Append("' ")
-                    .Append("WHERE draftee_id=")
-                    .Append(address.DrafteeId)
+                    .Append("INSERT INTO addresses (draftee_id, municipal_district, mail_index, ")
+                    .Append("street_name, house_number, housing_number, apartment, home_phone) ")
+                    .Append("VALUES (")
+                    .AppendFormat("{0}, ", address.DrafteeId)
+                    .AppendFormat("'{0}', ", address.MunicipalDistrict)
+                    .AppendFormat("'{0}', ", address.MailIndex)
+                    .AppendFormat("'{0}', ", address.StreetName)
+                    .AppendFormat("'{0}', ", address.HouseNumber)
+                    .AppendFormat("'{0}', ", address.HousingNumber)
+                    .AppendFormat("'{0}', ", address.Apartment)
+                    .AppendFormat("'{0}'", address.HomePhone)
+                    .Append(") ")
+                    .Append("ON DUPLICATE KEY UPDATE ")
+                    .AppendFormat("municipal_district='{0}', ", address.MunicipalDistrict)
+                    .AppendFormat("mail_index='{0}', ", address.MailIndex)
+                    .AppendFormat("street_name='{0}', ", address.StreetName)
+                    .AppendFormat("house_number='{0}', ", address.HouseNumber)
+                    .AppendFormat("housing_number='{0}', ", address.HousingNumber)
+                    .AppendFormat("apartment='{0}', ", address.Apartment)
+                    .AppendFormat("home_phone='{0}'", address.HomePhone)
                     .Append(";");
                 MySqlCommand command = new MySqlCommand(sqlBuilder.ToString(), connection);
                 connection.Open();

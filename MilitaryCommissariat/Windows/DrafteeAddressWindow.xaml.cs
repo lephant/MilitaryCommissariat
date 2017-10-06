@@ -35,7 +35,13 @@ namespace MilitaryCommissariat.Windows
         {
             var dao = new AddressDao();
             var converter = new AddressConverter();
-            return converter.Convert(dao.GetByDraftee(DrafteeId));
+            var address = converter.Convert(dao.GetByDraftee(DrafteeId));
+            if (address == null)
+            {
+                address = new Address();
+                address.DrafteeId = DrafteeId;
+            }
+            return address;
         }
 
         private void FillData(Draftee draftee)
