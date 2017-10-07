@@ -5,10 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilitaryCommissariat.Windows"
         mc:Ignorable="d"
-        Title="Родственник" Height="300" Width="400" WindowStartupLocation="CenterOwner"
+        Title="Родственник" Height="470" Width="400" WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -29,24 +32,24 @@
                  Margin="5" Grid.Row="1" VerticalAlignment="Center" />
 
         <Label Content="ФИО:" Margin="0" VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="0" />
-        <TextBox TextWrapping="Wrap" Grid.Column="1" x:Name="FullNameText"
-                 Margin="5" Grid.Row="2" VerticalAlignment="Center" />
-
-        <Label Content="Год рождения:" Margin="0" VerticalContentAlignment="Center" Grid.Row="3"
-               Grid.Column="0" />
-        <TextBox TextWrapping="Wrap" Grid.Column="1" x:Name="BirthYearText"
+        <TextBox TextWrapping="Wrap" Grid.Column="0" x:Name="FullNameText" Grid.ColumnSpan="2" Height="60"
                  Margin="5" Grid.Row="3" VerticalAlignment="Center" />
 
-        <Label Content="Место рождения:" Margin="0" VerticalContentAlignment="Center" Grid.Row="4"
+        <Label Content="Год рождения:" Margin="0" VerticalContentAlignment="Center" Grid.Row="4"
                Grid.Column="0" />
-        <TextBox TextWrapping="Wrap" Grid.Column="1" x:Name="BirthPlaceText"
+        <TextBox TextWrapping="Wrap" Grid.Column="1" x:Name="BirthYearText"
                  Margin="5" Grid.Row="4" VerticalAlignment="Center" />
 
-        <Label Content="Место работы:" Margin="0" VerticalContentAlignment="Center" Grid.Row="5" Grid.Column="0" />
-        <TextBox TextWrapping="Wrap" Grid.Column="1" x:Name="WorkPlaceText"
-                 Margin="5" Grid.Row="5" VerticalAlignment="Center" />
+        <Label Content="Место рождения:" Margin="0" VerticalContentAlignment="Center" Grid.Row="5"
+               Grid.Column="0" />
+        <TextBox TextWrapping="Wrap" Grid.Column="0" x:Name="BirthPlaceText" Grid.ColumnSpan="2" Height="60"
+                 Margin="5" Grid.Row="6" VerticalAlignment="Center" />
 
-        <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,10,0,0">
+        <Label Content="Место работы:" Margin="0" VerticalContentAlignment="Center" Grid.Row="7" Grid.Column="0" />
+        <TextBox TextWrapping="Wrap" Grid.Column="0" x:Name="WorkPlaceText" Grid.ColumnSpan="2" Height="60"
+                 Margin="5" Grid.Row="8" VerticalAlignment="Center" />
+
+        <Grid Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,10,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />

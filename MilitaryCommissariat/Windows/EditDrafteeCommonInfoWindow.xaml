@@ -107,7 +107,7 @@
 
                 <Label Content="Роды войск:" Grid.Row="7" Grid.Column="0" />
                 <TextBox x:Name="TroopTypeTextBox" TextWrapping="Wrap" Grid.Column="0" Grid.ColumnSpan="2"
-                         Margin="10,5,5,5" Grid.Row="8" VerticalAlignment="Center" Height="100"
+                         Margin="10,5,5,5" Grid.Row="8" VerticalAlignment="Center" Height="60"
                          Text="{Binding ElementName=This, Path=TroopType}" />
             </Grid>
             <Grid Margin="0" Grid.Row="4">

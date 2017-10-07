@@ -66,6 +66,7 @@
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -76,44 +77,44 @@
 
                 <Label Content="Муниципальный округ:" HorizontalAlignment="Left"
                        VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" />
-                <TextBox x:Name="MunicipalDistrictTextBox" TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="1" VerticalAlignment="Center"
-                         Text="{Binding ElementName=This, Path=MunicipalDistrict}" />
+                <TextBox x:Name="MunicipalDistrictTextBox" TextWrapping="Wrap" Grid.Column="0"
+                         Margin="5" Grid.Row="2" VerticalAlignment="Center" Grid.ColumnSpan="2"
+                         Text="{Binding ElementName=This, Path=MunicipalDistrict}" Height="60" />
 
                 <Label Content="Почтовый индекс:" HorizontalAlignment="Left"
-                       VerticalAlignment="Top" Grid.Row="2" Grid.Column="0" />
+                       VerticalAlignment="Top" Grid.Row="3" Grid.Column="0" />
                 <TextBox x:Name="MailIndexTextBox" TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="2" VerticalAlignment="Center"
+                         Margin="5" Grid.Row="3" VerticalAlignment="Center"
                          Text="{Binding ElementName=This, Path=MailIndex}" />
 
                 <Label Content="Улица:" HorizontalAlignment="Left" VerticalAlignment="Top"
-                       Grid.Row="3" Grid.Column="0" />
+                       Grid.Row="4" Grid.Column="0" />
                 <TextBox x:Name="StreetNameTextBox" TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="3" VerticalAlignment="Center"
+                         Margin="5" Grid.Row="4" VerticalAlignment="Center"
                          Text="{Binding ElementName=This, Path=StreetName}" />
 
                 <Label Content="Дом:" HorizontalAlignment="Left" VerticalAlignment="Top"
-                       Grid.Row="4" Grid.Column="0" />
+                       Grid.Row="5" Grid.Column="0" />
                 <TextBox x:Name="HouseNumberTextBox" TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="4" VerticalAlignment="Center"
+                         Margin="5" Grid.Row="5" VerticalAlignment="Center"
                          Text="{Binding ElementName=This, Path=HouseNumber}" />
 
                 <Label Content="Корпус:" HorizontalAlignment="Left" VerticalAlignment="Top"
-                       Grid.Row="5" Grid.Column="0" />
+                       Grid.Row="6" Grid.Column="0" />
                 <TextBox x:Name="HousingNumberTextBox" TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="5" VerticalAlignment="Center"
+                         Margin="5" Grid.Row="6" VerticalAlignment="Center"
                          Text="{Binding ElementName=This, Path=HousingNumber}" />
 
                 <Label Content="Квартира:" HorizontalAlignment="Left" VerticalAlignment="Top"
-                       Grid.Row="6" Grid.Column="0" />
+                       Grid.Row="7" Grid.Column="0" />
                 <TextBox x:Name="ApartmentTextBox" TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="6" VerticalAlignment="Center"
+                         Margin="5" Grid.Row="7" VerticalAlignment="Center"
                          Text="{Binding ElementName=This, Path=Apartment}" />
 
                 <Label Content="Домашний телефон:" HorizontalAlignment="Left"
-                       VerticalAlignment="Top" Grid.Row="7" Grid.Column="0" />
+                       VerticalAlignment="Top" Grid.Row="8" Grid.Column="0" />
                 <TextBox x:Name="HomePhoneTextBox" TextWrapping="Wrap" Grid.Column="1"
-                         Margin="5" Grid.Row="7" VerticalAlignment="Center"
+                         Margin="5" Grid.Row="8" VerticalAlignment="Center"
                          Text="{Binding ElementName=This, Path=HomePhone}" />
             </Grid>
             <Grid Margin="0" Grid.Row="4">

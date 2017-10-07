@@ -30,7 +30,15 @@ namespace MilitaryCommissariat.Windows
             EducationPlaceView.Education = EducationText.Text;
             EducationPlaceView.EducationName = EducationPlaceNameText.Text;
             EducationPlaceView.InstitutionType = InstitutionTypeText.Text;
-            EducationPlaceView.EndDate = Convert.ToDateTime(EndDateText.Text);
+            DateTime tmpDate;
+            if (DateTime.TryParse(EndDateText.Text, out tmpDate))
+            {
+                EducationPlaceView.EndDate = tmpDate;
+            }
+            else
+            {
+                EducationPlaceView.EndDate = null;
+            }
             EducationPlaceView.Faculty = FacultyText.Text;
             EducationPlaceView.Specialty = SpecialtyText.Text;
             ApplyClicked = true;
