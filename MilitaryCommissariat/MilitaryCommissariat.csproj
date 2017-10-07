@@ -147,6 +147,11 @@
     <Compile Include="SearchCriterias\TableDrafteeCriteria.cs" />
     <Compile Include="Utils\ConnectionUtils.cs" />
     <Compile Include="Utils\DbConverterUtils.cs" />
+    <Compile Include="Validators\AddressValidator.cs" />
+    <Compile Include="Validators\CommonInfoValidator.cs" />
+    <Compile Include="Validators\DocumentValidator.cs" />
+    <Compile Include="Validators\EducationPlacesValidator.cs" />
+    <Compile Include="Validators\RelativesValidator.cs" />
     <Compile Include="Windows\DrafteeAddressWindow.xaml.cs">
       <DependentUpon>DrafteeAddressWindow.xaml</DependentUpon>
     </Compile>

@@ -3,6 +3,7 @@ using System.Windows;
 using MilitaryCommissariat.Converters;
 using MilitaryCommissariat.DAO;
 using MilitaryCommissariat.Domain;
+using MilitaryCommissariat.Validators;
 
 namespace MilitaryCommissariat.Windows
 {
@@ -67,19 +68,19 @@ namespace MilitaryCommissariat.Windows
 
         private static void OnDrafteeChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
-            Draftee newDraftee = (Draftee)e.NewValue;
-            EditDrafteeAddressWindow view = (EditDrafteeAddressWindow)sender;
+            Draftee newDraftee = (Draftee) e.NewValue;
+            EditDrafteeAddressWindow view = (EditDrafteeAddressWindow) sender;
             view.LastName = newDraftee.LastName;
             view.FirstName = newDraftee.FirstName;
             view.Patronymic = newDraftee.Patronymic;
             if (newDraftee.BirthDate != null) view.BirthDate = newDraftee.BirthDate;
         }
-        
+
 
         private static void OnAddressChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
-            Address newAddress = (Address)e.NewValue;
-            EditDrafteeAddressWindow view = (EditDrafteeAddressWindow)sender;
+            Address newAddress = (Address) e.NewValue;
+            EditDrafteeAddressWindow view = (EditDrafteeAddressWindow) sender;
             view.MunicipalDistrict = newAddress.MunicipalDistrict;
             view.MailIndex = newAddress.MailIndex;
             view.StreetName = newAddress.StreetName;
@@ -91,22 +92,22 @@ namespace MilitaryCommissariat.Windows
 
         private static void OnAddressPropertyChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
-            var view = (EditDrafteeAddressWindow)sender;
+            var view = (EditDrafteeAddressWindow) sender;
             Address address = view.Address;
             if (e.Property == MunicipalDistrictProperty)
-                address.MunicipalDistrict = (string)e.NewValue;
+                address.MunicipalDistrict = (string) e.NewValue;
             else if (e.Property == MailIndexProperty)
-                address.MailIndex = (string)e.NewValue;
+                address.MailIndex = (string) e.NewValue;
             else if (e.Property == StreetNameProperty)
-                address.StreetName = (string)e.NewValue;
+                address.StreetName = (string) e.NewValue;
             else if (e.Property == HouseNumberProperty)
-                address.HouseNumber = (string)e.NewValue;
+                address.HouseNumber = (string) e.NewValue;
             else if (e.Property == HousingNumberProperty)
-                address.HousingNumber = (string)e.NewValue;
+                address.HousingNumber = (string) e.NewValue;
             else if (e.Property == ApartmentProperty)
-                address.Apartment = (string)e.NewValue;
+                address.Apartment = (string) e.NewValue;
             else if (e.Property == HomePhoneProperty)
-                address.HomePhone = (string)e.NewValue;
+                address.HomePhone = (string) e.NewValue;
         }
 
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
@@ -132,9 +133,20 @@ namespace MilitaryCommissariat.Windows
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            var addressDao = new AddressDao();
-            addressDao.InsertUpdate(Address);
-            Close();
+            var validator = new AddressValidator();
+            if (validator.Validate(Address))
+            {
+                var addressDao = new AddressDao();
+                addressDao.InsertUpdate(Address);
+                Close();
+            }
+            else
+            {
+                MessageBox.Show(
+                    this,
+                    string.Format("Данные не прошли проверку.\nСообщение об ошибке: \"{0}\"", validator.Message),
+                    "Сообщение");
+            }
         }
 
         private Draftee GetCurrentDraftee()
@@ -159,79 +171,79 @@ namespace MilitaryCommissariat.Windows
 
         public Draftee Draftee
         {
-            get { return (Draftee)GetValue(DrafteeProperty); }
+            get { return (Draftee) GetValue(DrafteeProperty); }
             set { SetValue(DrafteeProperty, value); }
         }
 
         public string LastName
         {
-            get { return (string)GetValue(LastNameProperty); }
+            get { return (string) GetValue(LastNameProperty); }
             set { SetValue(LastNameProperty, value); }
         }
 
         public string FirstName
         {
-            get { return (string)GetValue(FirstNameProperty); }
+            get { return (string) GetValue(FirstNameProperty); }
             set { SetValue(FirstNameProperty, value); }
         }
 
         public string Patronymic
         {
-            get { return (string)GetValue(PatronymicProperty); }
+            get { return (string) GetValue(PatronymicProperty); }
             set { SetValue(PatronymicProperty, value); }
         }
 
         public DateTime? BirthDate
         {
-            get { return (DateTime?)GetValue(BirthDateProperty); }
+            get { return (DateTime?) GetValue(BirthDateProperty); }
             set { SetValue(BirthDateProperty, value); }
         }
 
         public Address Address
         {
-            get { return (Address)GetValue(AddressProperty); }
+            get { return (Address) GetValue(AddressProperty); }
             set { SetValue(AddressProperty, value); }
         }
 
         public string MunicipalDistrict
         {
-            get { return (string)GetValue(MunicipalDistrictProperty); }
+            get { return (string) GetValue(MunicipalDistrictProperty); }
             set { SetValue(MunicipalDistrictProperty, value); }
         }
 
         public string MailIndex
         {
-            get { return (string)GetValue(MailIndexProperty); }
+            get { return (string) GetValue(MailIndexProperty); }
             set { SetValue(MailIndexProperty, value); }
         }
 
         public string StreetName
         {
-            get { return (string)GetValue(StreetNameProperty); }
+            get { return (string) GetValue(StreetNameProperty); }
             set { SetValue(StreetNameProperty, value); }
         }
 
         public string HouseNumber
         {
-            get { return (string)GetValue(HouseNumberProperty); }
+            get { return (string) GetValue(HouseNumberProperty); }
             set { SetValue(HouseNumberProperty, value); }
         }
 
         public string HousingNumber
         {
-            get { return (string)GetValue(HousingNumberProperty); }
+            get { return (string) GetValue(HousingNumberProperty); }
             set { SetValue(HousingNumberProperty, value); }
         }
 
         public string Apartment
         {
-            get { return (string)GetValue(ApartmentProperty); }
+            get { return (string) GetValue(ApartmentProperty); }
             set { SetValue(ApartmentProperty, value); }
         }
 
         public string HomePhone
         {
-            get { return (string)GetValue(HomePhoneProperty); }
+            get { return (string) GetValue(HomePhoneProperty); }
             set { SetValue(HomePhoneProperty, value); }
         }
     }

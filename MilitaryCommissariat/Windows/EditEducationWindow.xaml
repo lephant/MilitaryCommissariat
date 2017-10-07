@@ -27,29 +27,29 @@
                Grid.ColumnSpan="2" HorizontalContentAlignment="Center" FontSize="16" />
 
         <Label Content="Образование:" Margin="0" VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="0" />
-        <TextBox TextWrapping="Wrap" Grid.Column="1" x:Name="EducationText"
+        <TextBox TextWrapping="NoWrap" Grid.Column="1" x:Name="EducationText"
                  Margin="5" Grid.Row="1" VerticalAlignment="Center" />
 
         <Label Content="Место учебы:" Margin="0" VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="0" />
-        <TextBox TextWrapping="Wrap" Grid.Column="0" x:Name="EducationPlaceNameText" Grid.ColumnSpan="2"
+        <TextBox TextWrapping="NoWrap" Grid.Column="0" x:Name="EducationPlaceNameText" Grid.ColumnSpan="2"
                  Margin="5" Grid.Row="3" VerticalAlignment="Center" Height="60" />
 
         <Label Content="Тип учебного заведения:" Margin="0" VerticalContentAlignment="Center" Grid.Row="4"
                Grid.Column="0" />
-        <TextBox TextWrapping="Wrap" Grid.Column="1" x:Name="InstitutionTypeText"
+        <TextBox TextWrapping="NoWrap" Grid.Column="1" x:Name="InstitutionTypeText"
                  Margin="5" Grid.Row="4" VerticalAlignment="Center" />
 
         <Label Content="Дата окончания учебы:" Margin="0" VerticalContentAlignment="Center" Grid.Row="5"
                Grid.Column="0" />
-        <TextBox TextWrapping="Wrap" Grid.Column="1" x:Name="EndDateText"
+        <TextBox TextWrapping="NoWrap" Grid.Column="1" x:Name="EndDateText"
                  Margin="5" Grid.Row="5" VerticalAlignment="Center" />
 
         <Label Content="Факультет:" Margin="0" VerticalContentAlignment="Center" Grid.Row="6" Grid.Column="0" />
-        <TextBox TextWrapping="Wrap" Grid.Column="1" x:Name="FacultyText"
+        <TextBox TextWrapping="NoWrap" Grid.Column="1" x:Name="FacultyText"
                  Margin="5" Grid.Row="6" VerticalAlignment="Center" />
 
         <Label Content="Специальность:" Margin="0" VerticalContentAlignment="Center" Grid.Row="7" Grid.Column="0" />
-        <TextBox TextWrapping="Wrap" Grid.Column="1" x:Name="SpecialtyText"
+        <TextBox TextWrapping="NoWrap" Grid.Column="1" x:Name="SpecialtyText"
                  Margin="5" Grid.Row="7" VerticalAlignment="Center" />
 
         <Grid Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,10,0,0">

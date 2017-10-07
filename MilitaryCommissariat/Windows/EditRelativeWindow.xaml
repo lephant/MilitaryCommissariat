@@ -28,25 +28,25 @@
                Grid.ColumnSpan="2" HorizontalContentAlignment="Center" FontSize="16" />
 
         <Label Content="Родство:" Margin="0" VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="0" />
-        <TextBox TextWrapping="Wrap" Grid.Column="1" x:Name="RelationshipText"
+        <TextBox TextWrapping="NoWrap" Grid.Column="1" x:Name="RelationshipText"
                  Margin="5" Grid.Row="1" VerticalAlignment="Center" />
 
         <Label Content="ФИО:" Margin="0" VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="0" />
-        <TextBox TextWrapping="Wrap" Grid.Column="0" x:Name="FullNameText" Grid.ColumnSpan="2" Height="60"
+        <TextBox TextWrapping="NoWrap" Grid.Column="0" x:Name="FullNameText" Grid.ColumnSpan="2" Height="60"
                  Margin="5" Grid.Row="3" VerticalAlignment="Center" />
 
         <Label Content="Год рождения:" Margin="0" VerticalContentAlignment="Center" Grid.Row="4"
                Grid.Column="0" />
-        <TextBox TextWrapping="Wrap" Grid.Column="1" x:Name="BirthYearText"
+        <TextBox TextWrapping="NoWrap" Grid.Column="1" x:Name="BirthYearText"
                  Margin="5" Grid.Row="4" VerticalAlignment="Center" />
 
         <Label Content="Место рождения:" Margin="0" VerticalContentAlignment="Center" Grid.Row="5"
                Grid.Column="0" />
-        <TextBox TextWrapping="Wrap" Grid.Column="0" x:Name="BirthPlaceText" Grid.ColumnSpan="2" Height="60"
+        <TextBox TextWrapping="NoWrap" Grid.Column="0" x:Name="BirthPlaceText" Grid.ColumnSpan="2" Height="60"
                  Margin="5" Grid.Row="6" VerticalAlignment="Center" />
 
         <Label Content="Место работы:" Margin="0" VerticalContentAlignment="Center" Grid.Row="7" Grid.Column="0" />
-        <TextBox TextWrapping="Wrap" Grid.Column="0" x:Name="WorkPlaceText" Grid.ColumnSpan="2" Height="60"
+        <TextBox TextWrapping="NoWrap" Grid.Column="0" x:Name="WorkPlaceText" Grid.ColumnSpan="2" Height="60"
                  Margin="5" Grid.Row="8" VerticalAlignment="Center" />
 
         <Grid Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,10,0,0">

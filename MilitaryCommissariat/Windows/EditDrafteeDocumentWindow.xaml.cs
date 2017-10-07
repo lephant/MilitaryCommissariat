@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using MilitaryCommissariat.Converters;
 using MilitaryCommissariat.DAO;
 using MilitaryCommissariat.Domain;
+using MilitaryCommissariat.Validators;
 
 namespace MilitaryCommissariat.Windows
 {
@@ -108,9 +100,20 @@ namespace MilitaryCommissariat.Windows
 
         private void EditButton_OnClick(object sender, RoutedEventArgs e)
         {
-            var dao = new DocumentDao();
-            dao.InsertUpdate(Document);
-            Close();
+            var validator = new DocumentValidator();
+            if (validator.Validate(Document))
+            {
+                var dao = new DocumentDao();
+                dao.InsertUpdate(Document);
+                Close();
+            }
+            else
+            {
+                MessageBox.Show(
+                    this,
+                    string.Format("Данные не прошли проверку.\nСообщение об ошибке: \"{0}\"", validator.Message),
+                    "Сообщение");
+            }
         }
 
         private static void OnDocumentChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)

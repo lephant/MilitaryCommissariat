@@ -4,6 +4,7 @@ using MilitaryCommissariat.Controls;
 using MilitaryCommissariat.Converters;
 using MilitaryCommissariat.DAO;
 using MilitaryCommissariat.Domain;
+using MilitaryCommissariat.Validators;
 
 namespace MilitaryCommissariat.Windows
 {
@@ -40,25 +41,36 @@ namespace MilitaryCommissariat.Windows
         private void SaveButton_OnClick(object sender, RoutedEventArgs e)
         {
             draftee.ForeignLanguages = ForeignLanguagesText.Text;
-            var drafteeDao = new DrafteeDao();
-            var educationDao = new EducationPlaceDao();
-            drafteeDao.Update(draftee);
-            foreach (long id in idsForDelete)
+            var validator = new EducationPlacesValidator();
+            if (validator.Validate(educationPlaces, draftee.ForeignLanguages))
             {
-                educationDao.Delete(id);
+                var drafteeDao = new DrafteeDao();
+                var educationDao = new EducationPlaceDao();
+                drafteeDao.Update(draftee);
+                foreach (long id in idsForDelete)
+                {
+                    educationDao.Delete(id);
+                }
+                foreach (var place in educationPlaces)
+                {
+                    if (place.Id > 0)
+                    {
+                        educationDao.Update(place);
+                    }
+                    else
+                    {
+                        educationDao.Insert(place);
+                    }
+                }
+                Close();
             }
-            foreach (var place in educationPlaces)
+            else
             {
-                if (place.Id > 0)
-                {
-                    educationDao.Update(place);
-                }
-                else
-                {
-                    educationDao.Insert(place);
-                }
+                MessageBox.Show(
+                    this,
+                    string.Format("Данные не прошли проверку.\nСообщение об ошибке: \"{0}\"", validator.Message),
+                    "Сообщение");
             }
-            Close();
         }
 
         private void CancelButton_OnClick(object sender, RoutedEventArgs e)

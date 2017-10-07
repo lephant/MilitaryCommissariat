@@ -3,6 +3,7 @@ using System.Windows;
 using MilitaryCommissariat.Converters;
 using MilitaryCommissariat.DAO;
 using MilitaryCommissariat.Domain;
+using MilitaryCommissariat.Validators;
 
 namespace MilitaryCommissariat.Windows
 {
@@ -101,16 +102,27 @@ namespace MilitaryCommissariat.Windows
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            var drafteeDao = new DrafteeDao();
-            if (Draftee.Id > 0)
+            var validator = new CommonInfoValidator();
+            if (validator.Validate(Draftee))
             {
-                drafteeDao.Update(Draftee);
+                var drafteeDao = new DrafteeDao();
+                if (Draftee.Id > 0)
+                {
+                    drafteeDao.Update(Draftee);
+                }
+                else
+                {
+                    drafteeDao.Insert(Draftee);
+                }
+                Close();
             }
             else
             {
-                drafteeDao.Insert(Draftee);
+                MessageBox.Show(
+                    this,
+                    string.Format("Данные не прошли проверку.\nСообщение об ошибке: \"{0}\"", validator.Message),
+                    "Сообщение");
             }
-            Close();
         }
 
         private Draftee GetCurrentDraftee()

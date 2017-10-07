@@ -4,6 +4,7 @@ using MilitaryCommissariat.Controls;
 using MilitaryCommissariat.Converters;
 using MilitaryCommissariat.DAO;
 using MilitaryCommissariat.Domain;
+using MilitaryCommissariat.Validators;
 
 namespace MilitaryCommissariat.Windows
 {
@@ -38,23 +39,35 @@ namespace MilitaryCommissariat.Windows
 
         private void SaveButton_OnClick(object sender, RoutedEventArgs e)
         {
-            var relativeDao = new RelativeDao();
-            foreach (long id in idsForDelete)
+            var validator = new RelativesValidator();
+            if (validator.Validate(relatives))
             {
-                relativeDao.Delete(id);
+                var relativeDao = new RelativeDao();
+                foreach (long id in idsForDelete)
+                {
+                    relativeDao.Delete(id);
+                }
+                foreach (var relative in relatives)
+                {
+                    if (relative.Id > 0)
+                    {
+                        relativeDao.Update(relative);
+                    }
+                    else
+                    {
+                        relativeDao.Insert(relative);
+                    }
+                }
+                Close();
             }
-            foreach (var relative in relatives)
+            else
             {
-                if (relative.Id > 0)
-                {
-                    relativeDao.Update(relative);
-                }
-                else
-                {
-                    relativeDao.Insert(relative);
-                }
+                MessageBox.Show(
+                    this,
+                    string.Format("Данные не прошли проверку.\nСообщение об ошибке: \"{0}\"", validator.Message),
+                    "Сообщение");
             }
-            Close();
+            
         }
 
         private void CancelButton_OnClick(object sender, RoutedEventArgs e)
