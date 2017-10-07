@@ -16,9 +16,6 @@ namespace MilitaryCommissariat.Windows
         public static DependencyProperty FirstNameProperty;
         public static DependencyProperty PatronymicProperty;
         public static DependencyProperty BirthDateProperty;
-        public static DependencyProperty BirthPlaceProperty;
-        public static DependencyProperty CategoryProperty;
-        public static DependencyProperty TroopTypeProperty;
 
         public static DependencyProperty AddressProperty;
         public static DependencyProperty MunicipalDistrictProperty;
